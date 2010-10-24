@@ -1,1 +1,6 @@
+---
+layout: default
+title: The Dwarf framework
+---
+
 h1. The Dwarf framework
