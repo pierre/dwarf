@@ -1,0 +1,1 @@
+jekyll --pygments --safe --server
