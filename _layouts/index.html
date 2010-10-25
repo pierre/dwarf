@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>
+            {{ page.title }}
+        </title>
+        <link href="stylesheets/default.css" media="screen" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div id="header">
+            <div id="menu">
+                <a href="http://pierre.github.com/dwarf">Dwarf</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div id="content">
+            <div id="toc">
+                <p class="title">
+                    <strong>Table of Contents</strong>
+                </p>
+                <ol class="top">
+                    <li>
+                        <a href="#Overview">Overview</a>
+                    </li>
+                    <li>
+                        <a href="#Components">Components</a>
+                    </li>
+                    <ol>
+                        <li>
+                            <a href="#Sweeper">Sweeper</a>
+                        </li>
+                    </ol>
+                    <li>
+                        <a href="#Contributing">Contributing</a>
+                    </li>
+                    <li>
+                        <a href="#Contact">Contact</a>
+                    </li>
+                    <li>
+                        <a href="#License">License</a>
+                    </li>
+                </ol>
+            </div>
+            <div id="maincontent" class="site">
+                {{ content }}
+            </div>
+        </div>
+        <div id="footer">
+            Generated on {{ site.time }}
+        </div>
+    </body>
+</html>
