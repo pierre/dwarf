@@ -9,7 +9,24 @@ h1. Overview
 
 !resources/overview.png!
 
+<h2 id="HFind">HFind</h1>
+
+HFind is a find implementation for Hadoop. It follows as close as possible the "POSIX specification":http://www.opengroup.org/onlinepubs/009695399/utilities/find.html, meaning that you can use it on your cluster, just like you would use find:
+
+<pre>
+    [pierre@mouraf ~]$ hfind /user/pierre -type f -name "file*.dat" -o -type d -name a
+    /pierre/testing/a
+    /pierre/testing/a/b/fileb.dat
+
+    [pierre@mouraf ~]$ hfind /user/pierre -mtime +3 -type d
+    /user/pierre/2010/09
+    /user/pierre/2010/09/20
+    /user/pierre/2010/09/21
+</pre>
+
 <h2 id="Sweeper">Sweeper</h1>
+
+When monitoring a Hadoop cluster, two numbers come in mind: disk usage and how many files are tracked by the namenode. Sweeper is a small Java-based utility tool, that lets you quickly find large directories to clean up or small files to combine.
 
 Sweeper displays by default individual file sizes:
 
@@ -18,8 +35,6 @@ Sweeper displays by default individual file sizes:
 It can also be configured to display the number of files per directories:
 
 !resources/sweeper_files_sizes.png!
-
-The latter is useful whenever one needs to reduce the number of files the namenode has to manage. It helps finding files that should be combined into larger ones.
 
 <h1 id="Contributing">Contributing</h1>
 
