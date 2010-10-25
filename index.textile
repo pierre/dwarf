@@ -5,11 +5,11 @@ title: The Dwarf framework
 
 h1. Overview
 
-h1(#Components). Components
+<h1 id="Components">Components</h1>
 
 !resources/overview.png!
 
-h2(#Sweeper). Sweeper
+<h2 id="Sweeper">Sweeper</h1>
 
 Sweeper displays by default individual file sizes:
 
@@ -21,14 +21,14 @@ It can also be configured to display the number of files per directories:
 
 The latter is useful whenever one needs to reduce the number of files the namenode has to manage. It helps finding files that should be combined into larger ones.
 
-h1(#Contributing). Contributing
+<h1 id="Contributing">Contributing</h1>
 
 We encourage you to contribute! Please check out the "forking":http://help.github.com/forking/ and "pull requests":http://help.github.com/pull-requests/ guides for guidelines about how to proceed. <small>("top":#content)</small>
 
-h1(#Contact). Contact
+<h1 id="Contact">Contact</h1>
 
 There is a general "mailing-list":http://groups.google.com/group/dwarf-users/ that carries announcements as well as discussion for all Dwarf subprojects. If you have a problem, it is a very good idea to browse the "archives":http://groups.google.com/group/dwarf-users/topics for information. <small>("top":#content)</small>
 
-h1(#License). License
+<h1 id="License">License</h1>
 
 Released under the "Apache License, Version 2.0":http://www.apache.org/licenses/LICENSE-2.0.html. <small>("top":#content)</small>
