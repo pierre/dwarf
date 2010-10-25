@@ -9,7 +9,14 @@ h1. Overview
 
 !resources/overview.png!
 
-<h2 id="HFind">HFind</h1>
+<h2 id="Collector">Collector</h2>
+The Collector is an HDFS endpoint collecting and aggregating data flows. Clients post events to the server which in turn writes them into HDFS. Among API supported: HTTP (url based), "Thrift":http://thrift.apache.org/ and "Smile":http://jackson.codehaus.org/ payloads.
+
+It provides additional services including data validation as well as bucketizing to limit the number of files the Hadoop Namenode needs to track.
+
+See "Collector architecture":collector/architecture.html for more information on its design.
+
+<h2 id="HFind">HFind</h2>
 
 HFind is a find implementation for Hadoop. It follows as close as possible the "POSIX specification":http://www.opengroup.org/onlinepubs/009695399/utilities/find.html, meaning that you can use it on your cluster, just like you would use find:
 
@@ -24,7 +31,7 @@ HFind is a find implementation for Hadoop. It follows as close as possible the "
     /user/pierre/2010/09/21
 </pre>
 
-<h2 id="Sweeper">Sweeper</h1>
+<h2 id="Sweeper">Sweeper</h2>
 
 When monitoring a Hadoop cluster, two numbers come in mind: disk usage and how many files are tracked by the namenode. Sweeper is a small Java-based utility tool, that lets you quickly find large directories to clean up or small files to combine.
 

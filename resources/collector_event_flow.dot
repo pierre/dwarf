@@ -1,0 +1,47 @@
+digraph g {
+    subgraph request_handlers {
+        label = "Request handlers"
+
+        "scribe_resource" [
+            label = "{ScribeEventRequestHandler| |Log (List\<LogEntry\>) : ResultCode}"
+            shape = "record"
+        ];
+        "scribe_handler" [
+            label = "{ScribeEventHandlerImpl|scribeCollectionEnabled : boolean = true (collector.scribe.enabled)\l|processEvent (Event) : boolean\lhandleFailure (LogEntry) : void\l}"
+            shape = "record"
+        ];
+        "get_request_resource" [
+            label = "{EventRequestHandler| |handleEventRequest (String, ExtractedAnnotation) : ResultCode}"
+            shape = "record"
+        ];
+        "post_request_resource" [
+            label = "{ThiiftEventProcessor| |processEvent (ThriftEvent, ExtractedAnnotation) : ResultCode}"
+            shape = "record"
+        ];
+        "event_handler" [
+            label = "{EventHandlerImpl|collectionEnabled : boolean = true (collector.event-end-point.enabled)\l|processEvent (Event, ExtractedAnnotation, EventEndPointStats) : Response\lhandleFailure (Response.Status, EventEndPointStats, Exception) : Response\l}"
+            shape = "record"
+        ];
+        "buffer" [
+            label = "{<f2>BufferingEventCollector|maxQueueSize : AtomicLong = 200000 (collector.max-event-queue-size)\lrefreshDelayInSeconds : AtomicInteger = 60 (collector.buffered-event-collector.refresh-delay-seconds)\l|<f1>collectEvent (Event) : boolean\l}"
+            shape = "record"
+        ];
+        "tevent_writer" [
+            label = "{ThresholdEventWriter| |<f1>write (Event) : void\l|<f2>commit (event) : void\l}"
+            shape = "record"
+        ];
+
+        scribe_resource -> scribe_handler -> buffer
+        get_request_resource -> event_handler
+        post_request_resource -> event_handler
+        event_handler -> buffer
+        buffer:f1 -> tevent_writer:f1 [arrowhead = dot, label = "ExecutorService (corePoolSize = maximumPoolSize = 1)"]
+        buffer:f2 -> tevent_writer:f2 [arrowhead = dot, label = "ScheduledExecutorService (corePoolSize = 2)"]
+    }
+
+    subgraph write_queues {
+        Memory -> tmpSpoolDirectory [ label = "BufferingEventCollector#write (Event)" ]
+        tmpSpoolDirectory -> spoolDirectory [ label = "BufferingEventCollector#write (Event)\nBufferingEventCollector#commit ()" ]
+        spoolDirectory -> HDFS [ label = "DiskSpoolEventWriter#flushToPersisentWriter ()" ]
+   }
+}

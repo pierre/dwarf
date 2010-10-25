@@ -1,0 +1,8 @@
+---
+layout: default
+title: Collector architecture
+---
+
+h1. Events injestion
+
+!../resources/collector_event_flow.png!
