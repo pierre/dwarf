@@ -3,7 +3,9 @@ layout: index
 title: The Dwarf framework
 ---
 
-h1. Overview
+<h1 id="Overview">Overview</h1>
+
+Dwarf is a collection of Open-Source libraries, utilities and servers to build large-scale Analytics infrastructures.
 
 <h1 id="Components">Components</h1>
 
@@ -42,6 +44,14 @@ Sweeper displays by default individual file sizes:
 It can also be configured to display the number of files per directories:
 
 !resources/sweeper_files_sizes.png!
+
+<h1 id="Resources">Resources</h1>
+
+* "HFind: 1.0.1 release":http://pub.mouraf.org/blog/2010/10/hfind-1-0-1-released-print0-delete-and-more/
+* "HFind: initial release announcement":http://pub.mouraf.org/blog/2010/09/hfind-a-find-utility-for-hadoop/
+* "Sweeper: initial release announcement":http://code.ning.com/2010/07/sweeper-an-hdfs-browser/
+* "Scribe and Collector at Ning":http://code.ning.com/2010/06/scribe-at-ning-case-study/
+
 
 <h1 id="Contributing">Contributing</h1>
 
