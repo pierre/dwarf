@@ -1,0 +1,7 @@
+digraph g {
+    subgraph write_queues {
+        Memory -> tmpSpoolDirectory [ label = "BufferingEventCollector#write (Event)" ]
+        tmpSpoolDirectory -> spoolDirectory [ label = "BufferingEventCollector#write (Event)\nBufferingEventCollector#commit ()" ]
+        spoolDirectory -> HDFS [ label = "DiskSpoolEventWriter#flushToPersisentWriter ()" ]
+   }
+}

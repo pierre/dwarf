@@ -15,7 +15,7 @@ digraph g {
             shape = "record"
         ];
         "post_request_resource" [
-            label = "{ThiiftEventProcessor| |processEvent (ThriftEvent, ExtractedAnnotation) : ResultCode}"
+            label = "{ThriftEventProcessor| |processEvent (ThriftEvent, ExtractedAnnotation) : ResultCode}"
             shape = "record"
         ];
         "event_handler" [
@@ -38,10 +38,4 @@ digraph g {
         buffer:f1 -> tevent_writer:f1 [arrowhead = dot, label = "ExecutorService (corePoolSize = maximumPoolSize = 1)"]
         buffer:f2 -> tevent_writer:f2 [arrowhead = dot, label = "ScheduledExecutorService (corePoolSize = 2)"]
     }
-
-    subgraph write_queues {
-        Memory -> tmpSpoolDirectory [ label = "BufferingEventCollector#write (Event)" ]
-        tmpSpoolDirectory -> spoolDirectory [ label = "BufferingEventCollector#write (Event)\nBufferingEventCollector#commit ()" ]
-        spoolDirectory -> HDFS [ label = "DiskSpoolEventWriter#flushToPersisentWriter ()" ]
-   }
 }

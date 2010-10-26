@@ -1,0 +1,19 @@
+digraph g {
+    "tevent_writer" [
+        label = "{ThresholdEventWriter| |<f1>write (Event) : void\l|<f2>commit (event) : void\l}"
+        shape = "record"
+    ];
+    
+    "disk_writer" [
+        label = "{DiskSpoolEventWriter| |<f1>write (Event) : void\l|<f2>commit (event) : void\l|<f3>flushToPersistentWriter () : void\l}"
+        shape = "record"
+    ];
+    
+    "hadoop_writer" [
+        label = "{HadoopFileEventWriter| |<f1>write (Event) : void\l|<f2>commit (event) : void\l|<f3>forceCommit () : void\l}"
+        shape = "record"
+    ];
+    
+    disk_writer:f3 -> hadoop_writer:f1 [arrowhead = dot, label = "ScheduledExecutorService (corePoolSize = maximumPoolSize = 2)"]
+    disk_writer:f3 -> hadoop_writer:f3 [arrowhead = dot]
+}
