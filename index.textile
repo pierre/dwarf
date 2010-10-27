@@ -11,6 +11,10 @@ Dwarf is a collection of Open-Source libraries, utilities and servers to build l
 
 !resources/overview.png!
 
+<h2 id="Serialization">Serialization</h2>
+
+The serialization library has the building blocks of the Dwarf framework. See "Serialization overview":serialization/overview.html for more information on its content.
+
 <h2 id="Collector">Collector</h2>
 The Collector is an HDFS endpoint collecting and aggregating data flows. Clients post events to the server which in turn writes them into HDFS. Among API supported: HTTP (url based), "Thrift":http://thrift.apache.org/ and "Smile":http://jackson.codehaus.org/ payloads.
 
