@@ -6,3 +6,29 @@ title: Serialization library
 h1. Overview
 
 !../resources/serialization_overview.png!
+
+h2. Schemata
+
+Schemata are defined in Goodwill.
+
+!../resources/serialization_schema.png!
+
+h2. Events
+
+Events contain the actual payload which can be Thrift or Smile based.
+
+!../resources/serialization_event.png!
+
+h2. HDFS
+
+Events are written to disk in a Sequence file.
+
+The key is always a TBooleanWritable (true) of size 5. HadopThriftEnvelopeSerialization and HadoopSmileEnvelopeSerialization classes are responsible for serializing the events (as values).
+
+The key - value pairs are compressed and flushed to HDFS whenever the block size written (sum of the key length and value length) is greater than the compression block size (1,000,000 by default).
+
+!../resources/serialization_sequencefile.png!
+
+h3. ThriftWritables
+
+!../resources/serialization_hdfs.png!

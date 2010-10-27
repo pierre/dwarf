@@ -1,0 +1,8 @@
+digraph G {
+    rankdir = BT
+    node [shape = "box"]
+
+    subgraph HDFS {
+        TBooleanWritable -> ThriftWritable -> Comparable
+    }
+}

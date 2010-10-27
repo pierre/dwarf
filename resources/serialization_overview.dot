@@ -2,15 +2,5 @@ digraph G {
     rankdir = BT
     node [shape = "box"]
 
-    SmileEnvelopeEvent -> Event -> Externalizable
-    ThriftEnvelopeEvent -> Event
-    DataItem -> ThriftField -> ThriftEnvelope -> ThriftEnvelopeEvent
-    
-    BooleanDataItem -> DataItem
-    ByteDataItem -> DataItem
-    DoubleDataItem -> DataItem
-    IntegerDataItem -> DataItem
-    LongDataItem -> DataItem
-    ShortDataItem -> DataItem
-    StringDataItem -> DataItem
+    HDFS -> Event -> Schema
 }

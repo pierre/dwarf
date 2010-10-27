@@ -1,0 +1,23 @@
+digraph G {
+    subgraph SequenceFile {
+        rankdir = BT
+
+        "file" [
+            label = "Header|<f1>Record|Record|Sync|Record|Record|Record|Sync|Record"
+            shape = "record"
+        ];
+
+        "record" [
+            label = "<f1>Key length (5)|Serialized event length|TBooleanWritable(true)|Event#getData()"
+            shape = "record"
+        ];
+
+        "recordcompressed" [
+            label = "Number of pairs (uncompressed)|Size of the keys (compressed)|Keys (compressed)|Size of the events (compressed)|Events (compressed)"
+            shape = "record"
+        ];
+
+        file:f1 -> record:f1 [arrowhead = dot]
+        record -> recordcompressed
+    }
+}

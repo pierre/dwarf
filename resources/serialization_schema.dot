@@ -1,0 +1,13 @@
+digraph G {
+    rankdir = BT
+    node [shape = "box"]
+
+    subgraph Schema {
+        SchemaField -> Schema
+        SchemaField -> Serializable
+        AbstractSchemaField -> SchemaField
+        DateSchemaField -> SchemaField
+        IdentitySchemaField -> SchemaField
+        IpSchemaField -> SchemaField
+    }
+}

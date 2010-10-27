@@ -1,0 +1,17 @@
+digraph G {
+    rankdir = BT
+    node [shape = "box"]
+
+    subgraph Event {
+        SmileEnvelopeEvent -> Event -> Externalizable
+        DataItem -> ThriftField -> ThriftEnvelope -> ThriftEnvelopeEvent -> Event
+
+        BooleanDataItem -> DataItem
+        ByteDataItem -> DataItem
+        DoubleDataItem -> DataItem
+        IntegerDataItem -> DataItem
+        LongDataItem -> DataItem
+        ShortDataItem -> DataItem
+        StringDataItem -> DataItem
+    }
+}
