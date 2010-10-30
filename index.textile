@@ -63,6 +63,8 @@ We encourage you to contribute! Please check out the "forking":http://help.githu
 
 <h1 id="Contact">Contact</h1>
 
+IRC: #dwarf on irc.freenode.net.
+
 There is a general "mailing-list":http://groups.google.com/group/dwarf-users/ that carries announcements as well as discussion for all Dwarf subprojects. If you have a problem, it is a very good idea to browse the "archives":http://groups.google.com/group/dwarf-users/topics for information. <small>("top":#content)</small>
 
 <h1 id="License">License</h1>
