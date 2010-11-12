@@ -1,0 +1,17 @@
+com.ning.metrics.collector
+com.ning.metrics.collector.binder
+com.ning.metrics.collector.binder.annotations
+com.ning.metrics.collector.binder.config
+com.ning.metrics.collector.binder.modules
+com.ning.metrics.collector.endpoint
+com.ning.metrics.collector.endpoint.extractors
+com.ning.metrics.collector.endpoint.filters
+com.ning.metrics.collector.endpoint.resources
+com.ning.metrics.collector.endpoint.servers
+com.ning.metrics.collector.events.hadoop.serialization
+com.ning.metrics.collector.events.hadoop.writer
+com.ning.metrics.collector.events.parsing
+com.ning.metrics.collector.events.parsing.converters
+com.ning.metrics.collector.events.processing
+com.ning.metrics.collector.util
+scribe.thrift

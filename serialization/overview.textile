@@ -3,7 +3,11 @@ layout: default
 title: Serialization library
 ---
 
-h1. Overview
+h1. Information
+
+See "Maven site":metrics.serialization.
+
+h1. Code Overview
 
 !../resources/serialization_overview.png!
 
@@ -18,6 +22,12 @@ h2. Events
 Events contain the actual payload which can be Thrift or Smile based.
 
 !../resources/serialization_event.png!
+
+h3. Thrift
+
+The collector uses and stores Thrift objects as ThriftEnvelopeEvents, which are high-level representations of Thrift objects. Since Thrift classes are not shared, this makes events fully accessible at deserialization time (since the whole ThriftEnvelope is stored in HDFS), on a per field basis.
+
+Note that the eventtracker library doesn't require the caller to send ThriftEnvelopeEvents. One can send ThriftEvents instead, which are mere wrappers around native Thrift objects.
 
 h2. HDFS
 

@@ -1,0 +1,32 @@
+-classpath
+'/Users/pierre/open-source/serialization/thrift/target/classes:/Users/pierre/open-source/serialization/thrift/target/test-classes:/Users/pierre/.m2/repository/log4j/log4j/1.2.13/log4j-1.2.13.jar:/Users/pierre/.m2/repository/joda-time/joda-time/1.6/joda-time-1.6.jar:/Users/pierre/.m2/repository/com/ning/metrics.serialization-common/1.0.3-SNAPSHOT/metrics.serialization-common-1.0.3-SNAPSHOT.jar:/Users/pierre/.m2/repository/org/slf4j/slf4j-log4j13/1.0.1/slf4j-log4j13-1.0.1.jar:/Users/pierre/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:/Users/pierre/.m2/repository/org/testng/testng/5.11/testng-5.11-jdk15.jar:/Users/pierre/.m2/repository/org/apache/thrift/thrift/0.2.0/thrift-0.2.0.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'1.6'
+-sourcepath
+'/Users/pierre/open-source/serialization/thrift/src/test/java'
+-author
+-bottom
+'Copyright &#169; 2010. All Rights Reserved.'
+-charset
+'UTF-8'
+-d
+'/Users/pierre/open-source/serialization/thrift/target/site/testapidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'serialization-thrift 1.0.3-SNAPSHOT Test API'
+-link
+'http://download.oracle.com/javase/6/docs/api'
+-link
+'../apidocs'
+-linkoffline
+'http://github.com/pierre/serialization/metrics.serialization-common/apidocs' '/Users/pierre/open-source/serialization/common/target/site/testapidocs'
+-linkoffline
+'http://github.com/pierre/serialization/metrics.serialization-smile/apidocs' '/Users/pierre/open-source/serialization/smile/target/site/testapidocs'
+-use
+-version
+-windowtitle
+'serialization-thrift 1.0.3-SNAPSHOT Test API'

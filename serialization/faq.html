@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Serialization - Frequently Asked Questions</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+      </head>
+  <body class="composite">
+    <div id="banner">
+                    <span id="bannerLeft">
+    
+            serialization
+    
+            </span>
+                    <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+            
+  
+    
+              <div class="xright">            <a href="https://oss.sonatype.org/content/repositories/central/com/ning/" class="externalLink">Maven Central</a>
+            
+  
+
+  
+    
+            
+  
+    
+            &nbsp;| Last Published: 2010-11-11
+              &nbsp;| Version: 1.0.3-SNAPSHOT
+            </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+            
+  
+    
+                   <h5>Dwarf</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="http://pierre.github.com/dwarf" class="externalLink">Dwarf project</a>
+          </li>
+              
+    <li class="none">
+              <strong>FAQ</strong>
+        </li>
+              
+    <li class="none">
+                    <a href="overview.html">Architecture overview</a>
+          </li>
+          </ul>
+                        <h5>Modules</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="metrics.serialization-common/index.html">serialization-common</a>
+          </li>
+              
+    <li class="none">
+                    <a href="metrics.serialization-smile/index.html">serialization-smile</a>
+          </li>
+              
+    <li class="none">
+                    <a href="metrics.serialization-thrift/index.html">serialization-thrift</a>
+          </li>
+              
+    <li class="none">
+                    <a href="metrics.serialization-writer/index.html">serialization-writer</a>
+          </li>
+              
+    <li class="none">
+                    <a href="metrics.serialization-all/index.html">serialization-all</a>
+          </li>
+          </ul>
+              <h5>Project Documentation</h5>
+            <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+                    <a href="project-info.html">Project Information</a>
+                </li>
+          </ul>
+                                           <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
+            <img alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
+          </a>
+                       
+  
+
+  
+    
+            
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <div class="section"><h2><a name="top">Frequently Asked Questions</a></h2>
+<p><b>General</b></p>
+<ol type="1"><li><a href="#whats-serialization">
+                What is this Serialization library?
+            </a></li>
+<li><a href="#how-use-it">
+                How/Why I want to use it?
+            </a></li>
+<li><a href="#why-name">
+            Why the name?
+        </a></li>
+</ol>
+</div>
+<div class="section"><h2>General</h2>
+<dl><dt><a name="whats-serialization">
+                What is this Serialization library?
+            </a></dt>
+<dd>
+                <p>The Serialization library contains all the building blocks of the
+                    <a href="/" target="_blank">Dwarf framework</a>. It is composed of four different modules:
+                    <ul>
+                        <li>serialization-common: describes the Event and Schema concepts</li>
+                        <li>serialization-smile: implements Event using the Smile serialization format</li>
+                        <li>serialization-thrift: implements Event using the Thrift serialization format</li>
+                        <li>serialization-writer: disk-based persistent queue</li>
+                   </ul>
+                    serialization-all is a dummy pom module which depends on all serialization modules, for convenience.
+                    For more details, see the Javadocs in each project.
+               </p>
+            <hr />
+</dd>
+<dt><a name="how-use-it">
+                How/Why I want to use it?
+            </a></dt>
+<dd>
+                <p>Most likely, you will be using it indirectly via the
+                    <a href="/collector" target="_blank">Collector</a>,<a href="/goodwill" target="_blank">Goodwill</a>,
+                    <a href="/hfind" target="_blank">HFind</a>, ... See the<a href="/" target="_blank">Dwarf
+                        framework</a>.
+               </p>
+                <p>
+                    You can also use the library in your code to handle events, i.e. an observable phenomenon (i.e. with
+                    associated data), that
+                    occurred at a given timestamp. Some events examples:
+                    <ul>
+                        <li>log line: data is the log message, the timestamp is the date when the message was logged
+                       </li>
+                        <li>page render: data is "rendered", the timestamp is the date when the page was fully rendered
+                            in the client browser
+                       </li>
+                        <li>request log: data is the Apache log line, the timestamp is the date of the visit</li>
+                   </ul>
+               </p>
+                <p>
+                    <b>Handle</b> can mean different things, like storing the event in HDFS or a DataWarehouse, publishing it to ActiveMQ, ...
+               </p>
+                <p>
+                See the
+                <a href="/serialization/metrics.serialization-common/apidocs/com/ning/metrics/serialization/event/Event.html" target="_blank">Event Javadoc
+               </a>
+                for in-depth understanding of the concept.
+
+           </p>
+        <hr />
+</dd>
+<dt><a name="why-name">
+            Why the name?
+        </a></dt>
+<dd>
+            <p>The project started as a drop for a collection of Thrift wrappers. As it evolved, we failed finding a
+                better name.
+                Suggestions are welcome!
+           </p>
+        </dd>
+</dl>
+</div>
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2010
+    
+          
+  
+
+  
+    
+            
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

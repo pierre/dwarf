@@ -1,0 +1,3 @@
+com.ning.metrics.serialization.event
+com.ning.metrics.serialization.thrift
+com.ning.metrics.serialization.thrift.item

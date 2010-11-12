@@ -1,0 +1,29 @@
+-classpath
+'/Users/pierre/open-source/serialization/common/target/classes:/Users/pierre/.m2/repository/log4j/log4j/1.2.13/log4j-1.2.13.jar:/Users/pierre/.m2/repository/joda-time/joda-time/1.6/joda-time-1.6.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'1.6'
+-sourcepath
+'/Users/pierre/open-source/serialization/common/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2010. All Rights Reserved.'
+-charset
+'UTF-8'
+-d
+'/Users/pierre/open-source/serialization/common/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'serialization-common 1.0.3-SNAPSHOT API'
+-link
+'http://commons.apache.org/lang/api'
+-link
+'http://download.oracle.com/javase/6/docs/api'
+-linksource
+-use
+-version
+-windowtitle
+'serialization-common 1.0.3-SNAPSHOT API'
