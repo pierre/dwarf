@@ -1,0 +1,33 @@
+-classpath
+'/Users/pierre/open-source/serialization/hadoop/target/classes:/Users/pierre/.m2/repository/log4j/log4j/1.2.13/log4j-1.2.13.jar:/Users/pierre/.m2/repository/commons-net/commons-net/1.4.1/commons-net-1.4.1.jar:/Users/pierre/.m2/repository/com/ning/metrics.serialization-common/1.0.3-SNAPSHOT/metrics.serialization-common-1.0.3-SNAPSHOT.jar:/Users/pierre/.m2/repository/junit/junit/4.5/junit-4.5.jar:/Users/pierre/.m2/repository/commons-httpclient/commons-httpclient/3.0.1/commons-httpclient-3.0.1.jar:/Users/pierre/.m2/repository/org/apache/thrift/thrift/0.2.0/thrift-0.2.0.jar:/Users/pierre/.m2/repository/tomcat/jasper-runtime/5.5.12/jasper-runtime-5.5.12.jar:/Users/pierre/.m2/repository/net/java/dev/jets3t/jets3t/0.7.1/jets3t-0.7.1.jar:/Users/pierre/.m2/repository/org/apache/hadoop/hadoop-core/0.20.2/hadoop-core-0.20.2.jar:/Users/pierre/.m2/repository/commons-logging/commons-logging/1.0.3/commons-logging-1.0.3.jar:/Users/pierre/.m2/repository/org/mortbay/jetty/servlet-api-2.5/6.1.14/servlet-api-2.5-6.1.14.jar:/Users/pierre/.m2/repository/com/ning/metrics.serialization-thrift/1.0.3-SNAPSHOT/metrics.serialization-thrift-1.0.3-SNAPSHOT.jar:/Users/pierre/.m2/repository/xmlenc/xmlenc/0.52/xmlenc-0.52.jar:/Users/pierre/.m2/repository/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar:/Users/pierre/.m2/repository/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar:/Users/pierre/.m2/repository/hsqldb/hsqldb/1.8.0.10/hsqldb-1.8.0.10.jar:/Users/pierre/.m2/repository/commons-cli/commons-cli/1.2/commons-cli-1.2.jar:/Users/pierre/.m2/repository/commons-el/commons-el/1.0/commons-el-1.0.jar:/Users/pierre/.m2/repository/net/sf/kosmosfs/kfs/0.3/kfs-0.3.jar:/Users/pierre/.m2/repository/tomcat/jasper-compiler/5.5.12/jasper-compiler-5.5.12.jar:/Users/pierre/.m2/repository/ant/ant/1.6.5/ant-1.6.5.jar:/Users/pierre/.m2/repository/joda-time/joda-time/1.6/joda-time-1.6.jar:/Users/pierre/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar:/Users/pierre/.m2/repository/org/eclipse/jdt/core/3.1.1/core-3.1.1.jar:/Users/pierre/.m2/repository/commons-codec/commons-codec/1.3/commons-codec-1.3.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'1.6'
+-sourcepath
+'/Users/pierre/open-source/serialization/hadoop/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2010. All Rights Reserved.'
+-charset
+'UTF-8'
+-d
+'/Users/pierre/open-source/serialization/hadoop/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'serialization-hadoop 1.0.3-SNAPSHOT API'
+-link
+'http://commons.apache.org/lang/api'
+-link
+'http://download.oracle.com/javase/6/docs/api'
+-linkoffline
+'http://github.com/pierre/serialization/metrics.serialization-common/apidocs' '/Users/pierre/open-source/serialization/common/target/site/apidocs'
+-linkoffline
+'http://github.com/pierre/serialization/metrics.serialization-thrift/apidocs' '/Users/pierre/open-source/serialization/thrift/target/site/apidocs'
+-linksource
+-use
+-version
+-windowtitle
+'serialization-hadoop 1.0.3-SNAPSHOT API'

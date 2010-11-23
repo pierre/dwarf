@@ -101,57 +101,63 @@
 <FONT color="green">098</FONT>        }<a name="line.98"></a>
 <FONT color="green">099</FONT>    <a name="line.99"></a>
 <FONT color="green">100</FONT>        @Override<a name="line.100"></a>
-<FONT color="green">101</FONT>        public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException<a name="line.101"></a>
+<FONT color="green">101</FONT>        public byte[] getSerializedEvent()<a name="line.101"></a>
 <FONT color="green">102</FONT>        {<a name="line.102"></a>
-<FONT color="green">103</FONT>            int numBytes = in.readInt();<a name="line.103"></a>
-<FONT color="green">104</FONT>            byte[] bytes = new byte[numBytes];<a name="line.104"></a>
+<FONT color="green">103</FONT>            return null;<a name="line.103"></a>
+<FONT color="green">104</FONT>        }<a name="line.104"></a>
 <FONT color="green">105</FONT>    <a name="line.105"></a>
-<FONT color="green">106</FONT>            in.readFully(bytes);<a name="line.106"></a>
-<FONT color="green">107</FONT>    <a name="line.107"></a>
-<FONT color="green">108</FONT>            eventDateTime = new DateTime(ByteBuffer.wrap(bytes).getLong(0));<a name="line.108"></a>
-<FONT color="green">109</FONT>    <a name="line.109"></a>
-<FONT color="green">110</FONT>            ByteArrayInputStream inputBuffer = new ByteArrayInputStream(bytes, 8, bytes.length - 8);<a name="line.110"></a>
+<FONT color="green">106</FONT>        @Override<a name="line.106"></a>
+<FONT color="green">107</FONT>        public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException<a name="line.107"></a>
+<FONT color="green">108</FONT>        {<a name="line.108"></a>
+<FONT color="green">109</FONT>            int numBytes = in.readInt();<a name="line.109"></a>
+<FONT color="green">110</FONT>            byte[] bytes = new byte[numBytes];<a name="line.110"></a>
 <FONT color="green">111</FONT>    <a name="line.111"></a>
-<FONT color="green">112</FONT>            deserializer.open(inputBuffer);<a name="line.112"></a>
-<FONT color="green">113</FONT>            thriftEnvelope = deserializer.deserialize(null);<a name="line.113"></a>
-<FONT color="green">114</FONT>            deserializer.close();<a name="line.114"></a>
-<FONT color="green">115</FONT>            granularity = (Granularity) in.readObject();<a name="line.115"></a>
-<FONT color="green">116</FONT>        }<a name="line.116"></a>
+<FONT color="green">112</FONT>            in.readFully(bytes);<a name="line.112"></a>
+<FONT color="green">113</FONT>    <a name="line.113"></a>
+<FONT color="green">114</FONT>            eventDateTime = new DateTime(ByteBuffer.wrap(bytes).getLong(0));<a name="line.114"></a>
+<FONT color="green">115</FONT>    <a name="line.115"></a>
+<FONT color="green">116</FONT>            ByteArrayInputStream inputBuffer = new ByteArrayInputStream(bytes, 8, bytes.length - 8);<a name="line.116"></a>
 <FONT color="green">117</FONT>    <a name="line.117"></a>
-<FONT color="green">118</FONT>        @Override<a name="line.118"></a>
-<FONT color="green">119</FONT>        public void writeExternal(ObjectOutput out) throws IOException<a name="line.119"></a>
-<FONT color="green">120</FONT>        {<a name="line.120"></a>
-<FONT color="green">121</FONT>            toBytes();<a name="line.121"></a>
-<FONT color="green">122</FONT>            out.writeInt(serializedBytes.length);<a name="line.122"></a>
-<FONT color="green">123</FONT>            out.write(serializedBytes);<a name="line.123"></a>
-<FONT color="green">124</FONT>            out.writeObject(granularity);<a name="line.124"></a>
-<FONT color="green">125</FONT>        }<a name="line.125"></a>
-<FONT color="green">126</FONT>    <a name="line.126"></a>
-<FONT color="green">127</FONT>        private void toBytes() throws IOException<a name="line.127"></a>
-<FONT color="green">128</FONT>        {<a name="line.128"></a>
-<FONT color="green">129</FONT>            if (serializedBytes == null) {<a name="line.129"></a>
-<FONT color="green">130</FONT>                ByteArrayOutputStream outputBuffer = new ByteArrayOutputStream();<a name="line.130"></a>
-<FONT color="green">131</FONT>    <a name="line.131"></a>
-<FONT color="green">132</FONT>                outputBuffer.write(ByteBuffer.allocate(8).putLong(eventDateTime.getMillis()).array());<a name="line.132"></a>
-<FONT color="green">133</FONT>    <a name="line.133"></a>
-<FONT color="green">134</FONT>                serializer.open(outputBuffer);<a name="line.134"></a>
-<FONT color="green">135</FONT>                serializer.serialize(thriftEnvelope);<a name="line.135"></a>
-<FONT color="green">136</FONT>                serializer.close();<a name="line.136"></a>
+<FONT color="green">118</FONT>            deserializer.open(inputBuffer);<a name="line.118"></a>
+<FONT color="green">119</FONT>            thriftEnvelope = deserializer.deserialize(null);<a name="line.119"></a>
+<FONT color="green">120</FONT>            deserializer.close();<a name="line.120"></a>
+<FONT color="green">121</FONT>            granularity = (Granularity) in.readObject();<a name="line.121"></a>
+<FONT color="green">122</FONT>        }<a name="line.122"></a>
+<FONT color="green">123</FONT>    <a name="line.123"></a>
+<FONT color="green">124</FONT>        @Override<a name="line.124"></a>
+<FONT color="green">125</FONT>        public void writeExternal(ObjectOutput out) throws IOException<a name="line.125"></a>
+<FONT color="green">126</FONT>        {<a name="line.126"></a>
+<FONT color="green">127</FONT>            toBytes();<a name="line.127"></a>
+<FONT color="green">128</FONT>            out.writeInt(serializedBytes.length);<a name="line.128"></a>
+<FONT color="green">129</FONT>            out.write(serializedBytes);<a name="line.129"></a>
+<FONT color="green">130</FONT>            out.writeObject(granularity);<a name="line.130"></a>
+<FONT color="green">131</FONT>        }<a name="line.131"></a>
+<FONT color="green">132</FONT>    <a name="line.132"></a>
+<FONT color="green">133</FONT>        private void toBytes() throws IOException<a name="line.133"></a>
+<FONT color="green">134</FONT>        {<a name="line.134"></a>
+<FONT color="green">135</FONT>            if (serializedBytes == null) {<a name="line.135"></a>
+<FONT color="green">136</FONT>                ByteArrayOutputStream outputBuffer = new ByteArrayOutputStream();<a name="line.136"></a>
 <FONT color="green">137</FONT>    <a name="line.137"></a>
-<FONT color="green">138</FONT>                serializedBytes = outputBuffer.toByteArray();<a name="line.138"></a>
-<FONT color="green">139</FONT>            }<a name="line.139"></a>
-<FONT color="green">140</FONT>        }<a name="line.140"></a>
-<FONT color="green">141</FONT>    <a name="line.141"></a>
-<FONT color="green">142</FONT>        @Override<a name="line.142"></a>
-<FONT color="green">143</FONT>        public String toString()<a name="line.143"></a>
-<FONT color="green">144</FONT>        {<a name="line.144"></a>
-<FONT color="green">145</FONT>            return "ThriftEnvelopeEvent{" +<a name="line.145"></a>
-<FONT color="green">146</FONT>                "eventDateTime=" + eventDateTime +<a name="line.146"></a>
-<FONT color="green">147</FONT>                ", thriftEnvelope=" + thriftEnvelope +<a name="line.147"></a>
-<FONT color="green">148</FONT>                ", granularity=" + granularity +<a name="line.148"></a>
-<FONT color="green">149</FONT>                '}';<a name="line.149"></a>
-<FONT color="green">150</FONT>        }<a name="line.150"></a>
-<FONT color="green">151</FONT>    }<a name="line.151"></a>
+<FONT color="green">138</FONT>                outputBuffer.write(ByteBuffer.allocate(8).putLong(eventDateTime.getMillis()).array());<a name="line.138"></a>
+<FONT color="green">139</FONT>    <a name="line.139"></a>
+<FONT color="green">140</FONT>                serializer.open(outputBuffer);<a name="line.140"></a>
+<FONT color="green">141</FONT>                serializer.serialize(thriftEnvelope);<a name="line.141"></a>
+<FONT color="green">142</FONT>                serializer.close();<a name="line.142"></a>
+<FONT color="green">143</FONT>    <a name="line.143"></a>
+<FONT color="green">144</FONT>                serializedBytes = outputBuffer.toByteArray();<a name="line.144"></a>
+<FONT color="green">145</FONT>            }<a name="line.145"></a>
+<FONT color="green">146</FONT>        }<a name="line.146"></a>
+<FONT color="green">147</FONT>    <a name="line.147"></a>
+<FONT color="green">148</FONT>        @Override<a name="line.148"></a>
+<FONT color="green">149</FONT>        public String toString()<a name="line.149"></a>
+<FONT color="green">150</FONT>        {<a name="line.150"></a>
+<FONT color="green">151</FONT>            return "ThriftEnvelopeEvent{" +<a name="line.151"></a>
+<FONT color="green">152</FONT>                "eventDateTime=" + eventDateTime +<a name="line.152"></a>
+<FONT color="green">153</FONT>                ", thriftEnvelope=" + thriftEnvelope +<a name="line.153"></a>
+<FONT color="green">154</FONT>                ", granularity=" + granularity +<a name="line.154"></a>
+<FONT color="green">155</FONT>                '}';<a name="line.155"></a>
+<FONT color="green">156</FONT>        }<a name="line.156"></a>
+<FONT color="green">157</FONT>    }<a name="line.157"></a>
 
 
 

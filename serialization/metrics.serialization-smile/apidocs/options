@@ -24,6 +24,10 @@
 'http://download.oracle.com/javase/6/docs/api'
 -linkoffline
 'http://github.com/pierre/serialization/metrics.serialization-common/apidocs' '/Users/pierre/open-source/serialization/common/target/site/apidocs'
+-linkoffline
+'http://github.com/pierre/serialization/metrics.serialization-thrift/apidocs' '/Users/pierre/open-source/serialization/thrift/target/site/apidocs'
+-linkoffline
+'http://github.com/pierre/serialization/metrics.serialization-hadoop/apidocs' '/Users/pierre/open-source/serialization/hadoop/target/site/apidocs'
 -linksource
 -use
 -version

@@ -168,81 +168,88 @@
 <FONT color="green">165</FONT>            return payload; // This is a byte[] representation of a serialized SMILE event<a name="line.165"></a>
 <FONT color="green">166</FONT>        }<a name="line.166"></a>
 <FONT color="green">167</FONT>    <a name="line.167"></a>
-<FONT color="green">168</FONT>        /**<a name="line.168"></a>
-<FONT color="green">169</FONT>         * The object implements the writeExternal method to save its contents<a name="line.169"></a>
-<FONT color="green">170</FONT>         * by calling the methods of DataOutput for its primitive values or<a name="line.170"></a>
-<FONT color="green">171</FONT>         * calling the writeObject method of ObjectOutput for objects, strings,<a name="line.171"></a>
-<FONT color="green">172</FONT>         * and arrays.<a name="line.172"></a>
-<FONT color="green">173</FONT>         *<a name="line.173"></a>
-<FONT color="green">174</FONT>         * @param out the stream to write the object to<a name="line.174"></a>
-<FONT color="green">175</FONT>         * @throws java.io.IOException Includes any I/O exceptions that may occur<a name="line.175"></a>
-<FONT color="green">176</FONT>         * @serialData Overriding methods should use this tag to describe<a name="line.176"></a>
-<FONT color="green">177</FONT>         * the data layout of this Externalizable object.<a name="line.177"></a>
-<FONT color="green">178</FONT>         * List the sequence of element types and, if possible,<a name="line.178"></a>
-<FONT color="green">179</FONT>         * relate the element to a public/protected field and/or<a name="line.179"></a>
-<FONT color="green">180</FONT>         * method of this Externalizable class.<a name="line.180"></a>
-<FONT color="green">181</FONT>         */<a name="line.181"></a>
-<FONT color="green">182</FONT>        @Override<a name="line.182"></a>
-<FONT color="green">183</FONT>        public void writeExternal(ObjectOutput out) throws IOException<a name="line.183"></a>
-<FONT color="green">184</FONT>        {<a name="line.184"></a>
-<FONT color="green">185</FONT>            out.write(payload);<a name="line.185"></a>
-<FONT color="green">186</FONT>        }<a name="line.186"></a>
-<FONT color="green">187</FONT>    <a name="line.187"></a>
-<FONT color="green">188</FONT>        /**<a name="line.188"></a>
-<FONT color="green">189</FONT>         * The object implements the readExternal method to restore its<a name="line.189"></a>
-<FONT color="green">190</FONT>         * contents by calling the methods of DataInput for primitive<a name="line.190"></a>
-<FONT color="green">191</FONT>         * types and readObject for objects, strings and arrays.  The<a name="line.191"></a>
-<FONT color="green">192</FONT>         * readExternal method must read the values in the same sequence<a name="line.192"></a>
-<FONT color="green">193</FONT>         * and with the same types as were written by writeExternal.<a name="line.193"></a>
-<FONT color="green">194</FONT>         *<a name="line.194"></a>
-<FONT color="green">195</FONT>         * @param in the stream to read data from in order to restore the object<a name="line.195"></a>
-<FONT color="green">196</FONT>         * @throws java.io.IOException    if I/O errors occur<a name="line.196"></a>
-<FONT color="green">197</FONT>         * @throws ClassNotFoundException If the class for an object being<a name="line.197"></a>
-<FONT color="green">198</FONT>         *                                restored cannot be found.<a name="line.198"></a>
-<FONT color="green">199</FONT>         */<a name="line.199"></a>
-<FONT color="green">200</FONT>        @Override<a name="line.200"></a>
-<FONT color="green">201</FONT>        public void readExternal(ObjectInput in) throws IOException<a name="line.201"></a>
-<FONT color="green">202</FONT>        {<a name="line.202"></a>
-<FONT color="green">203</FONT>            int numBytes = in.readInt();<a name="line.203"></a>
-<FONT color="green">204</FONT>            byte[] bytes = new byte[numBytes];<a name="line.204"></a>
-<FONT color="green">205</FONT>    <a name="line.205"></a>
-<FONT color="green">206</FONT>            in.readFully(bytes);<a name="line.206"></a>
-<FONT color="green">207</FONT>            parseEvent(payload);<a name="line.207"></a>
-<FONT color="green">208</FONT>            // One has to set the name manually<a name="line.208"></a>
-<FONT color="green">209</FONT>        }<a name="line.209"></a>
-<FONT color="green">210</FONT>    <a name="line.210"></a>
-<FONT color="green">211</FONT>        public void setEventName(String eventName)<a name="line.211"></a>
-<FONT color="green">212</FONT>        {<a name="line.212"></a>
-<FONT color="green">213</FONT>            this.eventName = eventName;<a name="line.213"></a>
-<FONT color="green">214</FONT>        }<a name="line.214"></a>
-<FONT color="green">215</FONT>    <a name="line.215"></a>
-<FONT color="green">216</FONT>        @Override<a name="line.216"></a>
-<FONT color="green">217</FONT>        public String toString()<a name="line.217"></a>
-<FONT color="green">218</FONT>        {<a name="line.218"></a>
-<FONT color="green">219</FONT>            return "SmileEnvelopeEvent{" +<a name="line.219"></a>
-<FONT color="green">220</FONT>                "eventDateTime=" + eventDateTime +<a name="line.220"></a>
-<FONT color="green">221</FONT>                ", eventName='" + eventName + '\'' +<a name="line.221"></a>
-<FONT color="green">222</FONT>                ", granularity=" + granularity +<a name="line.222"></a>
-<FONT color="green">223</FONT>                ", payloadLength=" + payload.length +<a name="line.223"></a>
-<FONT color="green">224</FONT>                '}';<a name="line.224"></a>
-<FONT color="green">225</FONT>        }<a name="line.225"></a>
-<FONT color="green">226</FONT>    <a name="line.226"></a>
-<FONT color="green">227</FONT>        /*<a name="line.227"></a>
-<FONT color="green">228</FONT>        /////////////////////////////////////////////////////////////////////// <a name="line.228"></a>
-<FONT color="green">229</FONT>        // Helper methods for sub-classes<a name="line.229"></a>
-<FONT color="green">230</FONT>        /////////////////////////////////////////////////////////////////////// <a name="line.230"></a>
-<FONT color="green">231</FONT>         */<a name="line.231"></a>
-<FONT color="green">232</FONT>    <a name="line.232"></a>
-<FONT color="green">233</FONT>        protected static byte[] bytesFromString(String str)<a name="line.233"></a>
-<FONT color="green">234</FONT>        { <a name="line.234"></a>
-<FONT color="green">235</FONT>            return str.getBytes(CHARSET_LATIN1); <a name="line.235"></a>
-<FONT color="green">236</FONT>        }<a name="line.236"></a>
-<FONT color="green">237</FONT>    <a name="line.237"></a>
-<FONT color="green">238</FONT>        protected String stringFromBytes(byte[] raw)<a name="line.238"></a>
-<FONT color="green">239</FONT>        {<a name="line.239"></a>
-<FONT color="green">240</FONT>            return new String(raw, CHARSET_LATIN1);<a name="line.240"></a>
-<FONT color="green">241</FONT>        }<a name="line.241"></a>
-<FONT color="green">242</FONT>    }<a name="line.242"></a>
+<FONT color="green">168</FONT>        @Override<a name="line.168"></a>
+<FONT color="green">169</FONT>        public byte[] getSerializedEvent()<a name="line.169"></a>
+<FONT color="green">170</FONT>        {<a name="line.170"></a>
+<FONT color="green">171</FONT>            return null;<a name="line.171"></a>
+<FONT color="green">172</FONT>        }<a name="line.172"></a>
+<FONT color="green">173</FONT>    <a name="line.173"></a>
+<FONT color="green">174</FONT>        /**<a name="line.174"></a>
+<FONT color="green">175</FONT>         * The object implements the writeExternal method to save its contents<a name="line.175"></a>
+<FONT color="green">176</FONT>         * by calling the methods of DataOutput for its primitive values or<a name="line.176"></a>
+<FONT color="green">177</FONT>         * calling the writeObject method of ObjectOutput for objects, strings,<a name="line.177"></a>
+<FONT color="green">178</FONT>         * and arrays.<a name="line.178"></a>
+<FONT color="green">179</FONT>         *<a name="line.179"></a>
+<FONT color="green">180</FONT>         * @param out the stream to write the object to<a name="line.180"></a>
+<FONT color="green">181</FONT>         * @throws java.io.IOException Includes any I/O exceptions that may occur<a name="line.181"></a>
+<FONT color="green">182</FONT>         * @serialData Overriding methods should use this tag to describe<a name="line.182"></a>
+<FONT color="green">183</FONT>         * the data layout of this Externalizable object.<a name="line.183"></a>
+<FONT color="green">184</FONT>         * List the sequence of element types and, if possible,<a name="line.184"></a>
+<FONT color="green">185</FONT>         * relate the element to a public/protected field and/or<a name="line.185"></a>
+<FONT color="green">186</FONT>         * method of this Externalizable class.<a name="line.186"></a>
+<FONT color="green">187</FONT>         */<a name="line.187"></a>
+<FONT color="green">188</FONT>        @Override<a name="line.188"></a>
+<FONT color="green">189</FONT>        public void writeExternal(ObjectOutput out) throws IOException<a name="line.189"></a>
+<FONT color="green">190</FONT>        {<a name="line.190"></a>
+<FONT color="green">191</FONT>            out.writeInt(payload.length);<a name="line.191"></a>
+<FONT color="green">192</FONT>            out.write(payload);<a name="line.192"></a>
+<FONT color="green">193</FONT>        }<a name="line.193"></a>
+<FONT color="green">194</FONT>    <a name="line.194"></a>
+<FONT color="green">195</FONT>        /**<a name="line.195"></a>
+<FONT color="green">196</FONT>         * The object implements the readExternal method to restore its<a name="line.196"></a>
+<FONT color="green">197</FONT>         * contents by calling the methods of DataInput for primitive<a name="line.197"></a>
+<FONT color="green">198</FONT>         * types and readObject for objects, strings and arrays.  The<a name="line.198"></a>
+<FONT color="green">199</FONT>         * readExternal method must read the values in the same sequence<a name="line.199"></a>
+<FONT color="green">200</FONT>         * and with the same types as were written by writeExternal.<a name="line.200"></a>
+<FONT color="green">201</FONT>         *<a name="line.201"></a>
+<FONT color="green">202</FONT>         * @param in the stream to read data from in order to restore the object<a name="line.202"></a>
+<FONT color="green">203</FONT>         * @throws java.io.IOException    if I/O errors occur<a name="line.203"></a>
+<FONT color="green">204</FONT>         * @throws ClassNotFoundException If the class for an object being<a name="line.204"></a>
+<FONT color="green">205</FONT>         *                                restored cannot be found.<a name="line.205"></a>
+<FONT color="green">206</FONT>         */<a name="line.206"></a>
+<FONT color="green">207</FONT>        @Override<a name="line.207"></a>
+<FONT color="green">208</FONT>        public void readExternal(ObjectInput in) throws IOException<a name="line.208"></a>
+<FONT color="green">209</FONT>        {<a name="line.209"></a>
+<FONT color="green">210</FONT>            int numBytes = in.readInt();<a name="line.210"></a>
+<FONT color="green">211</FONT>            payload = new byte[numBytes];<a name="line.211"></a>
+<FONT color="green">212</FONT>    <a name="line.212"></a>
+<FONT color="green">213</FONT>            in.readFully(payload);<a name="line.213"></a>
+<FONT color="green">214</FONT>            parseEvent(payload);<a name="line.214"></a>
+<FONT color="green">215</FONT>            // One has to set the name manually<a name="line.215"></a>
+<FONT color="green">216</FONT>        }<a name="line.216"></a>
+<FONT color="green">217</FONT>    <a name="line.217"></a>
+<FONT color="green">218</FONT>        public void setEventName(String eventName)<a name="line.218"></a>
+<FONT color="green">219</FONT>        {<a name="line.219"></a>
+<FONT color="green">220</FONT>            this.eventName = eventName;<a name="line.220"></a>
+<FONT color="green">221</FONT>        }<a name="line.221"></a>
+<FONT color="green">222</FONT>    <a name="line.222"></a>
+<FONT color="green">223</FONT>        @Override<a name="line.223"></a>
+<FONT color="green">224</FONT>        public String toString()<a name="line.224"></a>
+<FONT color="green">225</FONT>        {<a name="line.225"></a>
+<FONT color="green">226</FONT>            return "SmileEnvelopeEvent{" +<a name="line.226"></a>
+<FONT color="green">227</FONT>                "eventDateTime=" + eventDateTime +<a name="line.227"></a>
+<FONT color="green">228</FONT>                ", eventName='" + eventName + '\'' +<a name="line.228"></a>
+<FONT color="green">229</FONT>                ", granularity=" + granularity +<a name="line.229"></a>
+<FONT color="green">230</FONT>                ", payloadLength=" + payload.length +<a name="line.230"></a>
+<FONT color="green">231</FONT>                '}';<a name="line.231"></a>
+<FONT color="green">232</FONT>        }<a name="line.232"></a>
+<FONT color="green">233</FONT>    <a name="line.233"></a>
+<FONT color="green">234</FONT>        /*<a name="line.234"></a>
+<FONT color="green">235</FONT>        /////////////////////////////////////////////////////////////////////// <a name="line.235"></a>
+<FONT color="green">236</FONT>        // Helper methods for sub-classes<a name="line.236"></a>
+<FONT color="green">237</FONT>        /////////////////////////////////////////////////////////////////////// <a name="line.237"></a>
+<FONT color="green">238</FONT>         */<a name="line.238"></a>
+<FONT color="green">239</FONT>    <a name="line.239"></a>
+<FONT color="green">240</FONT>        protected static byte[] bytesFromString(String str)<a name="line.240"></a>
+<FONT color="green">241</FONT>        { <a name="line.241"></a>
+<FONT color="green">242</FONT>            return str.getBytes(CHARSET_LATIN1); <a name="line.242"></a>
+<FONT color="green">243</FONT>        }<a name="line.243"></a>
+<FONT color="green">244</FONT>    <a name="line.244"></a>
+<FONT color="green">245</FONT>        protected String stringFromBytes(byte[] raw)<a name="line.245"></a>
+<FONT color="green">246</FONT>        {<a name="line.246"></a>
+<FONT color="green">247</FONT>            return new String(raw, CHARSET_LATIN1);<a name="line.247"></a>
+<FONT color="green">248</FONT>        }<a name="line.248"></a>
+<FONT color="green">249</FONT>    }<a name="line.249"></a>
 
 
 

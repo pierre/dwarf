@@ -50,7 +50,7 @@
             
   
     
-            &nbsp;| Last Published: 2010-11-11
+            &nbsp;| Last Published: 2010-11-22
               &nbsp;| Version: 1.0.3-SNAPSHOT
             </div>
       <div class="clear">
@@ -75,14 +75,17 @@
           </li>
               
     <li class="none">
-              <strong>FAQ</strong>
-        </li>
-              
-    <li class="none">
-                    <a href="overview.html">Architecture overview</a>
+                    <a href="dwarf/serialization/faq.html">FAQ</a>
           </li>
           </ul>
-                        <h5>Modules</h5>
+              <h5>Parent Project</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="http://nexus.sonatype.org/oss-repository-hosting.html/index.html" class="externalLink">Sonatype OSS Parent</a>
+          </li>
+          </ul>
+              <h5>Modules</h5>
             <ul>
               
     <li class="none">
@@ -90,11 +93,15 @@
           </li>
               
     <li class="none">
-                    <a href="metrics.serialization-smile/index.html">serialization-smile</a>
+                    <a href="metrics.serialization-thrift/index.html">serialization-thrift</a>
           </li>
               
     <li class="none">
-                    <a href="metrics.serialization-thrift/index.html">serialization-thrift</a>
+                    <a href="metrics.serialization-hadoop/index.html">serialization-hadoop</a>
+          </li>
+              
+    <li class="none">
+                    <a href="metrics.serialization-smile/index.html">serialization-smile</a>
           </li>
               
     <li class="none">
@@ -162,8 +169,8 @@
                 How/Why I want to use it?
             </a></li>
 <li><a href="#why-name">
-            Why the name?
-        </a></li>
+                Why the name?
+            </a></li>
 </ol>
 </div>
 <div class="section"><h2>General</h2>
@@ -189,9 +196,10 @@
             </a></dt>
 <dd>
                 <p>Most likely, you will be using it indirectly via the
-                    <a href="/collector" target="_blank">Collector</a>,<a href="/goodwill" target="_blank">Goodwill</a>,
-                    <a href="/hfind" target="_blank">HFind</a>, ... See the<a href="/" target="_blank">Dwarf
-                        framework</a>.
+                    <a href="/dwarf/collector" target="_blank">Collector</a>,
+                    <a href="/dwarf/goodwill" target="_blank">Goodwill</a>,
+                    <a href="/dwarf/hfind" target="_blank">HFind</a>, ... See the
+                    <a href="/dwarf" target="_blank">Dwarf framework</a>.
                </p>
                 <p>
                     You can also use the library in your code to handle events, i.e. an observable phenomenon (i.e. with
@@ -207,26 +215,28 @@
                    </ul>
                </p>
                 <p>
-                    <b>Handle</b> can mean different things, like storing the event in HDFS or a DataWarehouse, publishing it to ActiveMQ, ...
+                    <b>Handle</b>
+                    can mean different things, like storing the event in HDFS or a DataWarehouse, publishing it to
+                    ActiveMQ, ...
                </p>
                 <p>
-                See the
-                <a href="/serialization/metrics.serialization-common/apidocs/com/ning/metrics/serialization/event/Event.html" target="_blank">Event Javadoc
-               </a>
-                for in-depth understanding of the concept.
+                    See the
+                    <a href="/dwarf/serialization/metrics.serialization-common/apidocs/com/ning/metrics/serialization/event/Event.html" target="_blank">Event Javadoc
+                   </a>
+                    for in-depth understanding of the concept.
 
-           </p>
-        <hr />
+               </p>
+            <hr />
 </dd>
 <dt><a name="why-name">
-            Why the name?
-        </a></dt>
+                Why the name?
+            </a></dt>
 <dd>
-            <p>The project started as a drop for a collection of Thrift wrappers. As it evolved, we failed finding a
-                better name.
-                Suggestions are welcome!
-           </p>
-        </dd>
+                <p>The project started as a drop for a collection of Thrift wrappers. As it evolved, we failed finding a
+                    better name.
+                    Suggestions are welcome!
+               </p>
+            </dd>
 </dl>
 </div>
 

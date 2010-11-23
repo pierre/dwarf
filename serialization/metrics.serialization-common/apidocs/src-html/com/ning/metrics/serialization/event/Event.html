@@ -39,7 +39,15 @@
 <FONT color="green">036</FONT>         * @return Object representing the data (ThriftEnvelope, ...)<a name="line.36"></a>
 <FONT color="green">037</FONT>         */<a name="line.37"></a>
 <FONT color="green">038</FONT>        public Object getData();<a name="line.38"></a>
-<FONT color="green">039</FONT>    }<a name="line.39"></a>
+<FONT color="green">039</FONT>    <a name="line.39"></a>
+<FONT color="green">040</FONT>        /**<a name="line.40"></a>
+<FONT color="green">041</FONT>         * Serialize an event to a byte array.<a name="line.41"></a>
+<FONT color="green">042</FONT>         * This method is optional, methods relying on this call should handle gracefully null.<a name="line.42"></a>
+<FONT color="green">043</FONT>         *<a name="line.43"></a>
+<FONT color="green">044</FONT>         * @return byte array representation of an event, can return null<a name="line.44"></a>
+<FONT color="green">045</FONT>         */<a name="line.45"></a>
+<FONT color="green">046</FONT>        public byte[] getSerializedEvent();<a name="line.46"></a>
+<FONT color="green">047</FONT>    }<a name="line.47"></a>
 
 
 

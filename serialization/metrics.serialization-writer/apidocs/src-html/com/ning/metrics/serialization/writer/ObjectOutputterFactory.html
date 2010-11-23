@@ -24,15 +24,15 @@
 <FONT color="green">021</FONT>    <a name="line.21"></a>
 <FONT color="green">022</FONT>    public class ObjectOutputterFactory<a name="line.22"></a>
 <FONT color="green">023</FONT>    {<a name="line.23"></a>
-<FONT color="green">024</FONT>        public static ObjectOutputter createObjectOutputter(FileOutputStream out, SyncType type) throws IOException<a name="line.24"></a>
+<FONT color="green">024</FONT>        public static ObjectOutputter createObjectOutputter(FileOutputStream out, SyncType type, int batchSize) throws IOException<a name="line.24"></a>
 <FONT color="green">025</FONT>        {<a name="line.25"></a>
 <FONT color="green">026</FONT>            switch (type) {<a name="line.26"></a>
 <FONT color="green">027</FONT>                case NONE:<a name="line.27"></a>
 <FONT color="green">028</FONT>                    return new DefaultObjectOutputter(out);<a name="line.28"></a>
 <FONT color="green">029</FONT>                case FLUSH:<a name="line.29"></a>
-<FONT color="green">030</FONT>                    return new FlushingObjectOutputter(out);<a name="line.30"></a>
+<FONT color="green">030</FONT>                    return new FlushingObjectOutputter(out, batchSize);<a name="line.30"></a>
 <FONT color="green">031</FONT>                case SYNC:<a name="line.31"></a>
-<FONT color="green">032</FONT>                    return new SyncingObjectOutputter(out);<a name="line.32"></a>
+<FONT color="green">032</FONT>                    return new SyncingObjectOutputter(out, batchSize);<a name="line.32"></a>
 <FONT color="green">033</FONT>            }<a name="line.33"></a>
 <FONT color="green">034</FONT>    <a name="line.34"></a>
 <FONT color="green">035</FONT>            throw new IllegalArgumentException("unable to construct ObjectOutputter given type");<a name="line.35"></a>

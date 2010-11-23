@@ -24,8 +24,6 @@
 'http://download.oracle.com/javase/6/docs/api'
 -linkoffline
 'http://github.com/pierre/serialization/metrics.serialization-common/apidocs' '/Users/pierre/open-source/serialization/common/target/site/apidocs'
--linkoffline
-'http://github.com/pierre/serialization/metrics.serialization-smile/apidocs' '/Users/pierre/open-source/serialization/smile/target/site/apidocs'
 -linksource
 -use
 -version
