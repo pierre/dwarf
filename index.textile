@@ -15,8 +15,6 @@ Dwarf is a collection of Open-Source libraries, utilities and servers to build l
 
 Goodwill is a type registrar. It allows one to describe Schemata associated to Events.
 
-See the "Goodwill site":goodwill/index.html for more information.
-
 <h2 id="Goodwill-Access">Goodwill-Access</h2>
 
 The Goodwill-Access library allows use to programatically access Schemata from Goodwill.
@@ -33,6 +31,11 @@ The Collector is an HDFS endpoint collecting and aggregating data flows. Clients
 It provides additional services including data validation as well as bucketizing to limit the number of files the Hadoop Namenode needs to track.
 
 See the "Collector site":collector/index.html for more information.
+
+<h2 id="Eventtracker">Eventtracker library</h2>
+The Eventtracker library allows use to send events to the Collector.
+
+See the "Eventtracker site":eventtracker/index.html for more information.
 
 <h2 id="HFind">HFind</h2>
 
