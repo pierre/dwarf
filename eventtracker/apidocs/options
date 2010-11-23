@@ -1,0 +1,25 @@
+-classpath
+'/Users/pierre/open-source/eventtracker/target/classes:/Users/pierre/.m2/repository/log4j/log4j/1.2.13/log4j-1.2.13.jar:/Users/pierre/.m2/repository/com/ning/metrics.serialization-common/1.0.3-SNAPSHOT/metrics.serialization-common-1.0.3-SNAPSHOT.jar:/Users/pierre/.m2/repository/org/skife/config/config-magic/0.5/config-magic-0.5.jar:/Users/pierre/.m2/repository/com/facebook/scribe/scribe/2.1/scribe-2.1.jar:/Users/pierre/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar:/Users/pierre/.m2/repository/org/apache/thrift/thrift/0.2.0/thrift-0.2.0.jar:/Users/pierre/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/Users/pierre/.m2/repository/com/google/code/guice/guice/2.0/guice-2.0.jar:/Users/pierre/.m2/repository/joda-time/joda-time/1.6/joda-time-1.6.jar:/Users/pierre/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar:/Users/pierre/.m2/repository/com/ning/metrics.serialization-thrift/1.0.3-SNAPSHOT/metrics.serialization-thrift-1.0.3-SNAPSHOT.jar:/Users/pierre/.m2/repository/com/ning/metrics.serialization-writer/1.0.3-SNAPSHOT/metrics.serialization-writer-1.0.3-SNAPSHOT.jar:/Users/pierre/.m2/repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar:/Users/pierre/.m2/repository/org/apache/thrift/fb303/0.2.0/fb303-0.2.0.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'1.6'
+-sourcepath
+'/Users/pierre/open-source/eventtracker/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2010. All Rights Reserved.'
+-charset
+'UTF-8'
+-d
+'/Users/pierre/open-source/eventtracker/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'eventtracker 3.0.0-SNAPSHOT API'
+-linksource
+-use
+-version
+-windowtitle
+'eventtracker 3.0.0-SNAPSHOT API'
