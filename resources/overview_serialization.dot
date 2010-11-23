@@ -29,7 +29,7 @@ digraph g {
         color = white;
         eventtracker [
           label=<<TABLE BORDER="0">
-              <TR><TD><FONT POINT-SIZE="18">Collector</FONT></TD></TR>
+              <TR><TD><FONT POINT-SIZE="18">Eventtracker</FONT></TD></TR>
               <TR><TD>Java library to sends Event to the Collector</TD></TR>
               <TR><TD HREF="http://pierre.github.com/dwarf/eventtracker"><FONT POINT-SIZE="12" FACE="Courier" COLOR="blue">http://pierre.github.com/dwarf/eventtracker</FONT></TD></TR>
              </TABLE>>];
