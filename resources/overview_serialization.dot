@@ -1,0 +1,62 @@
+digraph g {
+    rankdir = BT;
+    node [shape = box];
+
+    subgraph cluster_ui {
+        label = "Servers";
+        color = red;
+        goodwill [
+            label=<<TABLE BORDER="0">
+                <TR><TD><FONT POINT-SIZE="18">Goodwill</FONT></TD></TR>
+                <TR><TD>Store for sharing schemata</TD></TR>
+                <TR><TD HREF="http://pierre.github.com/dwarf/goodwill"><FONT POINT-SIZE="12" FACE="Courier" COLOR="blue">http://pierre.github.com/dwarf/goodwill</FONT></TD></TR>
+               </TABLE>>];
+        actioncore [
+           label=<<TABLE BORDER="0">
+               <TR><TD><FONT POINT-SIZE="18">Action core</FONT></TD></TR>
+               <TR><TD>Browser interface for HDFS</TD></TR>
+               <TR><TD HREF="http://pierre.github.com/dwarf/action-core"><FONT POINT-SIZE="12" FACE="Courier" COLOR="blue">http://pierre.github.com/dwarf/action-core</FONT></TD></TR>
+              </TABLE>>];
+       collector [
+          label=<<TABLE BORDER="0">
+              <TR><TD><FONT POINT-SIZE="18">Collector</FONT></TD></TR>
+              <TR><TD>HDFS endpoint collecting and aggregating data flows</TD></TR>
+              <TR><TD HREF="http://pierre.github.com/dwarf/collector"><FONT POINT-SIZE="12" FACE="Courier" COLOR="blue">http://pierre.github.com/dwarf/collector</FONT></TD></TR>
+             </TABLE>>];
+    }
+
+    subgraph cluster_libraries {
+        color = white;
+        eventtracker [
+          label=<<TABLE BORDER="0">
+              <TR><TD><FONT POINT-SIZE="18">Collector</FONT></TD></TR>
+              <TR><TD>Java library to sends Event to the Collector</TD></TR>
+              <TR><TD HREF="http://pierre.github.com/dwarf/eventtracker"><FONT POINT-SIZE="12" FACE="Courier" COLOR="blue">http://pierre.github.com/dwarf/eventtracker</FONT></TD></TR>
+             </TABLE>>];
+        goodwillaccess [
+            label=<<TABLE BORDER="0">
+                <TR><TD><FONT POINT-SIZE="18">goodwill-access</FONT></TD></TR>
+                <TR><TD>Java library to access Goodwill schemata</TD></TR>
+                <TR><TD HREF="http://pierre.github.com/dwarf/goodwill-access"><FONT POINT-SIZE="12" FACE="Courier" COLOR="blue">http://pierre.github.com/dwarf/goodwill-access</FONT></TD></TR>
+               </TABLE>>];
+
+    }
+
+    subgraph cluster_lowlevel {
+        color = white;
+        serialization [
+            label=<<TABLE BORDER="0">
+                <TR><TD><FONT POINT-SIZE="18">serialization</FONT></TD></TR>
+                <TR><TD>Serialization library for the Dwarf framework</TD></TR>
+                <TR><TD HREF="http://pierre.github.com/dwarf/serialization"><FONT POINT-SIZE="12" FACE="Courier" COLOR="blue">http://pierre.github.com/dwarf/serialization</FONT></TD></TR>
+               </TABLE>>];
+    }
+
+    goodwillaccess -> goodwill;
+    goodwillaccess -> actioncore;
+
+    serialization -> actioncore;
+    serialization -> goodwillaccess;
+    serialization -> collector;
+    serialization -> eventtracker;
+}

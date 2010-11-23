@@ -11,6 +11,8 @@ Dwarf is a collection of Open-Source libraries, utilities and servers to build l
 
 !resources/overview.png!
 
+!resources/overview_serialization.png!
+
 <h2 id="Goodwill">Goodwill</h2>
 
 Goodwill is a type registrar. It allows one to describe Schemata associated to Events.
