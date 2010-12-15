@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Collector - </title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+      </head>
+  <body class="composite">
+    <div id="banner">
+                    <span id="bannerLeft">
+    
+            collector
+    
+            </span>
+                    <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+            
+  
+    
+              <div class="xright">            <a href="http://repo1.maven.org/maven2/com/ning/" class="externalLink">Maven Central</a>
+            
+  
+
+  
+    
+            
+  
+    
+            &nbsp;| Last Published: 2010-12-15
+              &nbsp;| Version: 1.0.2-SNAPSHOT
+            </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+            
+  
+    
+                   <h5>Dwarf</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="http://pierre.github.com/dwarf" class="externalLink">Dwarf project</a>
+          </li>
+              
+    <li class="none">
+              <strong>Monitoring via JMX</strong>
+        </li>
+          </ul>
+              <h5>Project Documentation</h5>
+            <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+                    <a href="project-info.html">Project Information</a>
+                </li>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+                    <a href="project-reports.html">Project Reports</a>
+                </li>
+          </ul>
+                                           <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
+            <img alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
+          </a>
+                       
+  
+
+  
+    
+            
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <div class="section"><h2>How to monitor the collector via JMX</h2>
+<div class="section"><h3>Event endpoints</h3>
+<p>All API endpoints (different HTTP ones, Thrift) expose stats for events the endpoint could succefully decode to an Event instance (before any other processing, writing, ... has been down through the chain).</p>
+<p>The Thrift endpoint stats is named <b>ScribeEventEndPointStats</b>. The HTTP ones are <b>ExternalEventEndPointStats</b> and <b>InternalEventEndPointStats</b>.</p>
+<p>Attributes displayed should be straightforward (hover the mouse on an attribute name in Jconsole to get a description).</p>
+<p>There is one subtlety: attributes which names end with <b>PerMinute</b> are computed on the fly by averaging the rate of the metric over a period of time, specified by the <i>collector.event-end-point.rate-window-size-minutes</i> System property. By default, the rate-window-size-minutes is 5 (i.e. <b>PerMinute</b> metrics are averaged over the last 5 minutes).</p>
+</div>
+<div class="section"><h3>Disk writer</h3>
+<p>Accepted events are scheduled to go to disk locally before going to HDFS. Before being written, events are waiting in an in-memory queue. This queue needs to be bounded and kept small, as all events in it are lost if the collector dies.</p>
+<p>The <b>BufferingEventCollector</b> bean exposes stats about this queue. Current size is given by the <b>QueueSize</b> attribute. The <b>EventsMillisTP99</b> attribute gives the TP99 of the acceptance time per event (until it's scheduled to be flushed to disk), i.e. the lifetime of an Event from the endpoint (right at the beginning) to being scheduled to be written to disk. The <b>EventsSecondTP99</b> attribute gives the total number of events accepted. The current number of events written to disk per second is given by <b>EventsSecondTP99</b>. All TP99 values are computed over the last 30 minutes.</p>
+<p>Similarly, extraction attributes give the same statistics but measure the lifetime of an Event after it has been turned into an Event object (deserialization varies between API endpoints).</p>
+<p>Discrepancies between two statistics give insight on how much time is spent deserializing the original payload.</p>
+<p>Write stats gives insights on all write operations, i.e. write calls for each Event received (does not necessarily mean flush or sync to disk) and commits (by a periodic flusher), both on the ThresholdEventWriter. See the description in the com.ning:metrics.serialization-writer <a class="externalLink" href="http://pierre.github.com/dwarf/serialization/metrics.serialization-writer/apidocs/index.html">Javadocs</a> for an in-depth understanding on how the file-backed queue works.</p>
+<p>The <b>DiskSpoolEventWriter</b> bean exposes stats about the on-disk queue. Current size is given by the <b>DiskSpoolSize</b> parameter. This value is the size in kb of the events buffered locally, waiting to be flushed to HDFS.</p>
+</div>
+<div class="section"><h3>Hadoop writer</h3>
+<p>The HadoopFileEventWriter bean gives stats on writes performed to HDFS.</p>
+<p>The Hadoop writer creates temporary files. These are kept open (events are appended to them) until commit (flush) is called, at which point the files are closed and renamed to their final name. The delay in seconds between two flushes is given by the <b>SecondsSinceLastUpdate</b> attribute. It measures how long temporary files were kept open.</p>
+</div>
+<div class="section"><h3>The 15 seconds test</h3>
+<p>To make sure a collector is healthy:</p>
+<ul><li>Check <b>*EvendEndPointStats:FailedToParseEvents</b> and <b>*EvendEndPointStats:RejectedEvents</b> to make sure clients are sending the right payload (former attribute) and that the collector is accepting them (latter attribute).</li>
+<li>Check <b>BufferingEventCollector:QueueSize</b> is bounded and less than <b>BufferingEventCollector:MaxQueueSize</b>. If not, the collector cannot keep up accepting events and writing them to disk.</li>
+<li>Check <b>DiskSpoolEventWriter:DiskSpoolSize</b> is bounded. If not, events are not being sent to HDFS.</li>
+<li>Check <b>HadoopFileEventWriter:SecondsSinceLastUpdate</b> is bounded. If not, files are not being closed properly on HDFS.</li>
+</ul>
+</div>
+</div>
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2010
+    
+          
+  
+
+  
+    
+            
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>
