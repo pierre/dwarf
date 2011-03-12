@@ -145,7 +145,7 @@
 <a class="jxr_linenumber" name="135" href="#135">135</a>         <strong class="jxr_keyword">long</strong> startTime = scheduleScribeAgents();
 <a class="jxr_linenumber" name="136" href="#136">136</a> 
 <a class="jxr_linenumber" name="137" href="#137">137</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">long</strong> runTimeSeconds = (System.currentTimeMillis() - startTime) / 1000;
-<a class="jxr_linenumber" name="138" href="#138">138</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">double</strong> throughput = 8 / 1024. * messageSize * NUMBER_OF_SCRIBE_CLIENTS * NUMBER_OF_MESSAGES_PER_SCRIBE_PAYLOAD * NUMBER_OF_MESSAGES_PER_SCRIBE_CLIENT / runTimeSeconds;
+<a class="jxr_linenumber" name="138" href="#138">138</a>         <em class="jxr_comment">//final double throughput = 8 / 1024. * messageSize * NUMBER_OF_SCRIBE_CLIENTS * NUMBER_OF_MESSAGES_PER_SCRIBE_PAYLOAD * NUMBER_OF_MESSAGES_PER_SCRIBE_CLIENT / runTimeSeconds;</em>
 <a class="jxr_linenumber" name="139" href="#139">139</a>         <em class="jxr_comment">// TODO troughput meaningless in its current form (what payload?)</em>
 <a class="jxr_linenumber" name="140" href="#140">140</a>         <em class="jxr_comment">//log.error(String.format("%d messages sent in %d:%02d, %s bytes per payload, %.4f Mb/sec throughput",</em>
 <a class="jxr_linenumber" name="141" href="#141">141</a>         log.error(String.format(<span class="jxr_string">"%d messages sent in %d:%02d, %s bytes per payload"</span>,
@@ -177,45 +177,44 @@
 <a class="jxr_linenumber" name="167" href="#167">167</a>         <strong class="jxr_keyword">return</strong> transport;
 <a class="jxr_linenumber" name="168" href="#168">168</a>     }
 <a class="jxr_linenumber" name="169" href="#169">169</a> 
-<a class="jxr_linenumber" name="170" href="#170">170</a>     @SuppressWarnings(<span class="jxr_string">"unused"</span>)
-<a class="jxr_linenumber" name="171" href="#171">171</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> String createThriftPayload() <strong class="jxr_keyword">throws</strong> TException
-<a class="jxr_linenumber" name="172" href="#172">172</a>     {
-<a class="jxr_linenumber" name="173" href="#173">173</a>         ArrayList&lt;ThriftField&gt; data = <strong class="jxr_keyword">new</strong> ArrayList&lt;ThriftField&gt;();
-<a class="jxr_linenumber" name="174" href="#174">174</a>         data.add(ThriftField.createThriftField(<span class="jxr_string">"Fuu"</span>, (<strong class="jxr_keyword">short</strong>) 1));
-<a class="jxr_linenumber" name="175" href="#175">175</a>         data.add(ThriftField.createThriftField(<strong class="jxr_keyword">true</strong>, (<strong class="jxr_keyword">short</strong>) 2));
-<a class="jxr_linenumber" name="176" href="#176">176</a>         data.add(ThriftField.createThriftField(3.1459, (<strong class="jxr_keyword">short</strong>) 3));
-<a class="jxr_linenumber" name="177" href="#177">177</a>         <strong class="jxr_keyword">return</strong> String.format(<span class="jxr_string">"%s:%s"</span>, <strong class="jxr_keyword">new</strong> DateTime().getMillis(), <strong class="jxr_keyword">new</strong> Base64().encodeToString(<strong class="jxr_keyword">new</strong> ThriftFieldListSerializer().createPayload(data)));
-<a class="jxr_linenumber" name="178" href="#178">178</a>     }
-<a class="jxr_linenumber" name="179" href="#179">179</a> 
-<a class="jxr_linenumber" name="180" href="#180">180</a> 
-<a class="jxr_linenumber" name="181" href="#181">181</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> String createSmilePayload() <strong class="jxr_keyword">throws</strong> IOException
-<a class="jxr_linenumber" name="182" href="#182">182</a>     {
-<a class="jxr_linenumber" name="183" href="#183">183</a>         <strong class="jxr_keyword">final</strong> ByteArrayOutputStream stream = <strong class="jxr_keyword">new</strong> ByteArrayOutputStream();
-<a class="jxr_linenumber" name="184" href="#184">184</a>         SmileFactory f = <strong class="jxr_keyword">new</strong> SmileFactory();
-<a class="jxr_linenumber" name="185" href="#185">185</a>         JsonGenerator g = f.createJsonGenerator(stream);
-<a class="jxr_linenumber" name="186" href="#186">186</a> 
-<a class="jxr_linenumber" name="187" href="#187">187</a>         g.writeStartObject();
-<a class="jxr_linenumber" name="188" href="#188">188</a>         g.writeNumberField(SmileEnvelopeEvent.SMILE_EVENT_DATETIME_TOKEN_NAME, <strong class="jxr_keyword">new</strong> DateTime().getMillis());
-<a class="jxr_linenumber" name="189" href="#189">189</a>         g.writeStringField(<span class="jxr_string">"FuuField"</span>, <span class="jxr_string">"fuu"</span>);
-<a class="jxr_linenumber" name="190" href="#190">190</a>         g.writeBooleanField(<span class="jxr_string">"TrueField"</span>, <strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="191" href="#191">191</a>         g.writeNumberField(<span class="jxr_string">"Pi"</span>, 3.1459);
-<a class="jxr_linenumber" name="192" href="#192">192</a>         g.writeNumberField(<span class="jxr_string">"Long"</span>, 10001000000L);
-<a class="jxr_linenumber" name="193" href="#193">193</a>         g.writeEndObject();
-<a class="jxr_linenumber" name="194" href="#194">194</a>         g.close(); <em class="jxr_comment">// important: will force flushing of output, close underlying output stream</em>
-<a class="jxr_linenumber" name="195" href="#195">195</a> 
-<a class="jxr_linenumber" name="196" href="#196">196</a>         <strong class="jxr_keyword">return</strong> stream.toString();
-<a class="jxr_linenumber" name="197" href="#197">197</a>     }
-<a class="jxr_linenumber" name="198" href="#198">198</a> 
-<a class="jxr_linenumber" name="199" href="#199">199</a> <em class="jxr_comment">//    private static int getPayloadSize() throws TException</em>
-<a class="jxr_linenumber" name="200" href="#200">200</a> <em class="jxr_comment">//    {</em>
-<a class="jxr_linenumber" name="201" href="#201">201</a> <em class="jxr_comment">//        TMemoryBuffer bufferTest = new TMemoryBuffer(32);</em>
-<a class="jxr_linenumber" name="202" href="#202">202</a> <em class="jxr_comment">//        final TFramedTransport transportTest = new TFramedTransport(bufferTest);</em>
-<a class="jxr_linenumber" name="203" href="#203">203</a> <em class="jxr_comment">//        TBinaryProtocol protocolTest = new TBinaryProtocol(transportTest, false, false);</em>
-<a class="jxr_linenumber" name="204" href="#204">204</a> <em class="jxr_comment">//        messages.get(0).write(protocolTest);</em>
-<a class="jxr_linenumber" name="205" href="#205">205</a> <em class="jxr_comment">//        transportTest.flush();</em>
-<a class="jxr_linenumber" name="206" href="#206">206</a> <em class="jxr_comment">//        return bufferTest.length();</em>
-<a class="jxr_linenumber" name="207" href="#207">207</a> <em class="jxr_comment">//    }</em>
-<a class="jxr_linenumber" name="208" href="#208">208</a> }
+<a class="jxr_linenumber" name="170" href="#170">170</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> String createThriftPayload() <strong class="jxr_keyword">throws</strong> TException
+<a class="jxr_linenumber" name="171" href="#171">171</a>     {
+<a class="jxr_linenumber" name="172" href="#172">172</a>         ArrayList&lt;ThriftField&gt; data = <strong class="jxr_keyword">new</strong> ArrayList&lt;ThriftField&gt;();
+<a class="jxr_linenumber" name="173" href="#173">173</a>         data.add(ThriftField.createThriftField(<span class="jxr_string">"Fuu"</span>, (<strong class="jxr_keyword">short</strong>) 1));
+<a class="jxr_linenumber" name="174" href="#174">174</a>         data.add(ThriftField.createThriftField(<strong class="jxr_keyword">true</strong>, (<strong class="jxr_keyword">short</strong>) 2));
+<a class="jxr_linenumber" name="175" href="#175">175</a>         data.add(ThriftField.createThriftField(3.1459, (<strong class="jxr_keyword">short</strong>) 3));
+<a class="jxr_linenumber" name="176" href="#176">176</a>         <strong class="jxr_keyword">return</strong> String.format(<span class="jxr_string">"%s:%s"</span>, <strong class="jxr_keyword">new</strong> DateTime().getMillis(), <strong class="jxr_keyword">new</strong> Base64().encodeToString(<strong class="jxr_keyword">new</strong> ThriftFieldListSerializer().createPayload(data)));
+<a class="jxr_linenumber" name="177" href="#177">177</a>     }
+<a class="jxr_linenumber" name="178" href="#178">178</a> 
+<a class="jxr_linenumber" name="179" href="#179">179</a>     @SuppressWarnings(<span class="jxr_string">"unused"</span>)
+<a class="jxr_linenumber" name="180" href="#180">180</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> String createSmilePayload() <strong class="jxr_keyword">throws</strong> IOException
+<a class="jxr_linenumber" name="181" href="#181">181</a>     {
+<a class="jxr_linenumber" name="182" href="#182">182</a>         <strong class="jxr_keyword">final</strong> ByteArrayOutputStream stream = <strong class="jxr_keyword">new</strong> ByteArrayOutputStream();
+<a class="jxr_linenumber" name="183" href="#183">183</a>         SmileFactory f = <strong class="jxr_keyword">new</strong> SmileFactory();
+<a class="jxr_linenumber" name="184" href="#184">184</a>         JsonGenerator g = f.createJsonGenerator(stream);
+<a class="jxr_linenumber" name="185" href="#185">185</a> 
+<a class="jxr_linenumber" name="186" href="#186">186</a>         g.writeStartObject();
+<a class="jxr_linenumber" name="187" href="#187">187</a>         g.writeNumberField(SmileEnvelopeEvent.SMILE_EVENT_DATETIME_TOKEN_NAME, <strong class="jxr_keyword">new</strong> DateTime().getMillis());
+<a class="jxr_linenumber" name="188" href="#188">188</a>         g.writeStringField(<span class="jxr_string">"FuuField"</span>, <span class="jxr_string">"fuu"</span>);
+<a class="jxr_linenumber" name="189" href="#189">189</a>         g.writeBooleanField(<span class="jxr_string">"TrueField"</span>, <strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="190" href="#190">190</a>         g.writeNumberField(<span class="jxr_string">"Pi"</span>, 3.1459);
+<a class="jxr_linenumber" name="191" href="#191">191</a>         g.writeNumberField(<span class="jxr_string">"Long"</span>, 10001000000L);
+<a class="jxr_linenumber" name="192" href="#192">192</a>         g.writeEndObject();
+<a class="jxr_linenumber" name="193" href="#193">193</a>         g.close(); <em class="jxr_comment">// important: will force flushing of output, close underlying output stream</em>
+<a class="jxr_linenumber" name="194" href="#194">194</a> 
+<a class="jxr_linenumber" name="195" href="#195">195</a>         <strong class="jxr_keyword">return</strong> stream.toString();
+<a class="jxr_linenumber" name="196" href="#196">196</a>     }
+<a class="jxr_linenumber" name="197" href="#197">197</a> 
+<a class="jxr_linenumber" name="198" href="#198">198</a> <em class="jxr_comment">//    private static int getPayloadSize() throws TException</em>
+<a class="jxr_linenumber" name="199" href="#199">199</a> <em class="jxr_comment">//    {</em>
+<a class="jxr_linenumber" name="200" href="#200">200</a> <em class="jxr_comment">//        TMemoryBuffer bufferTest = new TMemoryBuffer(32);</em>
+<a class="jxr_linenumber" name="201" href="#201">201</a> <em class="jxr_comment">//        final TFramedTransport transportTest = new TFramedTransport(bufferTest);</em>
+<a class="jxr_linenumber" name="202" href="#202">202</a> <em class="jxr_comment">//        TBinaryProtocol protocolTest = new TBinaryProtocol(transportTest, false, false);</em>
+<a class="jxr_linenumber" name="203" href="#203">203</a> <em class="jxr_comment">//        messages.get(0).write(protocolTest);</em>
+<a class="jxr_linenumber" name="204" href="#204">204</a> <em class="jxr_comment">//        transportTest.flush();</em>
+<a class="jxr_linenumber" name="205" href="#205">205</a> <em class="jxr_comment">//        return bufferTest.length();</em>
+<a class="jxr_linenumber" name="206" href="#206">206</a> <em class="jxr_comment">//    }</em>
+<a class="jxr_linenumber" name="207" href="#207">207</a> }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div></body>
 </html>

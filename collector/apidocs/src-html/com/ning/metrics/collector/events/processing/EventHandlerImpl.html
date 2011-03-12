@@ -39,100 +39,101 @@
 <FONT color="green">036</FONT>        private static final Logger log = Logger.getLogger(EventHandlerImpl.class);<a name="line.36"></a>
 <FONT color="green">037</FONT>    <a name="line.37"></a>
 <FONT color="green">038</FONT>        private final EventCollector collector;<a name="line.38"></a>
-<FONT color="green">039</FONT>        private final Filter requestFilter;<a name="line.39"></a>
-<FONT color="green">040</FONT>        private volatile boolean collectionEnabled;<a name="line.40"></a>
-<FONT color="green">041</FONT>        private final CacheControl cacheControl;<a name="line.41"></a>
-<FONT color="green">042</FONT>    <a name="line.42"></a>
-<FONT color="green">043</FONT>        @SuppressWarnings("unused")<a name="line.43"></a>
-<FONT color="green">044</FONT>        @Inject<a name="line.44"></a>
-<FONT color="green">045</FONT>        public EventHandlerImpl(<a name="line.45"></a>
-<FONT color="green">046</FONT>            EventCollector collector,<a name="line.46"></a>
-<FONT color="green">047</FONT>            @EventEndpointRequestFilter Filter requestFilter,<a name="line.47"></a>
-<FONT color="green">048</FONT>            CollectorConfig config<a name="line.48"></a>
-<FONT color="green">049</FONT>        )<a name="line.49"></a>
-<FONT color="green">050</FONT>        {<a name="line.50"></a>
-<FONT color="green">051</FONT>            this(collector, requestFilter, config.isEventEndpointEnabled());<a name="line.51"></a>
-<FONT color="green">052</FONT>        }<a name="line.52"></a>
-<FONT color="green">053</FONT>    <a name="line.53"></a>
-<FONT color="green">054</FONT>        public EventHandlerImpl(<a name="line.54"></a>
-<FONT color="green">055</FONT>            EventCollector collector,<a name="line.55"></a>
-<FONT color="green">056</FONT>            Filter requestFilter,<a name="line.56"></a>
-<FONT color="green">057</FONT>            boolean enabled<a name="line.57"></a>
-<FONT color="green">058</FONT>        )<a name="line.58"></a>
-<FONT color="green">059</FONT>        {<a name="line.59"></a>
-<FONT color="green">060</FONT>            this.collector = collector;<a name="line.60"></a>
-<FONT color="green">061</FONT>            this.requestFilter = requestFilter;<a name="line.61"></a>
-<FONT color="green">062</FONT>            this.collectionEnabled = enabled;<a name="line.62"></a>
-<FONT color="green">063</FONT>    <a name="line.63"></a>
-<FONT color="green">064</FONT>            cacheControl = new CacheControl();<a name="line.64"></a>
-<FONT color="green">065</FONT>            cacheControl.setPrivate(true);<a name="line.65"></a>
-<FONT color="green">066</FONT>            cacheControl.setNoCache(true);<a name="line.66"></a>
-<FONT color="green">067</FONT>            cacheControl.setProxyRevalidate(true);<a name="line.67"></a>
-<FONT color="green">068</FONT>        }<a name="line.68"></a>
-<FONT color="green">069</FONT>    <a name="line.69"></a>
-<FONT color="green">070</FONT>        @SuppressWarnings("unchecked")<a name="line.70"></a>
-<FONT color="green">071</FONT>        @Override<a name="line.71"></a>
-<FONT color="green">072</FONT>        //TODO no  need for stats<a name="line.72"></a>
-<FONT color="green">073</FONT>        public Response processEvent(Event event, ExtractedAnnotation annotation, EventEndPointStats stats, EventStats eventStats)<a name="line.73"></a>
-<FONT color="green">074</FONT>        {<a name="line.74"></a>
-<FONT color="green">075</FONT>            stats.updateTotalEvents();<a name="line.75"></a>
-<FONT color="green">076</FONT>    <a name="line.76"></a>
-<FONT color="green">077</FONT>            if (collectionEnabled) {<a name="line.77"></a>
-<FONT color="green">078</FONT>                if (event == null) {<a name="line.78"></a>
-<FONT color="green">079</FONT>                    String msg = "Received empty event";<a name="line.79"></a>
-<FONT color="green">080</FONT>                    log.info(msg);<a name="line.80"></a>
-<FONT color="green">081</FONT>                    return handleFailure(Response.Status.BAD_REQUEST, stats, eventStats, new EventParsingException(msg));<a name="line.81"></a>
-<FONT color="green">082</FONT>                }<a name="line.82"></a>
-<FONT color="green">083</FONT>                else {<a name="line.83"></a>
-<FONT color="green">084</FONT>                    if (requestFilter.passesFilter(event.getName(), annotation)) {<a name="line.84"></a>
-<FONT color="green">085</FONT>                        stats.updateFilteredEvents();<a name="line.85"></a>
-<FONT color="green">086</FONT>                        return Response.status(Response.Status.ACCEPTED).cacheControl(cacheControl).build();<a name="line.86"></a>
-<FONT color="green">087</FONT>                    }<a name="line.87"></a>
-<FONT color="green">088</FONT>                    else {<a name="line.88"></a>
-<FONT color="green">089</FONT>                        log.debug(String.format("Receiving event of type %s", event.getName()));<a name="line.89"></a>
-<FONT color="green">090</FONT>    <a name="line.90"></a>
-<FONT color="green">091</FONT>                        if (collector.collectEvent(event, eventStats)) {<a name="line.91"></a>
-<FONT color="green">092</FONT>                            stats.updateSuccesfulEventCounters(event);<a name="line.92"></a>
-<FONT color="green">093</FONT>                            return Response.status(Response.Status.ACCEPTED).cacheControl(cacheControl).build();<a name="line.93"></a>
-<FONT color="green">094</FONT>                        }<a name="line.94"></a>
-<FONT color="green">095</FONT>                        else {<a name="line.95"></a>
-<FONT color="green">096</FONT>                            stats.updateRejectedEvents();<a name="line.96"></a>
-<FONT color="green">097</FONT>                            log.warn(String.format("Event rejected: %s", event));<a name="line.97"></a>
-<FONT color="green">098</FONT>                            return Response.status(Response.Status.SERVICE_UNAVAILABLE).cacheControl(cacheControl).build();<a name="line.98"></a>
-<FONT color="green">099</FONT>                        }<a name="line.99"></a>
-<FONT color="green">100</FONT>                    }<a name="line.100"></a>
-<FONT color="green">101</FONT>                }<a name="line.101"></a>
-<FONT color="green">102</FONT>            }<a name="line.102"></a>
-<FONT color="green">103</FONT>            else {<a name="line.103"></a>
-<FONT color="green">104</FONT>                stats.updateRejectedEvents();<a name="line.104"></a>
-<FONT color="green">105</FONT>    <a name="line.105"></a>
-<FONT color="green">106</FONT>                log.info(String.format("Collection disabled, rejecting event: %s", event));<a name="line.106"></a>
-<FONT color="green">107</FONT>                return Response.status(Response.Status.SERVICE_UNAVAILABLE).cacheControl(cacheControl).build();<a name="line.107"></a>
-<FONT color="green">108</FONT>            }<a name="line.108"></a>
-<FONT color="green">109</FONT>        }<a name="line.109"></a>
-<FONT color="green">110</FONT>    <a name="line.110"></a>
-<FONT color="green">111</FONT>        @Override<a name="line.111"></a>
-<FONT color="green">112</FONT>        public Response handleFailure(Response.Status status, EventEndPointStats stats, EventStats eventStats, Exception e)<a name="line.112"></a>
-<FONT color="green">113</FONT>        {<a name="line.113"></a>
-<FONT color="green">114</FONT>            stats.updateFailedEvents();<a name="line.114"></a>
-<FONT color="green">115</FONT>            return Response.status(status)<a name="line.115"></a>
-<FONT color="green">116</FONT>                .header("Warning", "199 " + e.toString())<a name="line.116"></a>
-<FONT color="green">117</FONT>                .cacheControl(cacheControl)<a name="line.117"></a>
-<FONT color="green">118</FONT>                .build();<a name="line.118"></a>
-<FONT color="green">119</FONT>        }<a name="line.119"></a>
-<FONT color="green">120</FONT>    <a name="line.120"></a>
-<FONT color="green">121</FONT>        @Managed(description = "enable/disable collection of events")<a name="line.121"></a>
-<FONT color="green">122</FONT>        public void setCollectionEnabled(boolean value)<a name="line.122"></a>
-<FONT color="green">123</FONT>        {<a name="line.123"></a>
-<FONT color="green">124</FONT>            collectionEnabled = value;<a name="line.124"></a>
-<FONT color="green">125</FONT>        }<a name="line.125"></a>
-<FONT color="green">126</FONT>    <a name="line.126"></a>
-<FONT color="green">127</FONT>        @Managed(description = "event collection enabled?")<a name="line.127"></a>
-<FONT color="green">128</FONT>        public boolean getCollectionEnabled()<a name="line.128"></a>
-<FONT color="green">129</FONT>        {<a name="line.129"></a>
-<FONT color="green">130</FONT>            return collectionEnabled;<a name="line.130"></a>
-<FONT color="green">131</FONT>        }<a name="line.131"></a>
-<FONT color="green">132</FONT>    }<a name="line.132"></a>
+<FONT color="green">039</FONT>    <a name="line.39"></a>
+<FONT color="green">040</FONT>        @SuppressWarnings("unchecked")<a name="line.40"></a>
+<FONT color="green">041</FONT>        private final Filter requestFilter;<a name="line.41"></a>
+<FONT color="green">042</FONT>        private volatile boolean collectionEnabled;<a name="line.42"></a>
+<FONT color="green">043</FONT>        private final CacheControl cacheControl;<a name="line.43"></a>
+<FONT color="green">044</FONT>    <a name="line.44"></a>
+<FONT color="green">045</FONT>        @Inject<a name="line.45"></a>
+<FONT color="green">046</FONT>        public EventHandlerImpl(<a name="line.46"></a>
+<FONT color="green">047</FONT>            EventCollector collector,<a name="line.47"></a>
+<FONT color="green">048</FONT>            @SuppressWarnings("unchecked") @EventEndpointRequestFilter Filter requestFilter,<a name="line.48"></a>
+<FONT color="green">049</FONT>            CollectorConfig config<a name="line.49"></a>
+<FONT color="green">050</FONT>        )<a name="line.50"></a>
+<FONT color="green">051</FONT>        {<a name="line.51"></a>
+<FONT color="green">052</FONT>            this(collector, requestFilter, config.isEventEndpointEnabled());<a name="line.52"></a>
+<FONT color="green">053</FONT>        }<a name="line.53"></a>
+<FONT color="green">054</FONT>    <a name="line.54"></a>
+<FONT color="green">055</FONT>        public EventHandlerImpl(<a name="line.55"></a>
+<FONT color="green">056</FONT>            EventCollector collector,<a name="line.56"></a>
+<FONT color="green">057</FONT>            @SuppressWarnings("unchecked") Filter requestFilter,<a name="line.57"></a>
+<FONT color="green">058</FONT>            boolean enabled<a name="line.58"></a>
+<FONT color="green">059</FONT>        )<a name="line.59"></a>
+<FONT color="green">060</FONT>        {<a name="line.60"></a>
+<FONT color="green">061</FONT>            this.collector = collector;<a name="line.61"></a>
+<FONT color="green">062</FONT>            this.requestFilter = requestFilter;<a name="line.62"></a>
+<FONT color="green">063</FONT>            this.collectionEnabled = enabled;<a name="line.63"></a>
+<FONT color="green">064</FONT>    <a name="line.64"></a>
+<FONT color="green">065</FONT>            cacheControl = new CacheControl();<a name="line.65"></a>
+<FONT color="green">066</FONT>            cacheControl.setPrivate(true);<a name="line.66"></a>
+<FONT color="green">067</FONT>            cacheControl.setNoCache(true);<a name="line.67"></a>
+<FONT color="green">068</FONT>            cacheControl.setProxyRevalidate(true);<a name="line.68"></a>
+<FONT color="green">069</FONT>        }<a name="line.69"></a>
+<FONT color="green">070</FONT>    <a name="line.70"></a>
+<FONT color="green">071</FONT>        @SuppressWarnings("unchecked")<a name="line.71"></a>
+<FONT color="green">072</FONT>        @Override<a name="line.72"></a>
+<FONT color="green">073</FONT>        //TODO no  need for stats<a name="line.73"></a>
+<FONT color="green">074</FONT>        public Response processEvent(Event event, ExtractedAnnotation annotation, EventEndPointStats stats, EventStats eventStats)<a name="line.74"></a>
+<FONT color="green">075</FONT>        {<a name="line.75"></a>
+<FONT color="green">076</FONT>            stats.updateTotalEvents();<a name="line.76"></a>
+<FONT color="green">077</FONT>    <a name="line.77"></a>
+<FONT color="green">078</FONT>            if (collectionEnabled) {<a name="line.78"></a>
+<FONT color="green">079</FONT>                if (event == null) {<a name="line.79"></a>
+<FONT color="green">080</FONT>                    String msg = "Received empty event";<a name="line.80"></a>
+<FONT color="green">081</FONT>                    log.info(msg);<a name="line.81"></a>
+<FONT color="green">082</FONT>                    return handleFailure(Response.Status.BAD_REQUEST, stats, eventStats, new EventParsingException(msg));<a name="line.82"></a>
+<FONT color="green">083</FONT>                }<a name="line.83"></a>
+<FONT color="green">084</FONT>                else {<a name="line.84"></a>
+<FONT color="green">085</FONT>                    if (requestFilter.passesFilter(event.getName(), annotation)) {<a name="line.85"></a>
+<FONT color="green">086</FONT>                        stats.updateFilteredEvents();<a name="line.86"></a>
+<FONT color="green">087</FONT>                        return Response.status(Response.Status.ACCEPTED).cacheControl(cacheControl).build();<a name="line.87"></a>
+<FONT color="green">088</FONT>                    }<a name="line.88"></a>
+<FONT color="green">089</FONT>                    else {<a name="line.89"></a>
+<FONT color="green">090</FONT>                        log.debug(String.format("Receiving event of type %s", event.getName()));<a name="line.90"></a>
+<FONT color="green">091</FONT>    <a name="line.91"></a>
+<FONT color="green">092</FONT>                        if (collector.collectEvent(event, eventStats)) {<a name="line.92"></a>
+<FONT color="green">093</FONT>                            stats.updateSuccesfulEventCounters(event);<a name="line.93"></a>
+<FONT color="green">094</FONT>                            return Response.status(Response.Status.ACCEPTED).cacheControl(cacheControl).build();<a name="line.94"></a>
+<FONT color="green">095</FONT>                        }<a name="line.95"></a>
+<FONT color="green">096</FONT>                        else {<a name="line.96"></a>
+<FONT color="green">097</FONT>                            stats.updateRejectedEvents();<a name="line.97"></a>
+<FONT color="green">098</FONT>                            log.warn(String.format("Event rejected: %s", event));<a name="line.98"></a>
+<FONT color="green">099</FONT>                            return Response.status(Response.Status.SERVICE_UNAVAILABLE).cacheControl(cacheControl).build();<a name="line.99"></a>
+<FONT color="green">100</FONT>                        }<a name="line.100"></a>
+<FONT color="green">101</FONT>                    }<a name="line.101"></a>
+<FONT color="green">102</FONT>                }<a name="line.102"></a>
+<FONT color="green">103</FONT>            }<a name="line.103"></a>
+<FONT color="green">104</FONT>            else {<a name="line.104"></a>
+<FONT color="green">105</FONT>                stats.updateRejectedEvents();<a name="line.105"></a>
+<FONT color="green">106</FONT>    <a name="line.106"></a>
+<FONT color="green">107</FONT>                log.info(String.format("Collection disabled, rejecting event: %s", event));<a name="line.107"></a>
+<FONT color="green">108</FONT>                return Response.status(Response.Status.SERVICE_UNAVAILABLE).cacheControl(cacheControl).build();<a name="line.108"></a>
+<FONT color="green">109</FONT>            }<a name="line.109"></a>
+<FONT color="green">110</FONT>        }<a name="line.110"></a>
+<FONT color="green">111</FONT>    <a name="line.111"></a>
+<FONT color="green">112</FONT>        @Override<a name="line.112"></a>
+<FONT color="green">113</FONT>        public Response handleFailure(Response.Status status, EventEndPointStats stats, EventStats eventStats, Exception e)<a name="line.113"></a>
+<FONT color="green">114</FONT>        {<a name="line.114"></a>
+<FONT color="green">115</FONT>            stats.updateFailedEvents();<a name="line.115"></a>
+<FONT color="green">116</FONT>            return Response.status(status)<a name="line.116"></a>
+<FONT color="green">117</FONT>                .header("Warning", "199 " + e.toString())<a name="line.117"></a>
+<FONT color="green">118</FONT>                .cacheControl(cacheControl)<a name="line.118"></a>
+<FONT color="green">119</FONT>                .build();<a name="line.119"></a>
+<FONT color="green">120</FONT>        }<a name="line.120"></a>
+<FONT color="green">121</FONT>    <a name="line.121"></a>
+<FONT color="green">122</FONT>        @Managed(description = "enable/disable collection of events")<a name="line.122"></a>
+<FONT color="green">123</FONT>        public void setCollectionEnabled(boolean value)<a name="line.123"></a>
+<FONT color="green">124</FONT>        {<a name="line.124"></a>
+<FONT color="green">125</FONT>            collectionEnabled = value;<a name="line.125"></a>
+<FONT color="green">126</FONT>        }<a name="line.126"></a>
+<FONT color="green">127</FONT>    <a name="line.127"></a>
+<FONT color="green">128</FONT>        @Managed(description = "event collection enabled?")<a name="line.128"></a>
+<FONT color="green">129</FONT>        public boolean getCollectionEnabled()<a name="line.129"></a>
+<FONT color="green">130</FONT>        {<a name="line.130"></a>
+<FONT color="green">131</FONT>            return collectionEnabled;<a name="line.131"></a>
+<FONT color="green">132</FONT>        }<a name="line.132"></a>
+<FONT color="green">133</FONT>    }<a name="line.133"></a>
 
 
 
