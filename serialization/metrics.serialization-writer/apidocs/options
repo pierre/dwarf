@@ -1,5 +1,5 @@
 -classpath
-'/Users/pierre/open-source/serialization/writer/target/classes:/Users/pierre/.m2/repository/log4j/log4j/1.2.13/log4j-1.2.13.jar:/Users/pierre/.m2/repository/com/ning/metrics.serialization-common/1.0.3-SNAPSHOT/metrics.serialization-common-1.0.3-SNAPSHOT.jar:/Users/pierre/.m2/repository/joda-time/joda-time/1.6/joda-time-1.6.jar'
+'/Users/pierre/open-source/serialization/writer/target/classes:/Users/pierre/.m2/repository/log4j/log4j/1.2.13/log4j-1.2.13.jar:/Users/pierre/.m2/repository/com/ning/metrics.serialization-common/1.2.1-SNAPSHOT/metrics.serialization-common-1.2.1-SNAPSHOT.jar:/Users/pierre/.m2/repository/joda-time/joda-time/1.6/joda-time-1.6.jar'
 -encoding
 'UTF-8'
 -protected
@@ -9,7 +9,7 @@
 '/Users/pierre/open-source/serialization/writer/src/main/java'
 -author
 -bottom
-'Copyright &#169; 2010. All Rights Reserved.'
+'Copyright &#169; 2011. All Rights Reserved.'
 -charset
 'UTF-8'
 -d
@@ -17,7 +17,7 @@
 -docencoding
 'UTF-8'
 -doctitle
-'serialization-writer 1.0.3-SNAPSHOT API'
+'serialization-writer 1.2.1-SNAPSHOT API'
 -link
 'http://commons.apache.org/lang/api'
 -link
@@ -25,13 +25,13 @@
 -linkoffline
 'http://github.com/pierre/serialization/metrics.serialization-common/apidocs' '/Users/pierre/open-source/serialization/common/target/site/apidocs'
 -linkoffline
+'http://github.com/pierre/serialization/metrics.serialization-smile/apidocs' '/Users/pierre/open-source/serialization/smile/target/site/apidocs'
+-linkoffline
 'http://github.com/pierre/serialization/metrics.serialization-thrift/apidocs' '/Users/pierre/open-source/serialization/thrift/target/site/apidocs'
 -linkoffline
 'http://github.com/pierre/serialization/metrics.serialization-hadoop/apidocs' '/Users/pierre/open-source/serialization/hadoop/target/site/apidocs'
--linkoffline
-'http://github.com/pierre/serialization/metrics.serialization-smile/apidocs' '/Users/pierre/open-source/serialization/smile/target/site/apidocs'
 -linksource
 -use
 -version
 -windowtitle
-'serialization-writer 1.0.3-SNAPSHOT API'
+'serialization-writer 1.2.1-SNAPSHOT API'

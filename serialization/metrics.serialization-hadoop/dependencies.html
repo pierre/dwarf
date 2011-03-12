@@ -50,8 +50,8 @@
             
   
     
-            &nbsp;| Last Published: 2010-11-22
-              &nbsp;| Version: 1.0.3-SNAPSHOT
+            &nbsp;| Last Published: 2011-03-11
+              &nbsp;| Version: 1.2.1-SNAPSHOT
             </div>
       <div class="clear">
         <hr/>
@@ -210,11 +210,16 @@
 <th>Type</th>
 </tr>
 <tr class="b"><td>com.ning</td>
-<td><a href="http://github.com/pierre/serialization/metrics.serialization-thrift" class="externalLink">metrics.serialization-thrift</a></td>
-<td>1.0.3-20101122.210715-7</td>
+<td><a href="http://github.com/pierre/serialization/metrics.serialization-smile" class="externalLink">metrics.serialization-smile</a></td>
+<td>1.2.1-SNAPSHOT</td>
 <td>jar</td>
 </tr>
-<tr class="a"><td>org.apache.hadoop</td>
+<tr class="a"><td>com.ning</td>
+<td><a href="http://github.com/pierre/serialization/metrics.serialization-thrift" class="externalLink">metrics.serialization-thrift</a></td>
+<td>1.2.1-SNAPSHOT</td>
+<td>jar</td>
+</tr>
+<tr class="b"><td>org.apache.hadoop</td>
 <td>hadoop-core</td>
 <td>0.20.2</td>
 <td>jar</td>
@@ -226,84 +231,99 @@
 <p>The following is a list of transitive dependencies for this project. Transitive dependencies are the dependencies of the project dependencies.</p>
 <div class="section"><h3>compile</h3>
 <p>The following is a list of compile dependencies for this project. These dependencies are required to compile and run the application:</p>
-<table class="bodyTable"><tr class="b"><th>GroupId</th>
+<table class="bodyTable"><tr class="a"><th>GroupId</th>
 <th>ArtifactId</th>
 <th>Version</th>
 <th>Type</th>
 </tr>
-<tr class="a"><td>ant</td>
+<tr class="b"><td>ant</td>
 <td><a href="http://www.apache.org/ant" class="externalLink">ant</a></td>
 <td>1.6.5</td>
 <td>jar</td>
 </tr>
-<tr class="b"><td>com.ning</td>
+<tr class="a"><td>com.ning</td>
 <td><a href="http://github.com/pierre/serialization/metrics.serialization-common" class="externalLink">metrics.serialization-common</a></td>
-<td>1.0.3-SNAPSHOT</td>
+<td>1.2.1-SNAPSHOT</td>
 <td>jar</td>
 </tr>
-<tr class="a"><td>commons-cli</td>
+<tr class="b"><td>commons-cli</td>
 <td><a href="http://commons.apache.org/cli/" class="externalLink">commons-cli</a></td>
 <td>1.2</td>
 <td>jar</td>
 </tr>
-<tr class="b"><td>commons-codec</td>
+<tr class="a"><td>commons-codec</td>
 <td><a href="http://jakarta.apache.org/commons/codec/" class="externalLink">commons-codec</a></td>
 <td>1.3</td>
 <td>jar</td>
 </tr>
-<tr class="a"><td>commons-el</td>
+<tr class="b"><td>commons-el</td>
 <td><a href="http://jakarta.apache.org/commons/el/" class="externalLink">commons-el</a></td>
 <td>1.0</td>
 <td>jar</td>
 </tr>
-<tr class="b"><td>commons-httpclient</td>
+<tr class="a"><td>commons-httpclient</td>
 <td><a href="http://jakarta.apache.org/commons/httpclient/" class="externalLink">commons-httpclient</a></td>
 <td>3.0.1</td>
 <td>jar</td>
 </tr>
-<tr class="a"><td>commons-logging</td>
+<tr class="b"><td>commons-logging</td>
 <td><a href="http://jakarta.apache.org/commons/logging/" class="externalLink">commons-logging</a></td>
 <td>1.0.3</td>
 <td>jar</td>
 </tr>
-<tr class="b"><td>commons-net</td>
+<tr class="a"><td>commons-net</td>
 <td>commons-net</td>
 <td>1.4.1</td>
 <td>jar</td>
 </tr>
-<tr class="a"><td>hsqldb</td>
+<tr class="b"><td>hsqldb</td>
 <td><a href="http://hsqldb.org/" class="externalLink">hsqldb</a></td>
 <td>1.8.0.10</td>
 <td>jar</td>
 </tr>
-<tr class="b"><td>joda-time</td>
+<tr class="a"><td>joda-time</td>
 <td>joda-time</td>
 <td>1.6</td>
 <td>jar</td>
 </tr>
-<tr class="a"><td>junit</td>
+<tr class="b"><td>junit</td>
 <td><a href="http://junit.org" class="externalLink">junit</a></td>
 <td>4.5</td>
 <td>jar</td>
 </tr>
-<tr class="b"><td>log4j</td>
+<tr class="a"><td>log4j</td>
 <td><a href="http://logging.apache.org/log4j/docs/" class="externalLink">log4j</a></td>
 <td>1.2.13</td>
 <td>jar</td>
 </tr>
-<tr class="a"><td>net.java.dev.jets3t</td>
+<tr class="b"><td>net.java.dev.jets3t</td>
 <td><a href="http://jets3t.s3.amazonaws.com/index.html" class="externalLink">jets3t</a></td>
 <td>0.7.1</td>
 <td>jar</td>
 </tr>
-<tr class="b"><td>net.sf.kosmosfs</td>
+<tr class="a"><td>net.sf.kosmosfs</td>
 <td><a href="http://kosmosfs.sourceforge.net/" class="externalLink">kfs</a></td>
 <td>0.3</td>
 <td>jar</td>
 </tr>
-<tr class="a"><td>org.apache.thrift</td>
+<tr class="b"><td>org.apache.thrift</td>
 <td>thrift</td>
 <td>0.2.0</td>
+<td>jar</td>
+</tr>
+<tr class="a"><td>org.codehaus.jackson</td>
+<td><a href="http://jackson.codehaus.org" class="externalLink">jackson-core-asl</a></td>
+<td>1.7.2</td>
+<td>jar</td>
+</tr>
+<tr class="b"><td>org.codehaus.jackson</td>
+<td><a href="http://jackson.codehaus.org" class="externalLink">jackson-mapper-asl</a></td>
+<td>1.7.2</td>
+<td>jar</td>
+</tr>
+<tr class="a"><td>org.codehaus.jackson</td>
+<td><a href="http://jackson.codehaus.org" class="externalLink">jackson-smile</a></td>
+<td>1.7.2</td>
 <td>jar</td>
 </tr>
 <tr class="b"><td>org.eclipse.jdt</td>
@@ -356,8 +376,13 @@
 <th>Type</th>
 </tr>
 <tr class="a"><td>org.slf4j</td>
-<td>slf4j-log4j13</td>
-<td>1.0.1</td>
+<td><a href="http://www.slf4j.org" class="externalLink">slf4j-api</a></td>
+<td>1.5.6</td>
+<td>jar</td>
+</tr>
+<tr class="b"><td>org.slf4j</td>
+<td><a href="http://www.slf4j.org" class="externalLink">slf4j-log4j12</a></td>
+<td>1.5.6</td>
 <td>jar</td>
 </tr>
 </table>
@@ -382,41 +407,41 @@
       }
 </script>
 <div class="section"><h3>Dependency Tree</h3>
-<ul><li>com.ning:metrics.serialization-hadoop:jar:1.0.3-SNAPSHOT <img id="_1238290535" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1045004501', '_1238290535' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1045004501" style="display:none"><table class="bodyTable"><tr class="b"><th>serialization-hadoop</th>
+<ul><li>com.ning:metrics.serialization-hadoop:jar:1.2.1-SNAPSHOT <img id="_1171732425" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_528416145', '_1171732425' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_528416145" style="display:none"><table class="bodyTable"><tr class="a"><th>serialization-hadoop</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>Serialization library for the Dwarf framework</p>
+<tr class="b"><td><p><b>Description: </b>Serialization library for the Dwarf framework</p>
 <p><b>URL: </b><a href="http://github.com/pierre/serialization/metrics.serialization-hadoop" class="externalLink">http://github.com/pierre/serialization/metrics.serialization-hadoop</a></p>
 <p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.html" class="externalLink">Apache License 2.0</a></p>
 </td>
 </tr>
 </table>
-</div><ul><li>com.ning:metrics.serialization-thrift:jar:1.0.3-SNAPSHOT (compile) <img id="_1087470668" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_580068999', '_1087470668' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_580068999" style="display:none"><table class="bodyTable"><tr class="b"><th>serialization-thrift</th>
+</div><ul><li>com.ning:metrics.serialization-smile:jar:1.2.1-SNAPSHOT (compile) <img id="_1687048673" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_972709793', '_1687048673' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_972709793" style="display:none"><table class="bodyTable"><tr class="a"><th>serialization-smile</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>Serialization library for the Dwarf framework</p>
-<p><b>URL: </b><a href="http://github.com/pierre/serialization/metrics.serialization-thrift" class="externalLink">http://github.com/pierre/serialization/metrics.serialization-thrift</a></p>
+<tr class="b"><td><p><b>Description: </b>Serialization library for the Dwarf framework</p>
+<p><b>URL: </b><a href="http://github.com/pierre/serialization/metrics.serialization-smile" class="externalLink">http://github.com/pierre/serialization/metrics.serialization-smile</a></p>
 <p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.html" class="externalLink">Apache License 2.0</a></p>
 </td>
 </tr>
 </table>
-</div><ul><li>com.ning:metrics.serialization-common:jar:1.0.3-SNAPSHOT (compile) <img id="_102968107" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_40157650', '_102968107' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_40157650" style="display:none"><table class="bodyTable"><tr class="b"><th>serialization-common</th>
+</div><ul><li>com.ning:metrics.serialization-common:jar:1.2.1-SNAPSHOT (compile) <img id="_1684778173" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_201117046', '_1684778173' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_201117046" style="display:none"><table class="bodyTable"><tr class="a"><th>serialization-common</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>Serialization library for the Dwarf framework</p>
+<tr class="b"><td><p><b>Description: </b>Serialization library for the Dwarf framework</p>
 <p><b>URL: </b><a href="http://github.com/pierre/serialization/metrics.serialization-common" class="externalLink">http://github.com/pierre/serialization/metrics.serialization-common</a></p>
 <p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.html" class="externalLink">Apache License 2.0</a></p>
 </td>
 </tr>
 </table>
-</div><ul><li>joda-time:joda-time:jar:1.6 (compile) <img id="_365030124" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1479675860', '_365030124' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1479675860" style="display:none"><table class="bodyTable"><tr class="b"><th>Unnamed - joda-time:joda-time:jar:1.6</th>
+</div><ul><li>joda-time:joda-time:jar:1.6 (compile) <img id="_1814577838" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1322096947', '_1814577838' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1322096947" style="display:none"><table class="bodyTable"><tr class="a"><th>Unnamed - joda-time:joda-time:jar:1.6</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>Auto generated POM</p>
+<tr class="b"><td><p><b>Description: </b>Auto generated POM</p>
 <p><b>Project License: </b>No project license is defined for this project.</p>
 </td>
 </tr>
 </table>
 </div></li>
-<li>log4j:log4j:jar:1.2.13 (compile) <img id="_467096161" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_698644001', '_467096161' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_698644001" style="display:none"><table class="bodyTable"><tr class="b"><th>Log4j</th>
+<li>log4j:log4j:jar:1.2.13 (compile) <img id="_2126999586" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1931121621', '_2126999586' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1931121621" style="display:none"><table class="bodyTable"><tr class="a"><th>Log4j</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>Log4j</p>
+<tr class="b"><td><p><b>Description: </b>Log4j</p>
 <p><b>URL: </b><a href="http://logging.apache.org/log4j/docs/" class="externalLink">http://logging.apache.org/log4j/docs/</a></p>
 <p><b>Project License: </b>No project license is defined for this project.</p>
 </td>
@@ -425,28 +450,112 @@
 </div></li>
 </ul>
 </li>
-<li>joda-time:joda-time:jar:1.6 (compile) <img id="_1902403799" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_746423735', '_1902403799' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_746423735" style="display:none"><table class="bodyTable"><tr class="b"><th>Unnamed - joda-time:joda-time:jar:1.6</th>
+<li>joda-time:joda-time:jar:1.6 (compile) <img id="_1504875450" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_187734238', '_1504875450' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_187734238" style="display:none"><table class="bodyTable"><tr class="a"><th>Unnamed - joda-time:joda-time:jar:1.6</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>Auto generated POM</p>
+<tr class="b"><td><p><b>Description: </b>Auto generated POM</p>
 <p><b>Project License: </b>No project license is defined for this project.</p>
 </td>
 </tr>
 </table>
 </div></li>
-<li>org.apache.thrift:thrift:jar:0.2.0 (compile) <img id="_1767156887" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_865333798', '_1767156887' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_865333798" style="display:none"><table class="bodyTable"><tr class="b"><th>Unnamed - org.apache.thrift:thrift:jar:0.2.0</th>
+<li>org.codehaus.jackson:jackson-core-asl:jar:1.7.2 (compile) <img id="_1924441620" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1102264421', '_1924441620' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1102264421" style="display:none"><table class="bodyTable"><tr class="a"><th>Jackson</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
+<tr class="b"><td><p><b>Description: </b>Jackson is a high-performance JSON processor (parser, generator)</p>
+<p><b>URL: </b><a href="http://jackson.codehaus.org" class="externalLink">http://jackson.codehaus.org</a></p>
+<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
+</td>
+</tr>
+</table>
+</div></li>
+<li>org.codehaus.jackson:jackson-mapper-asl:jar:1.7.2 (compile) <img id="_720470999" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_2058880582', '_720470999' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_2058880582" style="display:none"><table class="bodyTable"><tr class="a"><th>Data Mapper for Jackson</th>
+</tr>
+<tr class="b"><td><p><b>Description: </b>Data Mapper package is a high-performance data binding package
+built on Jackson JSON processor</p>
+<p><b>URL: </b><a href="http://jackson.codehaus.org" class="externalLink">http://jackson.codehaus.org</a></p>
+<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
+</td>
+</tr>
+</table>
+</div><ul><li>org.codehaus.jackson:jackson-core-asl:jar:1.7.2 (compile) <img id="_2079202637" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1031622706', '_2079202637' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1031622706" style="display:none"><table class="bodyTable"><tr class="a"><th>Jackson</th>
+</tr>
+<tr class="b"><td><p><b>Description: </b>Jackson is a high-performance JSON processor (parser, generator)</p>
+<p><b>URL: </b><a href="http://jackson.codehaus.org" class="externalLink">http://jackson.codehaus.org</a></p>
+<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
+</td>
+</tr>
+</table>
+</div></li>
+</ul>
+</li>
+<li>org.codehaus.jackson:jackson-smile:jar:1.7.2 (compile) <img id="_1518955301" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1367824108', '_1518955301' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1367824108" style="display:none"><table class="bodyTable"><tr class="a"><th>Support for Smile data format (&quot;binary infoset for JSON&quot;)</th>
+</tr>
+<tr class="b"><td><p><b>Description: </b>Support for efficient binary data format that can be
+access same as textual JSON (&quot;binary infoset for JSON&quot;), using standard
+Jackson abstractions: specifically, extension of JsonFactory and implementations
+of JsonParser and JsonGenerator.</p>
+<p><b>URL: </b><a href="http://jackson.codehaus.org" class="externalLink">http://jackson.codehaus.org</a></p>
+<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a><a href="http://www.fsf.org/licensing/licenses/lgpl.txt" class="externalLink">GNU Lesser General Public License (LGPL), Version 2.1</a></p>
+</td>
+</tr>
+</table>
+</div><ul><li>org.codehaus.jackson:jackson-core-asl:jar:1.7.2 (compile) <img id="_939805192" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_819326192', '_939805192' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_819326192" style="display:none"><table class="bodyTable"><tr class="a"><th>Jackson</th>
+</tr>
+<tr class="b"><td><p><b>Description: </b>Jackson is a high-performance JSON processor (parser, generator)</p>
+<p><b>URL: </b><a href="http://jackson.codehaus.org" class="externalLink">http://jackson.codehaus.org</a></p>
+<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
+</td>
+</tr>
+</table>
+</div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>com.ning:metrics.serialization-thrift:jar:1.2.1-SNAPSHOT (compile) <img id="_1578792400" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_819059097', '_1578792400' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_819059097" style="display:none"><table class="bodyTable"><tr class="a"><th>serialization-thrift</th>
+</tr>
+<tr class="b"><td><p><b>Description: </b>Serialization library for the Dwarf framework</p>
+<p><b>URL: </b><a href="http://github.com/pierre/serialization/metrics.serialization-thrift" class="externalLink">http://github.com/pierre/serialization/metrics.serialization-thrift</a></p>
+<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.html" class="externalLink">Apache License 2.0</a></p>
+</td>
+</tr>
+</table>
+</div><ul><li>com.ning:metrics.serialization-common:jar:1.2.1-SNAPSHOT (compile) <img id="_223485209" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_2107930554', '_223485209' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_2107930554" style="display:none"><table class="bodyTable"><tr class="a"><th>serialization-common</th>
+</tr>
+<tr class="b"><td><p><b>Description: </b>Serialization library for the Dwarf framework</p>
+<p><b>URL: </b><a href="http://github.com/pierre/serialization/metrics.serialization-common" class="externalLink">http://github.com/pierre/serialization/metrics.serialization-common</a></p>
+<p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.html" class="externalLink">Apache License 2.0</a></p>
+</td>
+</tr>
+</table>
+</div></li>
+<li>joda-time:joda-time:jar:1.6 (compile) <img id="_118382142" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1256082831', '_118382142' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1256082831" style="display:none"><table class="bodyTable"><tr class="a"><th>Unnamed - joda-time:joda-time:jar:1.6</th>
+</tr>
+<tr class="b"><td><p><b>Description: </b>Auto generated POM</p>
 <p><b>Project License: </b>No project license is defined for this project.</p>
 </td>
 </tr>
 </table>
 </div></li>
-<li>org.slf4j:slf4j-log4j13:jar:1.0.1 (runtime) <img id="_1377194943" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_431366800', '_1377194943' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_431366800" style="display:none"><table class="bodyTable"><tr class="b"><th>slf4j-log4j</th>
+<li>org.apache.thrift:thrift:jar:0.2.0 (compile) <img id="_1134677114" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_413041513', '_1134677114' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_413041513" style="display:none"><table class="bodyTable"><tr class="a"><th>Unnamed - org.apache.thrift:thrift:jar:0.2.0</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>See http://www.slf4j.org/ 
-
-    Javadocs for the Log4jLoggerAdapter are available at 
-    http://www.slf4j.org/api/org/slf4j/impl/Log4jLoggerAdapter.html</p>
+<tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
+<p><b>Project License: </b>No project license is defined for this project.</p>
+</td>
+</tr>
+</table>
+</div></li>
+<li>org.slf4j:slf4j-log4j12:jar:1.5.6 (runtime) <img id="_1013363172" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1650817703', '_1013363172' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1650817703" style="display:none"><table class="bodyTable"><tr class="a"><th>SLF4J LOG4J-12 Binding</th>
+</tr>
+<tr class="b"><td><p><b>Description: </b>The slf4j log4j-12 binding</p>
+<p><b>URL: </b><a href="http://www.slf4j.org" class="externalLink">http://www.slf4j.org</a></p>
+<p><b>Project License: </b>No project license is defined for this project.</p>
+</td>
+</tr>
+</table>
+</div><ul><li>org.slf4j:slf4j-api:jar:1.5.6 (runtime) <img id="_115381678" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_436278402', '_115381678' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_436278402" style="display:none"><table class="bodyTable"><tr class="a"><th>SLF4J API Module</th>
+</tr>
+<tr class="b"><td><p><b>Description: </b>The slf4j API</p>
+<p><b>URL: </b><a href="http://www.slf4j.org" class="externalLink">http://www.slf4j.org</a></p>
 <p><b>Project License: </b>No project license is defined for this project.</p>
 </td>
 </tr>
@@ -454,42 +563,44 @@
 </div></li>
 </ul>
 </li>
-<li>org.apache.hadoop:hadoop-core:jar:0.20.2 (compile) <img id="_2100265625" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_561013870', '_2100265625' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_561013870" style="display:none"><table class="bodyTable"><tr class="b"><th>Unnamed - org.apache.hadoop:hadoop-core:jar:0.20.2</th>
+</ul>
+</li>
+<li>org.apache.hadoop:hadoop-core:jar:0.20.2 (compile) <img id="_507440557" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1825582038', '_507440557' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1825582038" style="display:none"><table class="bodyTable"><tr class="a"><th>Unnamed - org.apache.hadoop:hadoop-core:jar:0.20.2</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
+<tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
 <p><b>Project License: </b>No project license is defined for this project.</p>
 </td>
 </tr>
 </table>
-</div><ul><li>commons-cli:commons-cli:jar:1.2 (compile) <img id="_1188752695" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1731369612', '_1188752695' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1731369612" style="display:none"><table class="bodyTable"><tr class="b"><th>Commons CLI</th>
+</div><ul><li>commons-cli:commons-cli:jar:1.2 (compile) <img id="_5713387" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1328035121', '_5713387' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1328035121" style="display:none"><table class="bodyTable"><tr class="a"><th>Commons CLI</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>Commons CLI provides a simple API for presenting, processing and validating a command line interface.</p>
+<tr class="b"><td><p><b>Description: </b>Commons CLI provides a simple API for presenting, processing and validating a command line interface.</p>
 <p><b>URL: </b><a href="http://commons.apache.org/cli/" class="externalLink">http://commons.apache.org/cli/</a></p>
 <p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
 </td>
 </tr>
 </table>
 </div></li>
-<li>xmlenc:xmlenc:jar:0.52 (compile) <img id="_120049021" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_884070394', '_120049021' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_884070394" style="display:none"><table class="bodyTable"><tr class="b"><th>xmlenc Library</th>
+<li>xmlenc:xmlenc:jar:0.52 (compile) <img id="_1311689688" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_636325888', '_1311689688' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_636325888" style="display:none"><table class="bodyTable"><tr class="a"><th>xmlenc Library</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>xmlenc Library</p>
+<tr class="b"><td><p><b>Description: </b>xmlenc Library</p>
 <p><b>URL: </b><a href="http://xmlenc.sourceforge.net" class="externalLink">http://xmlenc.sourceforge.net</a></p>
 <p><b>Project License: </b><a href="http://www.opensource.org/licenses/bsd-license.php" class="externalLink">The BSD License</a></p>
 </td>
 </tr>
 </table>
 </div></li>
-<li>commons-httpclient:commons-httpclient:jar:3.0.1 (compile) <img id="_374227048" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1396992640', '_374227048' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1396992640" style="display:none"><table class="bodyTable"><tr class="b"><th>HttpClient</th>
+<li>commons-httpclient:commons-httpclient:jar:3.0.1 (compile) <img id="_1736167449" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1643982105', '_1736167449' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1643982105" style="display:none"><table class="bodyTable"><tr class="a"><th>HttpClient</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>The HttpClient  component supports the client-side of RFC 1945 (HTTP/1.0)  and RFC 2616 (HTTP/1.1) , several related specifications (RFC 2109 (Cookies) , RFC 2617 (HTTP Authentication) , etc.), and provides a framework by which new request types (methods) or HTTP extensions can be created easily.</p>
+<tr class="b"><td><p><b>Description: </b>The HttpClient  component supports the client-side of RFC 1945 (HTTP/1.0)  and RFC 2616 (HTTP/1.1) , several related specifications (RFC 2109 (Cookies) , RFC 2617 (HTTP Authentication) , etc.), and provides a framework by which new request types (methods) or HTTP extensions can be created easily.</p>
 <p><b>URL: </b><a href="http://jakarta.apache.org/commons/httpclient/" class="externalLink">http://jakarta.apache.org/commons/httpclient/</a></p>
 <p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0" class="externalLink">Apache License</a></p>
 </td>
 </tr>
 </table>
-</div><ul><li>commons-logging:commons-logging:jar:1.0.3 (compile) <img id="_1127735574" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1673203519', '_1127735574' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1673203519" style="display:none"><table class="bodyTable"><tr class="b"><th>Logging</th>
+</div><ul><li>commons-logging:commons-logging:jar:1.0.3 (compile) <img id="_1621414674" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1422517738', '_1621414674' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1422517738" style="display:none"><table class="bodyTable"><tr class="a"><th>Logging</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>Commons Logging</p>
+<tr class="b"><td><p><b>Description: </b>Commons Logging</p>
 <p><b>URL: </b><a href="http://jakarta.apache.org/commons/logging/" class="externalLink">http://jakarta.apache.org/commons/logging/</a></p>
 <p><b>Project License: </b>No project license is defined for this project.</p>
 </td>
@@ -498,9 +609,9 @@
 </div></li>
 </ul>
 </li>
-<li>commons-codec:commons-codec:jar:1.3 (compile) <img id="_101049849" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1990172247', '_101049849' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1990172247" style="display:none"><table class="bodyTable"><tr class="b"><th>Codec</th>
+<li>commons-codec:commons-codec:jar:1.3 (compile) <img id="_461215141" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_429382450', '_461215141' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_429382450" style="display:none"><table class="bodyTable"><tr class="a"><th>Codec</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>The codec package contains simple encoder and decoders for
+<tr class="b"><td><p><b>Description: </b>The codec package contains simple encoder and decoders for
    various formats such as Base64 and Hexadecimal.  In addition to these
    widely used encoders and decoders, the codec package also maintains a
    collection of phonetic encoding utilities.</p>
@@ -510,17 +621,17 @@
 </tr>
 </table>
 </div></li>
-<li>commons-net:commons-net:jar:1.4.1 (compile) <img id="_1497465273" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1436357622', '_1497465273' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1436357622" style="display:none"><table class="bodyTable"><tr class="b"><th>Jakarta Commons Net</th>
+<li>commons-net:commons-net:jar:1.4.1 (compile) <img id="_1840088480" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_2146545703', '_1840088480' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_2146545703" style="display:none"><table class="bodyTable"><tr class="a"><th>Jakarta Commons Net</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
+<tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
 <p><b>URL: </b>http://jakarta.apache.org/commons/${pom.artifactId.substring(8)}/</p>
 <p><b>Project License: </b><a href="/LICENSE.txt">The Apache Software License, Version 2.0</a></p>
 </td>
 </tr>
 </table>
-</div><ul><li>oro:oro:jar:2.0.8 (compile) <img id="_1691943192" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_89378600', '_1691943192' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_89378600" style="display:none"><table class="bodyTable"><tr class="b"><th>Unnamed - oro:oro:jar:2.0.8</th>
+</div><ul><li>oro:oro:jar:2.0.8 (compile) <img id="_413578601" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1875186555', '_413578601' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1875186555" style="display:none"><table class="bodyTable"><tr class="a"><th>Unnamed - oro:oro:jar:2.0.8</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
+<tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
 <p><b>Project License: </b>No project license is defined for this project.</p>
 </td>
 </tr>
@@ -528,33 +639,33 @@
 </div></li>
 </ul>
 </li>
-<li>tomcat:jasper-runtime:jar:5.5.12 (compile) <img id="_580515706" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1852184776', '_580515706' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1852184776" style="display:none"><table class="bodyTable"><tr class="b"><th>Unnamed - tomcat:jasper-runtime:jar:5.5.12</th>
+<li>tomcat:jasper-runtime:jar:5.5.12 (compile) <img id="_104284769" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_2024599550', '_104284769' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_2024599550" style="display:none"><table class="bodyTable"><tr class="a"><th>Unnamed - tomcat:jasper-runtime:jar:5.5.12</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
+<tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
 <p><b>Project License: </b>No project license is defined for this project.</p>
 </td>
 </tr>
 </table>
 </div></li>
-<li>tomcat:jasper-compiler:jar:5.5.12 (compile) <img id="_14329216" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_675059457', '_14329216' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_675059457" style="display:none"><table class="bodyTable"><tr class="b"><th>Unnamed - tomcat:jasper-compiler:jar:5.5.12</th>
+<li>tomcat:jasper-compiler:jar:5.5.12 (compile) <img id="_583869689" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1990550356', '_583869689' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1990550356" style="display:none"><table class="bodyTable"><tr class="a"><th>Unnamed - tomcat:jasper-compiler:jar:5.5.12</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
+<tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
 <p><b>Project License: </b>No project license is defined for this project.</p>
 </td>
 </tr>
 </table>
 </div></li>
-<li>org.mortbay.jetty:jsp-api-2.1:jar:6.1.14 (compile) <img id="_1728523704" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_298785767', '_1728523704' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_298785767" style="display:none"><table class="bodyTable"><tr class="b"><th>Glassfish Jasper API</th>
+<li>org.mortbay.jetty:jsp-api-2.1:jar:6.1.14 (compile) <img id="_759817171" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_949356496', '_759817171' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_949356496" style="display:none"><table class="bodyTable"><tr class="a"><th>Glassfish Jasper API</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>JSP2.1 API</p>
+<tr class="b"><td><p><b>Description: </b>JSP2.1 API</p>
 <p><b>URL: </b><a href="http://jetty.mortbay.org/project/modules/jsp-api-2.1" class="externalLink">http://jetty.mortbay.org/project/modules/jsp-api-2.1</a></p>
 <p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0" class="externalLink">Apache License Version 2.0</a></p>
 </td>
 </tr>
 </table>
-</div><ul><li>org.mortbay.jetty:servlet-api-2.5:jar:6.1.14 (compile) <img id="_2055523516" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1501111872', '_2055523516' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1501111872" style="display:none"><table class="bodyTable"><tr class="b"><th>Servlet Specification 2.5 API</th>
+</div><ul><li>org.mortbay.jetty:servlet-api-2.5:jar:6.1.14 (compile) <img id="_986076393" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_66292031', '_986076393' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_66292031" style="display:none"><table class="bodyTable"><tr class="a"><th>Servlet Specification 2.5 API</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>Servlet Specification 2.5 API</p>
+<tr class="b"><td><p><b>Description: </b>Servlet Specification 2.5 API</p>
 <p><b>URL: </b><a href="http://jetty.mortbay.org/project/modules/servlet-api-2.5" class="externalLink">http://jetty.mortbay.org/project/modules/servlet-api-2.5</a></p>
 <p><b>Project License: </b><a href="https://glassfish.dev.java.net/public/CDDLv1.0.html" class="externalLink">CDDL 1.0</a></p>
 </td>
@@ -563,35 +674,35 @@
 </div></li>
 </ul>
 </li>
-<li>org.mortbay.jetty:jsp-2.1:jar:6.1.14 (compile) <img id="_489131710" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_2114768568', '_489131710' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_2114768568" style="display:none"><table class="bodyTable"><tr class="b"><th>Glassfish Jasper</th>
+<li>org.mortbay.jetty:jsp-2.1:jar:6.1.14 (compile) <img id="_1347945431" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_317757782', '_1347945431' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_317757782" style="display:none"><table class="bodyTable"><tr class="a"><th>Glassfish Jasper</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>JSP2.1 Jasper implementation from Glassfish</p>
+<tr class="b"><td><p><b>Description: </b>JSP2.1 Jasper implementation from Glassfish</p>
 <p><b>URL: </b><a href="http://jetty.mortbay.org/project/modules/jsp-2.1" class="externalLink">http://jetty.mortbay.org/project/modules/jsp-2.1</a></p>
 <p><b>Project License: </b><a href="https://glassfish.dev.java.net/public/CDDLv1.0.html" class="externalLink">CDDL 1.0</a></p>
 </td>
 </tr>
 </table>
-</div><ul><li>org.eclipse.jdt:core:jar:3.1.1 (compile) <img id="_884052883" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_800165702', '_884052883' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_800165702" style="display:none"><table class="bodyTable"><tr class="b"><th>Eclipse JDT Core</th>
+</div><ul><li>org.eclipse.jdt:core:jar:3.1.1 (compile) <img id="_822268354" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_159904699', '_822268354' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_159904699" style="display:none"><table class="bodyTable"><tr class="a"><th>Eclipse JDT Core</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
+<tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
 <p><b>URL: </b><a href="http://www.eclipse.org/jdt/" class="externalLink">http://www.eclipse.org/jdt/</a></p>
 <p><b>Project License: </b><a href="http://www.eclipse.org/org/documents/epl-v10.php" class="externalLink">Eclipse Public License v1.0</a></p>
 </td>
 </tr>
 </table>
 </div></li>
-<li>org.mortbay.jetty:jsp-api-2.1:jar:6.1.14 (compile) <img id="_1989533175" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1103885161', '_1989533175' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1103885161" style="display:none"><table class="bodyTable"><tr class="b"><th>Glassfish Jasper API</th>
+<li>org.mortbay.jetty:jsp-api-2.1:jar:6.1.14 (compile) <img id="_65064049" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_2085683964', '_65064049' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_2085683964" style="display:none"><table class="bodyTable"><tr class="a"><th>Glassfish Jasper API</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>JSP2.1 API</p>
+<tr class="b"><td><p><b>Description: </b>JSP2.1 API</p>
 <p><b>URL: </b><a href="http://jetty.mortbay.org/project/modules/jsp-api-2.1" class="externalLink">http://jetty.mortbay.org/project/modules/jsp-api-2.1</a></p>
 <p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0" class="externalLink">Apache License Version 2.0</a></p>
 </td>
 </tr>
 </table>
 </div></li>
-<li>ant:ant:jar:1.6.5 (compile) <img id="_1536368947" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_263539152', '_1536368947' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_263539152" style="display:none"><table class="bodyTable"><tr class="b"><th>Unnamed - ant:ant:jar:1.6.5</th>
+<li>ant:ant:jar:1.6.5 (compile) <img id="_2075263968" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_591305075', '_2075263968' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_591305075" style="display:none"><table class="bodyTable"><tr class="a"><th>Unnamed - ant:ant:jar:1.6.5</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>The Apache Software Foundation provides support for the Apache community of open-source software projects.
+<tr class="b"><td><p><b>Description: </b>The Apache Software Foundation provides support for the Apache community of open-source software projects.
     The Apache projects are characterized by a collaborative, consensus based development process, an open and
     pragmatic software license, and a desire to create high quality software that leads the way in its field.
     We consider ourselves not simply a group of projects sharing a server, but rather a community of developers
@@ -604,17 +715,17 @@
 </div></li>
 </ul>
 </li>
-<li>commons-el:commons-el:jar:1.0 (compile) <img id="_531653820" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_2097637288', '_531653820' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_2097637288" style="display:none"><table class="bodyTable"><tr class="b"><th>EL</th>
+<li>commons-el:commons-el:jar:1.0 (compile) <img id="_1123303103" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1259968468', '_1123303103' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1259968468" style="display:none"><table class="bodyTable"><tr class="a"><th>EL</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>JSP 2.0 Expression Language Interpreter Implementation</p>
+<tr class="b"><td><p><b>Description: </b>JSP 2.0 Expression Language Interpreter Implementation</p>
 <p><b>URL: </b><a href="http://jakarta.apache.org/commons/el/" class="externalLink">http://jakarta.apache.org/commons/el/</a></p>
 <p><b>Project License: </b><a href="/LICENSE.txt">The Apache Software License, Version 2.0</a></p>
 </td>
 </tr>
 </table>
-</div><ul><li>commons-logging:commons-logging:jar:1.0.3 (compile) <img id="_408739610" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1284339599', '_408739610' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1284339599" style="display:none"><table class="bodyTable"><tr class="b"><th>Logging</th>
+</div><ul><li>commons-logging:commons-logging:jar:1.0.3 (compile) <img id="_361418134" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_308711186', '_361418134' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_308711186" style="display:none"><table class="bodyTable"><tr class="a"><th>Logging</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>Commons Logging</p>
+<tr class="b"><td><p><b>Description: </b>Commons Logging</p>
 <p><b>URL: </b><a href="http://jakarta.apache.org/commons/logging/" class="externalLink">http://jakarta.apache.org/commons/logging/</a></p>
 <p><b>Project License: </b>No project license is defined for this project.</p>
 </td>
@@ -623,17 +734,17 @@
 </div></li>
 </ul>
 </li>
-<li>net.java.dev.jets3t:jets3t:jar:0.7.1 (compile) <img id="_1758468947" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_2117494477', '_1758468947' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_2117494477" style="display:none"><table class="bodyTable"><tr class="b"><th>An open source Java toolkit for Amazon S3</th>
+<li>net.java.dev.jets3t:jets3t:jar:0.7.1 (compile) <img id="_754263722" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_335004077', '_754263722' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_335004077" style="display:none"><table class="bodyTable"><tr class="a"><th>An open source Java toolkit for Amazon S3</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>JetS3t is a free, open-source Java toolkit and application suite for the Amazon Simple Storage Service (Amazon S3). The JetS3t toolkit provides Java programmers with a powerful yet simple API for interacting with S3 and managing data stored there.</p>
+<tr class="b"><td><p><b>Description: </b>JetS3t is a free, open-source Java toolkit and application suite for the Amazon Simple Storage Service (Amazon S3). The JetS3t toolkit provides Java programmers with a powerful yet simple API for interacting with S3 and managing data stored there.</p>
 <p><b>URL: </b><a href="http://jets3t.s3.amazonaws.com/index.html" class="externalLink">http://jets3t.s3.amazonaws.com/index.html</a></p>
 <p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0" class="externalLink">Apache License, Version 2.0</a></p>
 </td>
 </tr>
 </table>
-</div><ul><li>commons-codec:commons-codec:jar:1.3 (compile) <img id="_661175671" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1433559765', '_661175671' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1433559765" style="display:none"><table class="bodyTable"><tr class="b"><th>Codec</th>
+</div><ul><li>commons-codec:commons-codec:jar:1.3 (compile) <img id="_911949277" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_323473302', '_911949277' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_323473302" style="display:none"><table class="bodyTable"><tr class="a"><th>Codec</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>The codec package contains simple encoder and decoders for
+<tr class="b"><td><p><b>Description: </b>The codec package contains simple encoder and decoders for
    various formats such as Base64 and Hexadecimal.  In addition to these
    widely used encoders and decoders, the codec package also maintains a
    collection of phonetic encoding utilities.</p>
@@ -645,53 +756,53 @@
 </div></li>
 </ul>
 </li>
-<li>org.mortbay.jetty:servlet-api-2.5:jar:6.1.14 (compile) <img id="_2079897192" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_266937558', '_2079897192' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_266937558" style="display:none"><table class="bodyTable"><tr class="b"><th>Servlet Specification 2.5 API</th>
+<li>org.mortbay.jetty:servlet-api-2.5:jar:6.1.14 (compile) <img id="_1660426484" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_212028329', '_1660426484' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_212028329" style="display:none"><table class="bodyTable"><tr class="a"><th>Servlet Specification 2.5 API</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>Servlet Specification 2.5 API</p>
+<tr class="b"><td><p><b>Description: </b>Servlet Specification 2.5 API</p>
 <p><b>URL: </b><a href="http://jetty.mortbay.org/project/modules/servlet-api-2.5" class="externalLink">http://jetty.mortbay.org/project/modules/servlet-api-2.5</a></p>
 <p><b>Project License: </b><a href="https://glassfish.dev.java.net/public/CDDLv1.0.html" class="externalLink">CDDL 1.0</a></p>
 </td>
 </tr>
 </table>
 </div></li>
-<li>net.sf.kosmosfs:kfs:jar:0.3 (compile) <img id="_487538309" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_2075816143', '_487538309' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_2075816143" style="display:none"><table class="bodyTable"><tr class="b"><th>kosmosfs</th>
+<li>net.sf.kosmosfs:kfs:jar:0.3 (compile) <img id="_1853718739" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_923995491', '_1853718739' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_923995491" style="display:none"><table class="bodyTable"><tr class="a"><th>kosmosfs</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>Kosmos distributed file system provides high performance combined with availability and reliability.</p>
+<tr class="b"><td><p><b>Description: </b>Kosmos distributed file system provides high performance combined with availability and reliability.</p>
 <p><b>URL: </b><a href="http://kosmosfs.sourceforge.net/" class="externalLink">http://kosmosfs.sourceforge.net/</a></p>
 <p><b>Project License: </b><a href="http://www.apache.org/licenses/LICENSE-2.0.txt" class="externalLink">The Apache Software License, Version 2.0</a></p>
 </td>
 </tr>
 </table>
 </div></li>
-<li>junit:junit:jar:4.5 (compile) <img id="_1007207935" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1603778191', '_1007207935' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1603778191" style="display:none"><table class="bodyTable"><tr class="b"><th>JUnit</th>
+<li>junit:junit:jar:4.5 (compile) <img id="_456486407" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_871199394', '_456486407' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_871199394" style="display:none"><table class="bodyTable"><tr class="a"><th>JUnit</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>JUnit is a regression testing framework written by Erich Gamma and Kent Beck. It is used by the developer who implements unit tests in Java.</p>
+<tr class="b"><td><p><b>Description: </b>JUnit is a regression testing framework written by Erich Gamma and Kent Beck. It is used by the developer who implements unit tests in Java.</p>
 <p><b>URL: </b><a href="http://junit.org" class="externalLink">http://junit.org</a></p>
 <p><b>Project License: </b><a href="http://www.opensource.org/licenses/cpl1.0.txt" class="externalLink">Common Public License Version 1.0</a></p>
 </td>
 </tr>
 </table>
 </div></li>
-<li>hsqldb:hsqldb:jar:1.8.0.10 (compile) <img id="_254359349" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_437470864', '_254359349' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_437470864" style="display:none"><table class="bodyTable"><tr class="b"><th>HSQLDB</th>
+<li>hsqldb:hsqldb:jar:1.8.0.10 (compile) <img id="_805181054" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_14769912', '_805181054' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_14769912" style="display:none"><table class="bodyTable"><tr class="a"><th>HSQLDB</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>Lightweight 100% Java SQL Database Engine</p>
+<tr class="b"><td><p><b>Description: </b>Lightweight 100% Java SQL Database Engine</p>
 <p><b>URL: </b><a href="http://hsqldb.org/" class="externalLink">http://hsqldb.org/</a></p>
 <p><b>Project License: </b><a href="http://hsqldb.org/web/hsqlLicense.html" class="externalLink">HSQLDB License</a></p>
 </td>
 </tr>
 </table>
 </div></li>
-<li>oro:oro:jar:2.0.8 (compile) <img id="_997200016" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1506255256', '_997200016' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1506255256" style="display:none"><table class="bodyTable"><tr class="b"><th>Unnamed - oro:oro:jar:2.0.8</th>
+<li>oro:oro:jar:2.0.8 (compile) <img id="_1846306064" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_220236989', '_1846306064' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_220236989" style="display:none"><table class="bodyTable"><tr class="a"><th>Unnamed - oro:oro:jar:2.0.8</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
+<tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
 <p><b>Project License: </b>No project license is defined for this project.</p>
 </td>
 </tr>
 </table>
 </div></li>
-<li>org.eclipse.jdt:core:jar:3.1.1 (compile) <img id="_1590550850" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1418546470', '_1590550850' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1418546470" style="display:none"><table class="bodyTable"><tr class="b"><th>Eclipse JDT Core</th>
+<li>org.eclipse.jdt:core:jar:3.1.1 (compile) <img id="_1837509342" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_692755686', '_1837509342' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_692755686" style="display:none"><table class="bodyTable"><tr class="a"><th>Eclipse JDT Core</th>
 </tr>
-<tr class="a"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
+<tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
 <p><b>URL: </b><a href="http://www.eclipse.org/jdt/" class="externalLink">http://www.eclipse.org/jdt/</a></p>
 <p><b>Project License: </b><a href="http://www.eclipse.org/org/documents/epl-v10.php" class="externalLink">Eclipse Public License v1.0</a></p>
 </td>
@@ -708,18 +819,19 @@
 <div class="section"><h2>Licenses</h2>
 <p><b>HSQLDB License: </b>HSQLDB</p>
 <p><b>CDDL 1.0: </b>Glassfish Jasper, Servlet Specification 2.5 API</p>
-<p><b>Unknown: </b>Log4j, Logging, Unnamed - joda-time:joda-time:jar:1.6, Unnamed - org.apache.hadoop:hadoop-core:jar:0.20.2, Unnamed - org.apache.thrift:thrift:jar:0.2.0, Unnamed - oro:oro:jar:2.0.8, Unnamed - tomcat:jasper-compiler:jar:5.5.12, Unnamed - tomcat:jasper-runtime:jar:5.5.12, slf4j-log4j</p>
+<p><b>Unknown: </b>Log4j, Logging, SLF4J API Module, SLF4J LOG4J-12 Binding, Unnamed - joda-time:joda-time:jar:1.6, Unnamed - org.apache.hadoop:hadoop-core:jar:0.20.2, Unnamed - org.apache.thrift:thrift:jar:0.2.0, Unnamed - oro:oro:jar:2.0.8, Unnamed - tomcat:jasper-compiler:jar:5.5.12, Unnamed - tomcat:jasper-runtime:jar:5.5.12</p>
 <p><b>Apache License: </b>HttpClient</p>
 <p><b>Apache License, Version 2.0: </b>An open source Java toolkit for Amazon S3</p>
-<p><b>Apache License 2.0: </b>serialization-common, serialization-hadoop, serialization-thrift</p>
+<p><b>Apache License 2.0: </b>serialization-common, serialization-hadoop, serialization-smile, serialization-thrift</p>
 <p><b>Common Public License Version 1.0: </b>JUnit</p>
 <p><b>Eclipse Public License v1.0: </b>Eclipse JDT Core</p>
-<p><b>The Apache Software License, Version 2.0: </b>Codec, Commons CLI, EL, Jakarta Commons Net, Unnamed - ant:ant:jar:1.6.5, kosmosfs</p>
+<p><b>The Apache Software License, Version 2.0: </b>Codec, Commons CLI, Data Mapper for Jackson, EL, Jackson, Jakarta Commons Net, Support for Smile data format (&quot;binary infoset for JSON&quot;), Unnamed - ant:ant:jar:1.6.5, kosmosfs</p>
+<p><b>GNU Lesser General Public License (LGPL), Version 2.1: </b>Support for Smile data format (&quot;binary infoset for JSON&quot;)</p>
 <p><b>Apache License Version 2.0: </b>Glassfish Jasper API</p>
 <p><b>The BSD License: </b>xmlenc Library</p>
 </div>
 <div class="section"><h2>Dependency File Details</h2>
-<table class="bodyTable"><tbody><tr class="b"><th align="left">Filename</th>
+<table class="bodyTable"><tbody><tr class="a"><th align="left">Filename</th>
 <th align="right">Size</th>
 <th align="right">Entries</th>
 <th align="right">Classes</th>
@@ -727,7 +839,7 @@
 <th align="center">JDK Rev</th>
 <th align="center">Debug</th>
 </tr>
-<tr class="a"><td align="left">ant-1.6.5.jar</td>
+<tr class="b"><td align="left">ant-1.6.5.jar</td>
 <td align="right">1,009.81 kB</td>
 <td align="right">616</td>
 <td align="right">576</td>
@@ -735,16 +847,24 @@
 <td align="center">1.2</td>
 <td align="center">debug</td>
 </tr>
-<tr class="b"><td align="left">metrics.serialization-common-1.0.3-SNAPSHOT.jar</td>
-<td align="right">31.81 kB</td>
-<td align="right">42</td>
-<td align="right">28</td>
+<tr class="a"><td align="left">metrics.serialization-common-1.2.1-SNAPSHOT.jar</td>
+<td align="right">32.19 kB</td>
+<td align="right">43</td>
+<td align="right">29</td>
 <td align="right">3</td>
 <td align="center">1.6</td>
 <td align="center">debug</td>
 </tr>
-<tr class="a"><td align="left">metrics.serialization-thrift-1.0.3-SNAPSHOT.jar</td>
-<td align="right">46.71 kB</td>
+<tr class="b"><td align="left">metrics.serialization-smile-1.2.1-SNAPSHOT.jar</td>
+<td align="right">14.77 kB</td>
+<td align="right">21</td>
+<td align="right">8</td>
+<td align="right">2</td>
+<td align="center">1.6</td>
+<td align="center">debug</td>
+</tr>
+<tr class="a"><td align="left">metrics.serialization-thrift-1.2.1-SNAPSHOT.jar</td>
+<td align="right">46.86 kB</td>
 <td align="right">48</td>
 <td align="right">33</td>
 <td align="right">4</td>
@@ -863,7 +983,31 @@
 <td align="center">1.5</td>
 <td align="center">debug</td>
 </tr>
-<tr class="b"><td align="left">core-3.1.1.jar</td>
+<tr class="b"><td align="left">jackson-core-asl-1.7.2.jar</td>
+<td align="right">202.52 kB</td>
+<td align="right">134</td>
+<td align="right">119</td>
+<td align="right">7</td>
+<td align="center">1.5</td>
+<td align="center">debug</td>
+</tr>
+<tr class="a"><td align="left">jackson-mapper-asl-1.7.2.jar</td>
+<td align="right">610.18 kB</td>
+<td align="right">442</td>
+<td align="right">417</td>
+<td align="right">16</td>
+<td align="center">1.5</td>
+<td align="center">debug</td>
+</tr>
+<tr class="b"><td align="left">jackson-smile-1.7.2.jar</td>
+<td align="right">46.33 kB</td>
+<td align="right">23</td>
+<td align="right">13</td>
+<td align="right">1</td>
+<td align="center">1.5</td>
+<td align="center">debug</td>
+</tr>
+<tr class="a"><td align="left">core-3.1.1.jar</td>
 <td align="right">3.40 MB</td>
 <td align="right">1,343</td>
 <td align="right">1,256</td>
@@ -871,7 +1015,7 @@
 <td align="center">1.2</td>
 <td align="center">debug</td>
 </tr>
-<tr class="a"><td align="left">jsp-2.1-6.1.14.jar</td>
+<tr class="b"><td align="left">jsp-2.1-6.1.14.jar</td>
 <td align="right">1,000.66 kB</td>
 <td align="right">679</td>
 <td align="right">585</td>
@@ -879,7 +1023,7 @@
 <td align="center">1.5</td>
 <td align="center">debug</td>
 </tr>
-<tr class="b"><td align="left">jsp-api-2.1-6.1.14.jar</td>
+<tr class="a"><td align="left">jsp-api-2.1-6.1.14.jar</td>
 <td align="right">131.75 kB</td>
 <td align="right">134</td>
 <td align="right">107</td>
@@ -887,7 +1031,7 @@
 <td align="center">1.5</td>
 <td align="center">debug</td>
 </tr>
-<tr class="a"><td align="left">servlet-api-2.5-6.1.14.jar</td>
+<tr class="b"><td align="left">servlet-api-2.5-6.1.14.jar</td>
 <td align="right">129.27 kB</td>
 <td align="right">78</td>
 <td align="right">42</td>
@@ -895,12 +1039,20 @@
 <td align="center">1.4</td>
 <td align="center">debug</td>
 </tr>
-<tr class="b"><td align="left">slf4j-log4j13-1.0.1.jar</td>
-<td align="right">13.47 kB</td>
-<td align="right">24</td>
-<td align="right">17</td>
+<tr class="a"><td align="left">slf4j-api-1.5.6.jar</td>
+<td align="right">21.81 kB</td>
+<td align="right">32</td>
+<td align="right">21</td>
 <td align="right">3</td>
-<td align="center">1.2</td>
+<td align="center">1.3</td>
+<td align="center">debug</td>
+</tr>
+<tr class="b"><td align="left">slf4j-log4j12-1.5.6.jar</td>
+<td align="right">9.45 kB</td>
+<td align="right">16</td>
+<td align="right">6</td>
+<td align="right">1</td>
+<td align="center">1.3</td>
 <td align="center">debug</td>
 </tr>
 <tr class="a"><td align="left">oro-2.0.8.jar</td>
@@ -943,29 +1095,29 @@
 <th align="center">JDK Rev</th>
 <th align="center">Debug</th>
 </tr>
-<tr class="b"><td align="right">26</td>
-<td align="right">11.74 MB</td>
-<td align="right">7,203</td>
-<td align="right">5,969</td>
-<td align="right">332</td>
+<tr class="b"><td align="right">31</td>
+<td align="right">12.61 MB</td>
+<td align="right">7,848</td>
+<td align="right">6,537</td>
+<td align="right">359</td>
 <td align="center">1.6</td>
-<td align="right">23</td>
+<td align="right">28</td>
 </tr>
-<tr class="a"><td align="right">compile: 25</td>
-<td align="right">compile: 11.72 MB</td>
-<td align="right">compile: 7,179</td>
-<td align="right">compile: 5,952</td>
-<td align="right">compile: 329</td>
+<tr class="a"><td align="right">compile: 29</td>
+<td align="right">compile: 12.58 MB</td>
+<td align="right">compile: 7,800</td>
+<td align="right">compile: 6,510</td>
+<td align="right">compile: 355</td>
 <td align="center">-</td>
-<td align="right">compile: 22</td>
+<td align="right">compile: 26</td>
 </tr>
-<tr class="b"><td align="right">runtime: 1</td>
-<td align="right">runtime: 13.47 kB</td>
-<td align="right">runtime: 24</td>
-<td align="right">runtime: 17</td>
-<td align="right">runtime: 3</td>
+<tr class="b"><td align="right">runtime: 2</td>
+<td align="right">runtime: 31.27 kB</td>
+<td align="right">runtime: 48</td>
+<td align="right">runtime: 27</td>
+<td align="right">runtime: 4</td>
 <td align="center">-</td>
-<td align="right">runtime: 1</td>
+<td align="right">runtime: 2</td>
 </tr>
 </tbody>
 </table>
@@ -989,37 +1141,43 @@
 <td align="center">Yes</td>
 <td align="center">-</td>
 </tr>
-<tr class="b"><td align="left">sonatype-nexus-snapshots</td>
+<tr class="b"><td align="left">neo4j-public-repository</td>
+<td align="left"><a href="http://m2.neo4j.org" class="externalLink">http://m2.neo4j.org</a></td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+<td align="center">-</td>
+</tr>
+<tr class="a"><td align="left">sonatype-nexus-snapshots</td>
 <td align="left"><a href="https://oss.sonatype.org/content/repositories/snapshots" class="externalLink">https://oss.sonatype.org/content/repositories/snapshots</a></td>
 <td align="center">-</td>
 <td align="center">Yes</td>
 <td align="center">-</td>
 </tr>
-<tr class="a"><td align="left">java.net</td>
+<tr class="b"><td align="left">java.net</td>
 <td align="left"><a href="http://download.java.net/maven/2" class="externalLink">http://download.java.net/maven/2</a></td>
 <td align="center">Yes</td>
 <td align="center">-</td>
 <td align="center">-</td>
 </tr>
-<tr class="b"><td align="left">releases</td>
+<tr class="a"><td align="left">releases</td>
 <td align="left">http://mavenrepo.ningops.net:8081/nexus/content/groups/public</td>
 <td align="center">Yes</td>
 <td align="center">-</td>
 <td align="center">Yes</td>
 </tr>
-<tr class="a"><td align="left">m1.java.net</td>
+<tr class="b"><td align="left">m1.java.net</td>
 <td align="left"><a href="http://download.java.net/maven/1" class="externalLink">http://download.java.net/maven/1</a></td>
 <td align="center">Yes</td>
 <td align="center">-</td>
 <td align="center">-</td>
 </tr>
-<tr class="b"><td align="left">snapshots</td>
+<tr class="a"><td align="left">snapshots</td>
 <td align="left">http://mavenrepo.ningops.net:8081/nexus/content/groups/public-snapshots</td>
 <td align="center">-</td>
 <td align="center">Yes</td>
 <td align="center">Yes</td>
 </tr>
-<tr class="a"><td align="left">central</td>
+<tr class="b"><td align="left">central</td>
 <td align="left"><a href="http://repo1.maven.org/maven2" class="externalLink">http://repo1.maven.org/maven2</a></td>
 <td align="center">Yes</td>
 <td align="center">-</td>
@@ -1028,15 +1186,17 @@
 </tbody>
 </table>
 <p>Repository locations for each of the Dependencies.</p>
-<table class="bodyTable"><tbody><tr class="b"><th align="left">Artifact</th>
+<table class="bodyTable"><tbody><tr class="a"><th align="left">Artifact</th>
 <th align="center">codehaus.org</th>
 <th align="center">apache.snapshots</th>
+<th align="center">neo4j-public-repository</th>
 <th align="center">sonatype-nexus-snapshots</th>
 <th align="center">java.net</th>
 <th align="center">m1.java.net</th>
 <th align="center">central</th>
 </tr>
-<tr class="a"><td align="left">ant:ant:jar:1.6.5</td>
+<tr class="b"><td align="left">ant:ant:jar:1.6.5</td>
+<td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
@@ -1044,23 +1204,35 @@
 <td align="center">-</td>
 <td align="center"><a href="http://repo1.maven.org/maven2/ant/ant/1.6.5/ant-1.6.5.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
 </tr>
-<tr class="b"><td align="left">com.ning:metrics.serialization-common:jar:1.0.3-SNAPSHOT</td>
+<tr class="a"><td align="left">com.ning:metrics.serialization-common:jar:1.2.1-SNAPSHOT</td>
 <td align="center">-</td>
 <td align="center">-</td>
-<td align="center"><a href="https://oss.sonatype.org/content/repositories/snapshots/com/ning/metrics.serialization-common/1.0.3-SNAPSHOT/metrics.serialization-common-1.0.3-20101122.210715-8.jar" class="externalLink"><img alt="Found at https://oss.sonatype.org/content/repositories/snapshots" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
 </tr>
-<tr class="a"><td align="left">com.ning:metrics.serialization-thrift:jar:1.0.3-SNAPSHOT</td>
+<tr class="b"><td align="left">com.ning:metrics.serialization-smile:jar:1.2.1-SNAPSHOT</td>
 <td align="center">-</td>
 <td align="center">-</td>
-<td align="center"><a href="https://oss.sonatype.org/content/repositories/snapshots/com/ning/metrics.serialization-thrift/1.0.3-SNAPSHOT/metrics.serialization-thrift-1.0.3-20101122.210715-7.jar" class="externalLink"><img alt="Found at https://oss.sonatype.org/content/repositories/snapshots" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr class="a"><td align="left">com.ning:metrics.serialization-thrift:jar:1.2.1-SNAPSHOT</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
 </tr>
 <tr class="b"><td align="left">commons-cli:commons-cli:jar:1.2</td>
+<td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
@@ -1074,9 +1246,11 @@
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
+<td align="center">-</td>
 <td align="center"><a href="http://repo1.maven.org/maven2/commons-codec/commons-codec/1.3/commons-codec-1.3.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
 </tr>
 <tr class="b"><td align="left">commons-el:commons-el:jar:1.0</td>
+<td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
@@ -1090,9 +1264,11 @@
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
+<td align="center">-</td>
 <td align="center"><a href="http://repo1.maven.org/maven2/commons-httpclient/commons-httpclient/3.0.1/commons-httpclient-3.0.1.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
 </tr>
 <tr class="b"><td align="left">commons-logging:commons-logging:jar:1.0.3</td>
+<td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
@@ -1106,9 +1282,11 @@
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
+<td align="center">-</td>
 <td align="center"><a href="http://repo1.maven.org/maven2/commons-net/commons-net/1.4.1/commons-net-1.4.1.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
 </tr>
 <tr class="b"><td align="left">hsqldb:hsqldb:jar:1.8.0.10</td>
+<td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
@@ -1122,9 +1300,11 @@
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
+<td align="center">-</td>
 <td align="center"><a href="http://repo1.maven.org/maven2/joda-time/joda-time/1.6/joda-time-1.6.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
 </tr>
 <tr class="b"><td align="left">junit:junit:jar:4.5</td>
+<td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
@@ -1138,9 +1318,11 @@
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
+<td align="center">-</td>
 <td align="center"><a href="http://repo1.maven.org/maven2/log4j/log4j/1.2.13/log4j-1.2.13.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
 </tr>
 <tr class="b"><td align="left">net.java.dev.jets3t:jets3t:jar:0.7.1</td>
+<td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
@@ -1154,9 +1336,11 @@
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
+<td align="center">-</td>
 <td align="center"><a href="http://repo1.maven.org/maven2/net/sf/kosmosfs/kfs/0.3/kfs-0.3.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
 </tr>
 <tr class="b"><td align="left">org.apache.hadoop:hadoop-core:jar:0.20.2</td>
+<td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
@@ -1171,8 +1355,37 @@
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
+<td align="center">-</td>
 </tr>
-<tr class="b"><td align="left">org.eclipse.jdt:core:jar:3.1.1</td>
+<tr class="b"><td align="left">org.codehaus.jackson:jackson-core-asl:jar:1.7.2</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a href="http://repo1.maven.org/maven2/org/codehaus/jackson/jackson-core-asl/1.7.2/jackson-core-asl-1.7.2.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+</tr>
+<tr class="a"><td align="left">org.codehaus.jackson:jackson-mapper-asl:jar:1.7.2</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a href="http://repo1.maven.org/maven2/org/codehaus/jackson/jackson-mapper-asl/1.7.2/jackson-mapper-asl-1.7.2.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+</tr>
+<tr class="b"><td align="left">org.codehaus.jackson:jackson-smile:jar:1.7.2</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a href="http://repo1.maven.org/maven2/org/codehaus/jackson/jackson-smile/1.7.2/jackson-smile-1.7.2.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+</tr>
+<tr class="a"><td align="left">org.eclipse.jdt:core:jar:3.1.1</td>
+<td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
@@ -1180,7 +1393,8 @@
 <td align="center">-</td>
 <td align="center"><a href="http://repo1.maven.org/maven2/org/eclipse/jdt/core/3.1.1/core-3.1.1.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
 </tr>
-<tr class="a"><td align="left">org.mortbay.jetty:jsp-2.1:jar:6.1.14</td>
+<tr class="b"><td align="left">org.mortbay.jetty:jsp-2.1:jar:6.1.14</td>
+<td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
@@ -1188,7 +1402,8 @@
 <td align="center">-</td>
 <td align="center"><a href="http://repo1.maven.org/maven2/org/mortbay/jetty/jsp-2.1/6.1.14/jsp-2.1-6.1.14.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
 </tr>
-<tr class="b"><td align="left">org.mortbay.jetty:jsp-api-2.1:jar:6.1.14</td>
+<tr class="a"><td align="left">org.mortbay.jetty:jsp-api-2.1:jar:6.1.14</td>
+<td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
@@ -1196,7 +1411,8 @@
 <td align="center">-</td>
 <td align="center"><a href="http://repo1.maven.org/maven2/org/mortbay/jetty/jsp-api-2.1/6.1.14/jsp-api-2.1-6.1.14.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
 </tr>
-<tr class="a"><td align="left">org.mortbay.jetty:servlet-api-2.5:jar:6.1.14</td>
+<tr class="b"><td align="left">org.mortbay.jetty:servlet-api-2.5:jar:6.1.14</td>
+<td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
@@ -1204,15 +1420,26 @@
 <td align="center">-</td>
 <td align="center"><a href="http://repo1.maven.org/maven2/org/mortbay/jetty/servlet-api-2.5/6.1.14/servlet-api-2.5-6.1.14.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
 </tr>
-<tr class="b"><td align="left">org.slf4j:slf4j-log4j13:jar:1.0.1</td>
+<tr class="a"><td align="left">org.slf4j:slf4j-api:jar:1.5.6</td>
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
-<td align="center"><a href="http://repo1.maven.org/maven2/org/slf4j/slf4j-log4j13/1.0.1/slf4j-log4j13-1.0.1.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center"><a href="http://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.5.6/slf4j-api-1.5.6.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+</tr>
+<tr class="b"><td align="left">org.slf4j:slf4j-log4j12:jar:1.5.6</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a href="http://repo1.maven.org/maven2/org/slf4j/slf4j-log4j12/1.5.6/slf4j-log4j12-1.5.6.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
 </tr>
 <tr class="a"><td align="left">oro:oro:jar:2.0.8</td>
+<td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
@@ -1226,9 +1453,11 @@
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
+<td align="center">-</td>
 <td align="center"><a href="http://repo1.maven.org/maven2/tomcat/jasper-compiler/5.5.12/jasper-compiler-5.5.12.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
 </tr>
 <tr class="a"><td align="left">tomcat:jasper-runtime:jar:5.5.12</td>
+<td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
@@ -1242,23 +1471,26 @@
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
+<td align="center">-</td>
 <td align="center"><a href="http://repo1.maven.org/maven2/xmlenc/xmlenc/0.52/xmlenc-0.52.jar" class="externalLink"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
 </tr>
 <tr class="a"><th align="left">Total</th>
 <th align="center">codehaus.org</th>
 <th align="center">apache.snapshots</th>
+<th align="center">neo4j-public-repository</th>
 <th align="center">sonatype-nexus-snapshots</th>
 <th align="center">java.net</th>
 <th align="center">m1.java.net</th>
 <th align="center">central</th>
 </tr>
-<tr class="b"><td align="left">26 (compile: 25, runtime: 1)</td>
+<tr class="b"><td align="left">31 (compile: 29, runtime: 2)</td>
 <td align="center">0</td>
 <td align="center">0</td>
-<td align="center">2</td>
 <td align="center">0</td>
 <td align="center">0</td>
-<td align="center">23</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">27</td>
 </tr>
 </tbody>
 </table>
@@ -1271,7 +1503,7 @@
     </div>
     <div id="footer">
       <div class="xright">&#169;  
-          2010
+          2011
     
           
   
