@@ -1,5 +1,5 @@
 -classpath
-'/Users/pierre/open-source/goodwill-access/target/classes:/Users/pierre/.m2/repository/log4j/log4j/1.2.13/log4j-1.2.13.jar:/Users/pierre/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.6.0/jackson-mapper-asl-1.6.0.jar:/Users/pierre/.m2/repository/com/ning/async-http-client/1.4.0/async-http-client-1.4.0.jar:/Users/pierre/.m2/repository/joda-time/joda-time/1.6/joda-time-1.6.jar:/Users/pierre/.m2/repository/com/ning/metrics.serialization-common/1.0.2/metrics.serialization-common-1.0.2.jar:/Users/pierre/.m2/repository/com/google/collections/google-collections/1.0/google-collections-1.0.jar:/Users/pierre/.m2/repository/org/jboss/netty/netty/3.2.3.Final/netty-3.2.3.Final.jar:/Users/pierre/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.6.0/jackson-core-asl-1.6.0.jar'
+'/Users/pierre/open-source/goodwill-access/target/classes:/Users/pierre/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar:/Users/pierre/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.8.0/jackson-mapper-asl-1.8.0.jar:/Users/pierre/.m2/repository/com/ning/async-http-client/1.6.3/async-http-client-1.6.3.jar:/Users/pierre/.m2/repository/joda-time/joda-time/1.6/joda-time-1.6.jar:/Users/pierre/.m2/repository/com/ning/metrics.serialization-common/1.0.6/metrics.serialization-common-1.0.6.jar:/Users/pierre/.m2/repository/com/google/collections/google-collections/1.0/google-collections-1.0.jar:/Users/pierre/.m2/repository/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar:/Users/pierre/.m2/repository/org/jboss/netty/netty/3.2.4.Final/netty-3.2.4.Final.jar:/Users/pierre/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.8.0/jackson-core-asl-1.8.0.jar'
 -encoding
 'UTF-8'
 -protected
@@ -9,7 +9,7 @@
 '/Users/pierre/open-source/goodwill-access/src/main/java'
 -author
 -bottom
-'Copyright &#169; 2010. All Rights Reserved.'
+'Copyright &#169; 2011. All Rights Reserved.'
 -charset
 'UTF-8'
 -d
@@ -17,9 +17,9 @@
 -docencoding
 'UTF-8'
 -doctitle
-'goodwill-access 0.0.8-SNAPSHOT API'
+'goodwill-access 0.1.1-SNAPSHOT API'
 -linksource
 -use
 -version
 -windowtitle
-'goodwill-access 0.0.8-SNAPSHOT API'
+'goodwill-access 0.1.1-SNAPSHOT API'
