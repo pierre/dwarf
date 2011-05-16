@@ -1,1 +1,2 @@
 com.ning.metrics.serialization.hadoop
+com.ning.metrics.serialization.hadoop.pig

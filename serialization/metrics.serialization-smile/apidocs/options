@@ -1,5 +1,5 @@
 -classpath
-'/Users/pierre/open-source/serialization/smile/target/classes:/Users/pierre/.m2/repository/log4j/log4j/1.2.13/log4j-1.2.13.jar:/Users/pierre/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.7.2/jackson-mapper-asl-1.7.2.jar:/Users/pierre/.m2/repository/org/codehaus/jackson/jackson-smile/1.7.2/jackson-smile-1.7.2.jar:/Users/pierre/.m2/repository/joda-time/joda-time/1.6/joda-time-1.6.jar:/Users/pierre/.m2/repository/com/ning/metrics.serialization-common/1.2.1-SNAPSHOT/metrics.serialization-common-1.2.1-SNAPSHOT.jar:/Users/pierre/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.7.2/jackson-core-asl-1.7.2.jar'
+'/Users/pierre/open-source/serialization/smile/target/classes:/Users/pierre/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar:/Users/pierre/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.8.0/jackson-mapper-asl-1.8.0.jar:/Users/pierre/.m2/repository/org/codehaus/jackson/jackson-smile/1.8.0/jackson-smile-1.8.0.jar:/Users/pierre/.m2/repository/joda-time/joda-time/1.6.2/joda-time-1.6.2.jar:/Users/pierre/.m2/repository/com/ning/metrics.serialization-common/2.0.0-pre2-SNAPSHOT/metrics.serialization-common-2.0.0-pre2-SNAPSHOT.jar:/Users/pierre/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.8.0/jackson-core-asl-1.8.0.jar'
 -encoding
 'UTF-8'
 -protected
@@ -17,7 +17,7 @@
 -docencoding
 'UTF-8'
 -doctitle
-'serialization-smile 1.2.1-SNAPSHOT API'
+'serialization-smile 2.0.0-pre2-SNAPSHOT API'
 -link
 'http://commons.apache.org/lang/api'
 -link
@@ -28,4 +28,4 @@
 -use
 -version
 -windowtitle
-'serialization-smile 1.2.1-SNAPSHOT API'
+'serialization-smile 2.0.0-pre2-SNAPSHOT API'

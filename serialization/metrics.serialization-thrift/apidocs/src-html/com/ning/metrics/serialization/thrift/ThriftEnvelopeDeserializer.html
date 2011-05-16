@@ -56,7 +56,7 @@
 <FONT color="green">053</FONT>                        typeName = protocol.readString();<a name="line.53"></a>
 <FONT color="green">054</FONT>                    }<a name="line.54"></a>
 <FONT color="green">055</FONT>                    else if (currentField.id == ThriftEnvelopeSerialization.PAYLOAD_ID) {<a name="line.55"></a>
-<FONT color="green">056</FONT>                        thriftFieldList.addAll(payloadDeserializer.readPayload(protocol.readBinary()));<a name="line.56"></a>
+<FONT color="green">056</FONT>                        thriftFieldList.addAll(payloadDeserializer.readPayload(protocol.readBinary().array()));<a name="line.56"></a>
 <FONT color="green">057</FONT>                    }<a name="line.57"></a>
 <FONT color="green">058</FONT>                    else if (currentField.id == ThriftEnvelopeSerialization.NAME_ID) {<a name="line.58"></a>
 <FONT color="green">059</FONT>                        name = protocol.readString();<a name="line.59"></a>

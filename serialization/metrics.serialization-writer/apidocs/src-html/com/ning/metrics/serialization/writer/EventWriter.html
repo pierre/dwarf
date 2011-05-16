@@ -25,16 +25,35 @@
 <FONT color="green">022</FONT>    <a name="line.22"></a>
 <FONT color="green">023</FONT>    public interface EventWriter<a name="line.23"></a>
 <FONT color="green">024</FONT>    {<a name="line.24"></a>
-<FONT color="green">025</FONT>        public void write(Event event) throws IOException;<a name="line.25"></a>
-<FONT color="green">026</FONT>    <a name="line.26"></a>
-<FONT color="green">027</FONT>        public void commit() throws IOException;<a name="line.27"></a>
-<FONT color="green">028</FONT>    <a name="line.28"></a>
-<FONT color="green">029</FONT>        public void forceCommit() throws IOException;<a name="line.29"></a>
-<FONT color="green">030</FONT>    <a name="line.30"></a>
-<FONT color="green">031</FONT>        public void flush() throws IOException;<a name="line.31"></a>
-<FONT color="green">032</FONT>    <a name="line.32"></a>
-<FONT color="green">033</FONT>        public void rollback() throws IOException;<a name="line.33"></a>
-<FONT color="green">034</FONT>    }<a name="line.34"></a>
+<FONT color="green">025</FONT>        /**<a name="line.25"></a>
+<FONT color="green">026</FONT>         * Write an event to disk. This can throw an exception if:<a name="line.26"></a>
+<FONT color="green">027</FONT>         * &lt;UL&gt;<a name="line.27"></a>
+<FONT color="green">028</FONT>         * &lt;LI&gt;We cannot open the outputter<a name="line.28"></a>
+<FONT color="green">029</FONT>         * &lt;LI&gt;If the Java serialization library throws a RuntimeException<a name="line.29"></a>
+<FONT color="green">030</FONT>         * &lt;LI&gt;Generic IOException from the serialization library<a name="line.30"></a>
+<FONT color="green">031</FONT>         * &lt;/UL&gt;<a name="line.31"></a>
+<FONT color="green">032</FONT>         * &lt;p/&gt;<a name="line.32"></a>
+<FONT color="green">033</FONT>         * There is no good reason to put the file in quarantine (rollback) on error. Either the event is bad (RuntimeException)<a name="line.33"></a>
+<FONT color="green">034</FONT>         * or the write failed, in that case, it's suboptimal to quarantine all events currently in the file.<a name="line.34"></a>
+<FONT color="green">035</FONT>         *<a name="line.35"></a>
+<FONT color="green">036</FONT>         * @param event Event to write<a name="line.36"></a>
+<FONT color="green">037</FONT>         * @throws IOException See above<a name="line.37"></a>
+<FONT color="green">038</FONT>         */<a name="line.38"></a>
+<FONT color="green">039</FONT>        public void write(Event event) throws IOException;<a name="line.39"></a>
+<FONT color="green">040</FONT>    <a name="line.40"></a>
+<FONT color="green">041</FONT>        public void commit() throws IOException;<a name="line.41"></a>
+<FONT color="green">042</FONT>    <a name="line.42"></a>
+<FONT color="green">043</FONT>        public void forceCommit() throws IOException;<a name="line.43"></a>
+<FONT color="green">044</FONT>    <a name="line.44"></a>
+<FONT color="green">045</FONT>        public void flush() throws IOException;<a name="line.45"></a>
+<FONT color="green">046</FONT>    <a name="line.46"></a>
+<FONT color="green">047</FONT>        /**<a name="line.47"></a>
+<FONT color="green">048</FONT>         * Used in case the commit fails (the current output files is moved to quarantined).<a name="line.48"></a>
+<FONT color="green">049</FONT>         *<a name="line.49"></a>
+<FONT color="green">050</FONT>         * @throws IOException generic IOException<a name="line.50"></a>
+<FONT color="green">051</FONT>         */<a name="line.51"></a>
+<FONT color="green">052</FONT>        public void rollback() throws IOException;<a name="line.52"></a>
+<FONT color="green">053</FONT>    }<a name="line.53"></a>
 
 
 

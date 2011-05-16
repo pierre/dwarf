@@ -72,7 +72,7 @@
 <FONT color="green">069</FONT>        @Override<a name="line.69"></a>
 <FONT color="green">070</FONT>        public DateTime getEventDateTime()<a name="line.70"></a>
 <FONT color="green">071</FONT>        {<a name="line.71"></a>
-<FONT color="green">072</FONT>            throw new RuntimeException("Events in SmileBucket have different timestamps!");<a name="line.72"></a>
+<FONT color="green">072</FONT>            return null;<a name="line.72"></a>
 <FONT color="green">073</FONT>        }<a name="line.73"></a>
 <FONT color="green">074</FONT>    <a name="line.74"></a>
 <FONT color="green">075</FONT>        @Override<a name="line.75"></a>
@@ -132,70 +132,77 @@
 <FONT color="green">129</FONT>         * Serialize an event to a byte array.<a name="line.129"></a>
 <FONT color="green">130</FONT>         * This method is optional, methods relying on this call should handle gracefully null.<a name="line.130"></a>
 <FONT color="green">131</FONT>         *<a name="line.131"></a>
-<FONT color="green">132</FONT>         * @return byte array representation of an event, can return null<a name="line.132"></a>
-<FONT color="green">133</FONT>         */<a name="line.133"></a>
-<FONT color="green">134</FONT>        @Override<a name="line.134"></a>
-<FONT color="green">135</FONT>        public byte[] getSerializedEvent()<a name="line.135"></a>
-<FONT color="green">136</FONT>        {<a name="line.136"></a>
-<FONT color="green">137</FONT>            return ((ByteArrayOutputStream) getData()).toByteArray();<a name="line.137"></a>
-<FONT color="green">138</FONT>        }<a name="line.138"></a>
-<FONT color="green">139</FONT>    <a name="line.139"></a>
-<FONT color="green">140</FONT>        @Override<a name="line.140"></a>
-<FONT color="green">141</FONT>        public void writeExternal(ObjectOutput objectOutput) throws IOException<a name="line.141"></a>
-<FONT color="green">142</FONT>        {<a name="line.142"></a>
-<FONT color="green">143</FONT>            int eventNameLength = eventName.length();<a name="line.143"></a>
-<FONT color="green">144</FONT>            objectOutput.writeInt(eventNameLength);<a name="line.144"></a>
-<FONT color="green">145</FONT>            objectOutput.write(eventName.getBytes(CHARSET));<a name="line.145"></a>
-<FONT color="green">146</FONT>    <a name="line.146"></a>
-<FONT color="green">147</FONT>            int granularityLength = granularity.toString().length();<a name="line.147"></a>
-<FONT color="green">148</FONT>            objectOutput.writeInt(granularityLength);<a name="line.148"></a>
-<FONT color="green">149</FONT>            objectOutput.write(granularity.toString().getBytes(CHARSET));<a name="line.149"></a>
-<FONT color="green">150</FONT>    <a name="line.150"></a>
-<FONT color="green">151</FONT>            objectOutput.writeInt(suffixOutputPath.length());<a name="line.151"></a>
-<FONT color="green">152</FONT>            objectOutput.write(suffixOutputPath.getBytes(CHARSET));<a name="line.152"></a>
+<FONT color="green">132</FONT>         * Only serializes the data, not the event metadata.<a name="line.132"></a>
+<FONT color="green">133</FONT>         *<a name="line.133"></a>
+<FONT color="green">134</FONT>         * @return byte array representation of an event, can return null<a name="line.134"></a>
+<FONT color="green">135</FONT>         */<a name="line.135"></a>
+<FONT color="green">136</FONT>        @Override<a name="line.136"></a>
+<FONT color="green">137</FONT>        public byte[] getSerializedEvent()<a name="line.137"></a>
+<FONT color="green">138</FONT>        {<a name="line.138"></a>
+<FONT color="green">139</FONT>            return ((ByteArrayOutputStream) getData()).toByteArray();<a name="line.139"></a>
+<FONT color="green">140</FONT>        }<a name="line.140"></a>
+<FONT color="green">141</FONT>    <a name="line.141"></a>
+<FONT color="green">142</FONT>        /*<a name="line.142"></a>
+<FONT color="green">143</FONT>         * Use writeExternal when writing to a file (before sending to the collector) to preserve metadata<a name="line.143"></a>
+<FONT color="green">144</FONT>         * so that we can reconstruct the event. When POSTing, use getSerializedEvent() to generate the POST body<a name="line.144"></a>
+<FONT color="green">145</FONT>         * because we don't want to duplicate the metadata in both the URI and the post body.<a name="line.145"></a>
+<FONT color="green">146</FONT>         */<a name="line.146"></a>
+<FONT color="green">147</FONT>        @Override<a name="line.147"></a>
+<FONT color="green">148</FONT>        public void writeExternal(ObjectOutput objectOutput) throws IOException<a name="line.148"></a>
+<FONT color="green">149</FONT>        {<a name="line.149"></a>
+<FONT color="green">150</FONT>            int eventNameLength = eventName.length();<a name="line.150"></a>
+<FONT color="green">151</FONT>            objectOutput.writeInt(eventNameLength);<a name="line.151"></a>
+<FONT color="green">152</FONT>            objectOutput.write(eventName.getBytes(CHARSET));<a name="line.152"></a>
 <FONT color="green">153</FONT>    <a name="line.153"></a>
-<FONT color="green">154</FONT>            byte[] data = getSerializedEvent();<a name="line.154"></a>
-<FONT color="green">155</FONT>            int dataLen = data.length;<a name="line.155"></a>
-<FONT color="green">156</FONT>    <a name="line.156"></a>
-<FONT color="green">157</FONT>            objectOutput.writeInt(dataLen);<a name="line.157"></a>
-<FONT color="green">158</FONT>            objectOutput.write(data);<a name="line.158"></a>
-<FONT color="green">159</FONT>        }<a name="line.159"></a>
+<FONT color="green">154</FONT>            int granularityLength = granularity.toString().length();<a name="line.154"></a>
+<FONT color="green">155</FONT>            objectOutput.writeInt(granularityLength);<a name="line.155"></a>
+<FONT color="green">156</FONT>            objectOutput.write(granularity.toString().getBytes(CHARSET));<a name="line.156"></a>
+<FONT color="green">157</FONT>    <a name="line.157"></a>
+<FONT color="green">158</FONT>            objectOutput.writeInt(suffixOutputPath.length());<a name="line.158"></a>
+<FONT color="green">159</FONT>            objectOutput.write(suffixOutputPath.getBytes(CHARSET));<a name="line.159"></a>
 <FONT color="green">160</FONT>    <a name="line.160"></a>
-<FONT color="green">161</FONT>        @Override<a name="line.161"></a>
-<FONT color="green">162</FONT>        public void readExternal(ObjectInput objectInput) throws IOException, ClassNotFoundException<a name="line.162"></a>
-<FONT color="green">163</FONT>        {<a name="line.163"></a>
-<FONT color="green">164</FONT>            int eventNameLength = objectInput.readInt();<a name="line.164"></a>
-<FONT color="green">165</FONT>            byte[] eventNameData = new byte[eventNameLength];<a name="line.165"></a>
-<FONT color="green">166</FONT>            objectInput.readFully(eventNameData);<a name="line.166"></a>
-<FONT color="green">167</FONT>            eventName = new String(eventNameData, CHARSET);<a name="line.167"></a>
-<FONT color="green">168</FONT>    <a name="line.168"></a>
-<FONT color="green">169</FONT>            int granularityLength = objectInput.readInt();<a name="line.169"></a>
-<FONT color="green">170</FONT>            byte[] granularityData = new byte[granularityLength];<a name="line.170"></a>
-<FONT color="green">171</FONT>            objectInput.readFully(granularityData);<a name="line.171"></a>
-<FONT color="green">172</FONT>            try {<a name="line.172"></a>
-<FONT color="green">173</FONT>                granularity = Granularity.valueOf(new String(granularityData, CHARSET));<a name="line.173"></a>
-<FONT color="green">174</FONT>            }<a name="line.174"></a>
-<FONT color="green">175</FONT>            catch (IllegalArgumentException e) {<a name="line.175"></a>
-<FONT color="green">176</FONT>                granularity = Granularity.HOURLY;<a name="line.176"></a>
-<FONT color="green">177</FONT>            }<a name="line.177"></a>
-<FONT color="green">178</FONT>    <a name="line.178"></a>
-<FONT color="green">179</FONT>            int suffixOutputPathLength = objectInput.readInt();<a name="line.179"></a>
-<FONT color="green">180</FONT>            byte[] suffixOuputPathData = new byte[suffixOutputPathLength];<a name="line.180"></a>
-<FONT color="green">181</FONT>            objectInput.readFully(suffixOuputPathData);<a name="line.181"></a>
-<FONT color="green">182</FONT>            suffixOutputPath = new String(suffixOuputPathData, CHARSET);<a name="line.182"></a>
-<FONT color="green">183</FONT>    <a name="line.183"></a>
-<FONT color="green">184</FONT>            int dataLen = objectInput.readInt();<a name="line.184"></a>
-<FONT color="green">185</FONT>            byte[] data = new byte[dataLen];<a name="line.185"></a>
-<FONT color="green">186</FONT>            objectInput.readFully(data);<a name="line.186"></a>
-<FONT color="green">187</FONT>    <a name="line.187"></a>
-<FONT color="green">188</FONT>            bucket = SmileBucketDeserializer.deserialize(new ByteArrayInputStream(data));<a name="line.188"></a>
-<FONT color="green">189</FONT>        }<a name="line.189"></a>
+<FONT color="green">161</FONT>            byte[] data = getSerializedEvent();<a name="line.161"></a>
+<FONT color="green">162</FONT>            int dataLen = data.length;<a name="line.162"></a>
+<FONT color="green">163</FONT>    <a name="line.163"></a>
+<FONT color="green">164</FONT>            objectOutput.writeInt(dataLen);<a name="line.164"></a>
+<FONT color="green">165</FONT>            objectOutput.write(data);<a name="line.165"></a>
+<FONT color="green">166</FONT>        }<a name="line.166"></a>
+<FONT color="green">167</FONT>    <a name="line.167"></a>
+<FONT color="green">168</FONT>        @Override<a name="line.168"></a>
+<FONT color="green">169</FONT>        public void readExternal(ObjectInput objectInput) throws IOException, ClassNotFoundException<a name="line.169"></a>
+<FONT color="green">170</FONT>        {<a name="line.170"></a>
+<FONT color="green">171</FONT>            int eventNameLength = objectInput.readInt();<a name="line.171"></a>
+<FONT color="green">172</FONT>            byte[] eventNameData = new byte[eventNameLength];<a name="line.172"></a>
+<FONT color="green">173</FONT>            objectInput.readFully(eventNameData);<a name="line.173"></a>
+<FONT color="green">174</FONT>            eventName = new String(eventNameData, CHARSET);<a name="line.174"></a>
+<FONT color="green">175</FONT>    <a name="line.175"></a>
+<FONT color="green">176</FONT>            int granularityLength = objectInput.readInt();<a name="line.176"></a>
+<FONT color="green">177</FONT>            byte[] granularityData = new byte[granularityLength];<a name="line.177"></a>
+<FONT color="green">178</FONT>            objectInput.readFully(granularityData);<a name="line.178"></a>
+<FONT color="green">179</FONT>            try {<a name="line.179"></a>
+<FONT color="green">180</FONT>                granularity = Granularity.valueOf(new String(granularityData, CHARSET));<a name="line.180"></a>
+<FONT color="green">181</FONT>            }<a name="line.181"></a>
+<FONT color="green">182</FONT>            catch (IllegalArgumentException e) {<a name="line.182"></a>
+<FONT color="green">183</FONT>                granularity = Granularity.HOURLY;<a name="line.183"></a>
+<FONT color="green">184</FONT>            }<a name="line.184"></a>
+<FONT color="green">185</FONT>    <a name="line.185"></a>
+<FONT color="green">186</FONT>            int suffixOutputPathLength = objectInput.readInt();<a name="line.186"></a>
+<FONT color="green">187</FONT>            byte[] suffixOuputPathData = new byte[suffixOutputPathLength];<a name="line.187"></a>
+<FONT color="green">188</FONT>            objectInput.readFully(suffixOuputPathData);<a name="line.188"></a>
+<FONT color="green">189</FONT>            suffixOutputPath = new String(suffixOuputPathData, CHARSET);<a name="line.189"></a>
 <FONT color="green">190</FONT>    <a name="line.190"></a>
-<FONT color="green">191</FONT>        public int getNumberOfEvent()<a name="line.191"></a>
-<FONT color="green">192</FONT>        {<a name="line.192"></a>
-<FONT color="green">193</FONT>            return bucket.size();<a name="line.193"></a>
-<FONT color="green">194</FONT>        }<a name="line.194"></a>
-<FONT color="green">195</FONT>    }<a name="line.195"></a>
+<FONT color="green">191</FONT>            int dataLen = objectInput.readInt();<a name="line.191"></a>
+<FONT color="green">192</FONT>            byte[] data = new byte[dataLen];<a name="line.192"></a>
+<FONT color="green">193</FONT>            objectInput.readFully(data);<a name="line.193"></a>
+<FONT color="green">194</FONT>    <a name="line.194"></a>
+<FONT color="green">195</FONT>            bucket = SmileBucketDeserializer.deserialize(new ByteArrayInputStream(data));<a name="line.195"></a>
+<FONT color="green">196</FONT>        }<a name="line.196"></a>
+<FONT color="green">197</FONT>    <a name="line.197"></a>
+<FONT color="green">198</FONT>        public int getNumberOfEvent()<a name="line.198"></a>
+<FONT color="green">199</FONT>        {<a name="line.199"></a>
+<FONT color="green">200</FONT>            return bucket.size();<a name="line.200"></a>
+<FONT color="green">201</FONT>        }<a name="line.201"></a>
+<FONT color="green">202</FONT>    }<a name="line.202"></a>
 
 
 

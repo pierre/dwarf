@@ -19,48 +19,48 @@
 <FONT color="green">016</FONT>    <a name="line.16"></a>
 <FONT color="green">017</FONT>    package com.ning.metrics.serialization.event;<a name="line.17"></a>
 <FONT color="green">018</FONT>    <a name="line.18"></a>
-<FONT color="green">019</FONT>    import org.codehaus.jackson.JsonEncoding;<a name="line.19"></a>
-<FONT color="green">020</FONT>    import org.codehaus.jackson.JsonGenerator;<a name="line.20"></a>
-<FONT color="green">021</FONT>    import org.codehaus.jackson.JsonNode;<a name="line.21"></a>
-<FONT color="green">022</FONT>    import org.codehaus.jackson.JsonParser;<a name="line.22"></a>
-<FONT color="green">023</FONT>    import org.codehaus.jackson.map.ObjectMapper;<a name="line.23"></a>
-<FONT color="green">024</FONT>    import org.codehaus.jackson.smile.SmileFactory;<a name="line.24"></a>
-<FONT color="green">025</FONT>    import org.codehaus.jackson.smile.SmileGenerator;<a name="line.25"></a>
-<FONT color="green">026</FONT>    import org.codehaus.jackson.smile.SmileParser;<a name="line.26"></a>
-<FONT color="green">027</FONT>    import org.joda.time.DateTime;<a name="line.27"></a>
-<FONT color="green">028</FONT>    <a name="line.28"></a>
-<FONT color="green">029</FONT>    import java.io.ByteArrayOutputStream;<a name="line.29"></a>
-<FONT color="green">030</FONT>    import java.io.IOException;<a name="line.30"></a>
-<FONT color="green">031</FONT>    import java.io.ObjectInput;<a name="line.31"></a>
-<FONT color="green">032</FONT>    import java.io.ObjectOutput;<a name="line.32"></a>
-<FONT color="green">033</FONT>    import java.nio.charset.Charset;<a name="line.33"></a>
-<FONT color="green">034</FONT>    <a name="line.34"></a>
-<FONT color="green">035</FONT>    /**<a name="line.35"></a>
-<FONT color="green">036</FONT>     * Event representation of a single Smile event. This class is useful to send Json trees<a name="line.36"></a>
-<FONT color="green">037</FONT>     * to the collector via the eventtracker library.<a name="line.37"></a>
-<FONT color="green">038</FONT>     * Under the cover though, we use SmileBucketEvent on the wire (when sending to the collector) and in<a name="line.38"></a>
-<FONT color="green">039</FONT>     * Hadoop sequencefiles (to leverage Smile back-references).<a name="line.39"></a>
-<FONT color="green">040</FONT>     *<a name="line.40"></a>
-<FONT color="green">041</FONT>     * @see com.ning.metrics.serialization.event.SmileBucketEvent<a name="line.41"></a>
-<FONT color="green">042</FONT>     */<a name="line.42"></a>
-<FONT color="green">043</FONT>    public class SmileEnvelopeEvent implements Event<a name="line.43"></a>
-<FONT color="green">044</FONT>    {<a name="line.44"></a>
-<FONT color="green">045</FONT>        // UTF-8 won't work!<a name="line.45"></a>
-<FONT color="green">046</FONT>        public static final Charset CHARSET = Charset.forName("ISO-8859-1");<a name="line.46"></a>
+<FONT color="green">019</FONT>    import org.codehaus.jackson.*;<a name="line.19"></a>
+<FONT color="green">020</FONT>    import org.codehaus.jackson.map.ObjectMapper;<a name="line.20"></a>
+<FONT color="green">021</FONT>    import org.codehaus.jackson.smile.SmileFactory;<a name="line.21"></a>
+<FONT color="green">022</FONT>    import org.codehaus.jackson.smile.SmileGenerator;<a name="line.22"></a>
+<FONT color="green">023</FONT>    import org.codehaus.jackson.smile.SmileParser;<a name="line.23"></a>
+<FONT color="green">024</FONT>    import org.joda.time.DateTime;<a name="line.24"></a>
+<FONT color="green">025</FONT>    <a name="line.25"></a>
+<FONT color="green">026</FONT>    import java.io.ByteArrayOutputStream;<a name="line.26"></a>
+<FONT color="green">027</FONT>    import java.io.IOException;<a name="line.27"></a>
+<FONT color="green">028</FONT>    import java.io.ObjectInput;<a name="line.28"></a>
+<FONT color="green">029</FONT>    import java.io.ObjectOutput;<a name="line.29"></a>
+<FONT color="green">030</FONT>    import java.nio.charset.Charset;<a name="line.30"></a>
+<FONT color="green">031</FONT>    import java.util.HashMap;<a name="line.31"></a>
+<FONT color="green">032</FONT>    <a name="line.32"></a>
+<FONT color="green">033</FONT>    /**<a name="line.33"></a>
+<FONT color="green">034</FONT>     * Event representation of a single Smile event. This class is useful to send Json trees<a name="line.34"></a>
+<FONT color="green">035</FONT>     * to the collector via the eventtracker library.<a name="line.35"></a>
+<FONT color="green">036</FONT>     * Under the cover though, we use SmileBucketEvent on the wire (when sending to the collector) and in<a name="line.36"></a>
+<FONT color="green">037</FONT>     * Hadoop sequencefiles (to leverage Smile back-references).<a name="line.37"></a>
+<FONT color="green">038</FONT>     *<a name="line.38"></a>
+<FONT color="green">039</FONT>     * @see com.ning.metrics.serialization.event.SmileBucketEvent<a name="line.39"></a>
+<FONT color="green">040</FONT>     */<a name="line.40"></a>
+<FONT color="green">041</FONT>    public class SmileEnvelopeEvent implements Event<a name="line.41"></a>
+<FONT color="green">042</FONT>    {<a name="line.42"></a>
+<FONT color="green">043</FONT>        // UTF-8 won't work!<a name="line.43"></a>
+<FONT color="green">044</FONT>        public static final Charset CHARSET = Charset.forName("ISO-8859-1");<a name="line.44"></a>
+<FONT color="green">045</FONT>    <a name="line.45"></a>
+<FONT color="green">046</FONT>        public static final Charset NAME_CHARSET = Charset.forName("UTF-8");<a name="line.46"></a>
 <FONT color="green">047</FONT>    <a name="line.47"></a>
-<FONT color="green">048</FONT>        public static final Charset NAME_CHARSET = Charset.forName("UTF-8");<a name="line.48"></a>
-<FONT color="green">049</FONT>    <a name="line.49"></a>
-<FONT color="green">050</FONT>        protected final static SmileFactory factory = new SmileFactory();<a name="line.50"></a>
-<FONT color="green">051</FONT>    <a name="line.51"></a>
-<FONT color="green">052</FONT>        static {<a name="line.52"></a>
-<FONT color="green">053</FONT>            // yes, full 'compression' by checking for repeating names, short string values:<a name="line.53"></a>
-<FONT color="green">054</FONT>            factory.configure(SmileGenerator.Feature.CHECK_SHARED_NAMES, true);<a name="line.54"></a>
-<FONT color="green">055</FONT>            factory.configure(SmileGenerator.Feature.CHECK_SHARED_STRING_VALUES, true);<a name="line.55"></a>
-<FONT color="green">056</FONT>            // and for now let's not mandate header for input<a name="line.56"></a>
-<FONT color="green">057</FONT>            factory.configure(SmileParser.Feature.REQUIRE_HEADER, false);<a name="line.57"></a>
-<FONT color="green">058</FONT>        }<a name="line.58"></a>
-<FONT color="green">059</FONT>    <a name="line.59"></a>
-<FONT color="green">060</FONT>        private static final ObjectMapper objectMapper = new ObjectMapper(factory);<a name="line.60"></a>
+<FONT color="green">048</FONT>        protected final static SmileFactory smileFactory = new SmileFactory();<a name="line.48"></a>
+<FONT color="green">049</FONT>        protected final static JsonFactory jsonFactory = new JsonFactory();<a name="line.49"></a>
+<FONT color="green">050</FONT>    <a name="line.50"></a>
+<FONT color="green">051</FONT>        static {<a name="line.51"></a>
+<FONT color="green">052</FONT>            // yes, full 'compression' by checking for repeating names, short string values:<a name="line.52"></a>
+<FONT color="green">053</FONT>            smileFactory.configure(SmileGenerator.Feature.CHECK_SHARED_NAMES, true);<a name="line.53"></a>
+<FONT color="green">054</FONT>            smileFactory.configure(SmileGenerator.Feature.CHECK_SHARED_STRING_VALUES, true);<a name="line.54"></a>
+<FONT color="green">055</FONT>            // and for now let's not mandate header for input<a name="line.55"></a>
+<FONT color="green">056</FONT>            smileFactory.configure(SmileParser.Feature.REQUIRE_HEADER, false);<a name="line.56"></a>
+<FONT color="green">057</FONT>        }<a name="line.57"></a>
+<FONT color="green">058</FONT>    <a name="line.58"></a>
+<FONT color="green">059</FONT>        private static final ObjectMapper smileObjectMapper = new ObjectMapper(smileFactory);<a name="line.59"></a>
+<FONT color="green">060</FONT>        private static final ObjectMapper jsonObjectMapper = new ObjectMapper(jsonFactory);<a name="line.60"></a>
 <FONT color="green">061</FONT>    <a name="line.61"></a>
 <FONT color="green">062</FONT>        public static final String SMILE_EVENT_DATETIME_TOKEN_NAME = "eventDate";<a name="line.62"></a>
 <FONT color="green">063</FONT>        public static final String SMILE_EVENT_GRANULARITY_TOKEN_NAME = "eventGranularity";<a name="line.63"></a>
@@ -70,204 +70,253 @@
 <FONT color="green">067</FONT>        protected Granularity granularity = null;<a name="line.67"></a>
 <FONT color="green">068</FONT>        protected JsonNode root;<a name="line.68"></a>
 <FONT color="green">069</FONT>    <a name="line.69"></a>
-<FONT color="green">070</FONT>        @Deprecated<a name="line.70"></a>
-<FONT color="green">071</FONT>        public SmileEnvelopeEvent()<a name="line.71"></a>
-<FONT color="green">072</FONT>        {<a name="line.72"></a>
-<FONT color="green">073</FONT>        }<a name="line.73"></a>
-<FONT color="green">074</FONT>    <a name="line.74"></a>
-<FONT color="green">075</FONT>        public SmileEnvelopeEvent(String eventName, JsonNode node)<a name="line.75"></a>
-<FONT color="green">076</FONT>        {<a name="line.76"></a>
-<FONT color="green">077</FONT>            this(eventName, null, node);<a name="line.77"></a>
-<FONT color="green">078</FONT>        }<a name="line.78"></a>
-<FONT color="green">079</FONT>    <a name="line.79"></a>
-<FONT color="green">080</FONT>        public SmileEnvelopeEvent(String eventName, Granularity granularity, JsonNode node)<a name="line.80"></a>
-<FONT color="green">081</FONT>        {<a name="line.81"></a>
-<FONT color="green">082</FONT>            this.eventName = eventName;<a name="line.82"></a>
-<FONT color="green">083</FONT>            this.root = node;<a name="line.83"></a>
-<FONT color="green">084</FONT>            this.granularity = granularity;<a name="line.84"></a>
-<FONT color="green">085</FONT>    <a name="line.85"></a>
-<FONT color="green">086</FONT>            setEventPropertiesFromNode(node);<a name="line.86"></a>
-<FONT color="green">087</FONT>        }<a name="line.87"></a>
-<FONT color="green">088</FONT>    <a name="line.88"></a>
-<FONT color="green">089</FONT>        public SmileEnvelopeEvent(String eventName, byte[] inputBytes, DateTime eventDateTime, Granularity granularity) throws IOException<a name="line.89"></a>
-<FONT color="green">090</FONT>        {<a name="line.90"></a>
-<FONT color="green">091</FONT>            this.eventName = eventName;<a name="line.91"></a>
-<FONT color="green">092</FONT>            this.eventDateTime = eventDateTime;<a name="line.92"></a>
-<FONT color="green">093</FONT>            this.granularity = granularity;<a name="line.93"></a>
-<FONT color="green">094</FONT>            setPayloadFromByteArray(inputBytes);<a name="line.94"></a>
-<FONT color="green">095</FONT>        }<a name="line.95"></a>
-<FONT color="green">096</FONT>    <a name="line.96"></a>
-<FONT color="green">097</FONT>        @Override<a name="line.97"></a>
-<FONT color="green">098</FONT>        public DateTime getEventDateTime()<a name="line.98"></a>
-<FONT color="green">099</FONT>        {<a name="line.99"></a>
-<FONT color="green">100</FONT>            return eventDateTime;<a name="line.100"></a>
-<FONT color="green">101</FONT>        }<a name="line.101"></a>
+<FONT color="green">070</FONT>        private boolean isPlainJson = false;<a name="line.70"></a>
+<FONT color="green">071</FONT>    <a name="line.71"></a>
+<FONT color="green">072</FONT>        @Deprecated<a name="line.72"></a>
+<FONT color="green">073</FONT>        public SmileEnvelopeEvent()<a name="line.73"></a>
+<FONT color="green">074</FONT>        {<a name="line.74"></a>
+<FONT color="green">075</FONT>        }<a name="line.75"></a>
+<FONT color="green">076</FONT>    <a name="line.76"></a>
+<FONT color="green">077</FONT>        /**<a name="line.77"></a>
+<FONT color="green">078</FONT>         * Given a map ("json-like"), create an event with hourly granularity<a name="line.78"></a>
+<FONT color="green">079</FONT>         *<a name="line.79"></a>
+<FONT color="green">080</FONT>         * @param eventName     name of the event<a name="line.80"></a>
+<FONT color="green">081</FONT>         * @param eventDateTime event timestamp<a name="line.81"></a>
+<FONT color="green">082</FONT>         * @param map           event data<a name="line.82"></a>
+<FONT color="green">083</FONT>         * @throws IOException generic serialization exception<a name="line.83"></a>
+<FONT color="green">084</FONT>         */<a name="line.84"></a>
+<FONT color="green">085</FONT>        public SmileEnvelopeEvent(String eventName, DateTime eventDateTime, HashMap&lt;String, Object&gt; map) throws IOException<a name="line.85"></a>
+<FONT color="green">086</FONT>        {<a name="line.86"></a>
+<FONT color="green">087</FONT>            this.eventName = eventName;<a name="line.87"></a>
+<FONT color="green">088</FONT>            this.eventDateTime = eventDateTime;<a name="line.88"></a>
+<FONT color="green">089</FONT>            this.granularity = Granularity.HOURLY;<a name="line.89"></a>
+<FONT color="green">090</FONT>    <a name="line.90"></a>
+<FONT color="green">091</FONT>            ByteArrayOutputStream stream = new ByteArrayOutputStream();<a name="line.91"></a>
+<FONT color="green">092</FONT>            JsonGenerator g = smileFactory.createJsonGenerator(stream);<a name="line.92"></a>
+<FONT color="green">093</FONT>    <a name="line.93"></a>
+<FONT color="green">094</FONT>            g.writeStartObject();<a name="line.94"></a>
+<FONT color="green">095</FONT>            g.writeNumberField(SmileEnvelopeEvent.SMILE_EVENT_DATETIME_TOKEN_NAME, eventDateTime.getMillis());<a name="line.95"></a>
+<FONT color="green">096</FONT>            g.writeStringField(SmileEnvelopeEvent.SMILE_EVENT_GRANULARITY_TOKEN_NAME, granularity.toString());<a name="line.96"></a>
+<FONT color="green">097</FONT>            for (String key : map.keySet()) {<a name="line.97"></a>
+<FONT color="green">098</FONT>                g.writeObjectField(key, map.get(key)); // will hopefully do the right thing (e.g. take care of numerics)<a name="line.98"></a>
+<FONT color="green">099</FONT>            }<a name="line.99"></a>
+<FONT color="green">100</FONT>            g.writeEndObject();<a name="line.100"></a>
+<FONT color="green">101</FONT>            g.close(); // important: will force flushing of output, close underlying output stream<a name="line.101"></a>
 <FONT color="green">102</FONT>    <a name="line.102"></a>
-<FONT color="green">103</FONT>        @Override<a name="line.103"></a>
-<FONT color="green">104</FONT>        public String getName()<a name="line.104"></a>
-<FONT color="green">105</FONT>        {<a name="line.105"></a>
-<FONT color="green">106</FONT>            return eventName;<a name="line.106"></a>
-<FONT color="green">107</FONT>        }<a name="line.107"></a>
-<FONT color="green">108</FONT>    <a name="line.108"></a>
-<FONT color="green">109</FONT>        @Override<a name="line.109"></a>
-<FONT color="green">110</FONT>        public Granularity getGranularity()<a name="line.110"></a>
-<FONT color="green">111</FONT>        {<a name="line.111"></a>
-<FONT color="green">112</FONT>            return granularity;<a name="line.112"></a>
-<FONT color="green">113</FONT>        }<a name="line.113"></a>
-<FONT color="green">114</FONT>    <a name="line.114"></a>
-<FONT color="green">115</FONT>        @Override<a name="line.115"></a>
-<FONT color="green">116</FONT>        public String getVersion()<a name="line.116"></a>
-<FONT color="green">117</FONT>        {<a name="line.117"></a>
-<FONT color="green">118</FONT>            // TODO Not sure how to version these schemata. Need more thinking here.<a name="line.118"></a>
-<FONT color="green">119</FONT>            return "1";<a name="line.119"></a>
-<FONT color="green">120</FONT>        }<a name="line.120"></a>
-<FONT color="green">121</FONT>    <a name="line.121"></a>
-<FONT color="green">122</FONT>        @Override<a name="line.122"></a>
-<FONT color="green">123</FONT>        public String getOutputDir(String prefix)<a name="line.123"></a>
-<FONT color="green">124</FONT>        {<a name="line.124"></a>
-<FONT color="green">125</FONT>            GranularityPathMapper pathMapper = new GranularityPathMapper(String.format("%s/%s", prefix, eventName), granularity);<a name="line.125"></a>
-<FONT color="green">126</FONT>    <a name="line.126"></a>
-<FONT color="green">127</FONT>            return pathMapper.getPathForDateTime(getEventDateTime());<a name="line.127"></a>
-<FONT color="green">128</FONT>        }<a name="line.128"></a>
-<FONT color="green">129</FONT>    <a name="line.129"></a>
-<FONT color="green">130</FONT>        /**<a name="line.130"></a>
-<FONT color="green">131</FONT>         * @return a JsonNode representation of a SMILE event (json)<a name="line.131"></a>
-<FONT color="green">132</FONT>         */<a name="line.132"></a>
-<FONT color="green">133</FONT>        @Override<a name="line.133"></a>
-<FONT color="green">134</FONT>        public Object getData()<a name="line.134"></a>
-<FONT color="green">135</FONT>        {<a name="line.135"></a>
-<FONT color="green">136</FONT>            return root;<a name="line.136"></a>
-<FONT color="green">137</FONT>        }<a name="line.137"></a>
-<FONT color="green">138</FONT>    <a name="line.138"></a>
-<FONT color="green">139</FONT>        @Override<a name="line.139"></a>
-<FONT color="green">140</FONT>        public byte[] getSerializedEvent()<a name="line.140"></a>
-<FONT color="green">141</FONT>        {<a name="line.141"></a>
-<FONT color="green">142</FONT>            ByteArrayOutputStream outStream = new ByteArrayOutputStream();<a name="line.142"></a>
-<FONT color="green">143</FONT>    <a name="line.143"></a>
-<FONT color="green">144</FONT>            try {<a name="line.144"></a>
-<FONT color="green">145</FONT>                JsonGenerator gen = objectMapper.getJsonFactory().createJsonGenerator(outStream, JsonEncoding.UTF8);<a name="line.145"></a>
-<FONT color="green">146</FONT>                objectMapper.writeTree(gen, root);<a name="line.146"></a>
-<FONT color="green">147</FONT>                gen.close();<a name="line.147"></a>
-<FONT color="green">148</FONT>            }<a name="line.148"></a>
-<FONT color="green">149</FONT>            catch (IOException e) {<a name="line.149"></a>
-<FONT color="green">150</FONT>                return null;<a name="line.150"></a>
-<FONT color="green">151</FONT>            }<a name="line.151"></a>
+<FONT color="green">103</FONT>            setPayloadFromByteArray(stream.toByteArray());<a name="line.103"></a>
+<FONT color="green">104</FONT>        }<a name="line.104"></a>
+<FONT color="green">105</FONT>    <a name="line.105"></a>
+<FONT color="green">106</FONT>        public SmileEnvelopeEvent(String eventName, JsonNode node)<a name="line.106"></a>
+<FONT color="green">107</FONT>        {<a name="line.107"></a>
+<FONT color="green">108</FONT>            this(eventName, null, node);<a name="line.108"></a>
+<FONT color="green">109</FONT>        }<a name="line.109"></a>
+<FONT color="green">110</FONT>    <a name="line.110"></a>
+<FONT color="green">111</FONT>        public SmileEnvelopeEvent(String eventName, Granularity granularity, JsonNode node)<a name="line.111"></a>
+<FONT color="green">112</FONT>        {<a name="line.112"></a>
+<FONT color="green">113</FONT>            this.eventName = eventName;<a name="line.113"></a>
+<FONT color="green">114</FONT>            this.root = node;<a name="line.114"></a>
+<FONT color="green">115</FONT>            this.granularity = granularity;<a name="line.115"></a>
+<FONT color="green">116</FONT>    <a name="line.116"></a>
+<FONT color="green">117</FONT>            setEventPropertiesFromNode(node);<a name="line.117"></a>
+<FONT color="green">118</FONT>        }<a name="line.118"></a>
+<FONT color="green">119</FONT>    <a name="line.119"></a>
+<FONT color="green">120</FONT>        public SmileEnvelopeEvent(String eventName, byte[] inputBytes, DateTime eventDateTime, Granularity granularity) throws IOException<a name="line.120"></a>
+<FONT color="green">121</FONT>        {<a name="line.121"></a>
+<FONT color="green">122</FONT>            this.eventName = eventName;<a name="line.122"></a>
+<FONT color="green">123</FONT>            this.eventDateTime = eventDateTime;<a name="line.123"></a>
+<FONT color="green">124</FONT>            this.granularity = granularity;<a name="line.124"></a>
+<FONT color="green">125</FONT>            setPayloadFromByteArray(inputBytes);<a name="line.125"></a>
+<FONT color="green">126</FONT>        }<a name="line.126"></a>
+<FONT color="green">127</FONT>    <a name="line.127"></a>
+<FONT color="green">128</FONT>        @Override<a name="line.128"></a>
+<FONT color="green">129</FONT>        public DateTime getEventDateTime()<a name="line.129"></a>
+<FONT color="green">130</FONT>        {<a name="line.130"></a>
+<FONT color="green">131</FONT>            return eventDateTime;<a name="line.131"></a>
+<FONT color="green">132</FONT>        }<a name="line.132"></a>
+<FONT color="green">133</FONT>    <a name="line.133"></a>
+<FONT color="green">134</FONT>        @Override<a name="line.134"></a>
+<FONT color="green">135</FONT>        public String getName()<a name="line.135"></a>
+<FONT color="green">136</FONT>        {<a name="line.136"></a>
+<FONT color="green">137</FONT>            return eventName;<a name="line.137"></a>
+<FONT color="green">138</FONT>        }<a name="line.138"></a>
+<FONT color="green">139</FONT>    <a name="line.139"></a>
+<FONT color="green">140</FONT>        @Override<a name="line.140"></a>
+<FONT color="green">141</FONT>        public Granularity getGranularity()<a name="line.141"></a>
+<FONT color="green">142</FONT>        {<a name="line.142"></a>
+<FONT color="green">143</FONT>            return granularity;<a name="line.143"></a>
+<FONT color="green">144</FONT>        }<a name="line.144"></a>
+<FONT color="green">145</FONT>    <a name="line.145"></a>
+<FONT color="green">146</FONT>        @Override<a name="line.146"></a>
+<FONT color="green">147</FONT>        public String getVersion()<a name="line.147"></a>
+<FONT color="green">148</FONT>        {<a name="line.148"></a>
+<FONT color="green">149</FONT>            // TODO Not sure how to version these schemata. Need more thinking here.<a name="line.149"></a>
+<FONT color="green">150</FONT>            return "1";<a name="line.150"></a>
+<FONT color="green">151</FONT>        }<a name="line.151"></a>
 <FONT color="green">152</FONT>    <a name="line.152"></a>
-<FONT color="green">153</FONT>            return outStream.toByteArray();<a name="line.153"></a>
-<FONT color="green">154</FONT>        }<a name="line.154"></a>
-<FONT color="green">155</FONT>    <a name="line.155"></a>
-<FONT color="green">156</FONT>        /**<a name="line.156"></a>
-<FONT color="green">157</FONT>         * The object implements the writeExternal method to save its contents<a name="line.157"></a>
-<FONT color="green">158</FONT>         * by calling the methods of DataOutput for its primitive values or<a name="line.158"></a>
-<FONT color="green">159</FONT>         * calling the writeObject method of ObjectOutput for objects, strings,<a name="line.159"></a>
-<FONT color="green">160</FONT>         * and arrays.<a name="line.160"></a>
-<FONT color="green">161</FONT>         *<a name="line.161"></a>
-<FONT color="green">162</FONT>         * @param out the stream to write the object to<a name="line.162"></a>
-<FONT color="green">163</FONT>         * @throws java.io.IOException Includes any I/O exceptions that may occur<a name="line.163"></a>
-<FONT color="green">164</FONT>         * @serialData Overriding methods should use this tag to describe<a name="line.164"></a>
-<FONT color="green">165</FONT>         * the data layout of this Externalizable object.<a name="line.165"></a>
-<FONT color="green">166</FONT>         * List the sequence of element types and, if possible,<a name="line.166"></a>
-<FONT color="green">167</FONT>         * relate the element to a public/protected field and/or<a name="line.167"></a>
-<FONT color="green">168</FONT>         * method of this Externalizable class.<a name="line.168"></a>
-<FONT color="green">169</FONT>         */<a name="line.169"></a>
-<FONT color="green">170</FONT>        @Override<a name="line.170"></a>
-<FONT color="green">171</FONT>        public void writeExternal(ObjectOutput out) throws IOException<a name="line.171"></a>
-<FONT color="green">172</FONT>        {<a name="line.172"></a>
-<FONT color="green">173</FONT>            // Name of the event<a name="line.173"></a>
-<FONT color="green">174</FONT>            byte[] eventNameBytes = eventName.getBytes(NAME_CHARSET);<a name="line.174"></a>
-<FONT color="green">175</FONT>            out.writeInt(eventNameBytes.length);<a name="line.175"></a>
-<FONT color="green">176</FONT>            out.write(eventNameBytes);<a name="line.176"></a>
-<FONT color="green">177</FONT>    <a name="line.177"></a>
-<FONT color="green">178</FONT>            byte[] payloadBytes = getSerializedEvent();<a name="line.178"></a>
+<FONT color="green">153</FONT>        @Override<a name="line.153"></a>
+<FONT color="green">154</FONT>        public String getOutputDir(String prefix)<a name="line.154"></a>
+<FONT color="green">155</FONT>        {<a name="line.155"></a>
+<FONT color="green">156</FONT>            GranularityPathMapper pathMapper = new GranularityPathMapper(String.format("%s/%s", prefix, eventName), granularity);<a name="line.156"></a>
+<FONT color="green">157</FONT>    <a name="line.157"></a>
+<FONT color="green">158</FONT>            return pathMapper.getPathForDateTime(getEventDateTime());<a name="line.158"></a>
+<FONT color="green">159</FONT>        }<a name="line.159"></a>
+<FONT color="green">160</FONT>    <a name="line.160"></a>
+<FONT color="green">161</FONT>        /**<a name="line.161"></a>
+<FONT color="green">162</FONT>         * @return a JsonNode representation of a SMILE event (json)<a name="line.162"></a>
+<FONT color="green">163</FONT>         */<a name="line.163"></a>
+<FONT color="green">164</FONT>        @Override<a name="line.164"></a>
+<FONT color="green">165</FONT>        public Object getData()<a name="line.165"></a>
+<FONT color="green">166</FONT>        {<a name="line.166"></a>
+<FONT color="green">167</FONT>            return root;<a name="line.167"></a>
+<FONT color="green">168</FONT>        }<a name="line.168"></a>
+<FONT color="green">169</FONT>    <a name="line.169"></a>
+<FONT color="green">170</FONT>        public boolean isPlainJson()<a name="line.170"></a>
+<FONT color="green">171</FONT>        {<a name="line.171"></a>
+<FONT color="green">172</FONT>            return isPlainJson;<a name="line.172"></a>
+<FONT color="green">173</FONT>        }<a name="line.173"></a>
+<FONT color="green">174</FONT>    <a name="line.174"></a>
+<FONT color="green">175</FONT>        public void setPlainJson(boolean plainJson)<a name="line.175"></a>
+<FONT color="green">176</FONT>        {<a name="line.176"></a>
+<FONT color="green">177</FONT>            isPlainJson = plainJson;<a name="line.177"></a>
+<FONT color="green">178</FONT>        }<a name="line.178"></a>
 <FONT color="green">179</FONT>    <a name="line.179"></a>
-<FONT color="green">180</FONT>            // Size of Smile payload. Needed for deserialization, see below<a name="line.180"></a>
-<FONT color="green">181</FONT>            out.writeInt(payloadBytes.length);<a name="line.181"></a>
-<FONT color="green">182</FONT>    <a name="line.182"></a>
-<FONT color="green">183</FONT>            out.write(payloadBytes);<a name="line.183"></a>
-<FONT color="green">184</FONT>        }<a name="line.184"></a>
-<FONT color="green">185</FONT>    <a name="line.185"></a>
-<FONT color="green">186</FONT>        /**<a name="line.186"></a>
-<FONT color="green">187</FONT>         * The object implements the readExternal method to restore its<a name="line.187"></a>
-<FONT color="green">188</FONT>         * contents by calling the methods of DataInput for primitive<a name="line.188"></a>
-<FONT color="green">189</FONT>         * types and readObject for objects, strings and arrays.  The<a name="line.189"></a>
-<FONT color="green">190</FONT>         * readExternal method must read the values in the same sequence<a name="line.190"></a>
-<FONT color="green">191</FONT>         * and with the same types as were written by writeExternal.<a name="line.191"></a>
-<FONT color="green">192</FONT>         *<a name="line.192"></a>
-<FONT color="green">193</FONT>         * @param in the stream to read data from in order to restore the object<a name="line.193"></a>
-<FONT color="green">194</FONT>         * @throws java.io.IOException    if I/O errors occur<a name="line.194"></a>
-<FONT color="green">195</FONT>         * @throws ClassNotFoundException If the class for an object being<a name="line.195"></a>
-<FONT color="green">196</FONT>         *                                restored cannot be found.<a name="line.196"></a>
-<FONT color="green">197</FONT>         */<a name="line.197"></a>
-<FONT color="green">198</FONT>        @Override<a name="line.198"></a>
-<FONT color="green">199</FONT>        public void readExternal(ObjectInput in) throws IOException<a name="line.199"></a>
-<FONT color="green">200</FONT>        {<a name="line.200"></a>
-<FONT color="green">201</FONT>            // Name of the event first<a name="line.201"></a>
-<FONT color="green">202</FONT>            int smileEventNameBytesSize = in.readInt();<a name="line.202"></a>
-<FONT color="green">203</FONT>            byte[] eventNameBytes = new byte[smileEventNameBytesSize];<a name="line.203"></a>
-<FONT color="green">204</FONT>            in.readFully(eventNameBytes);<a name="line.204"></a>
-<FONT color="green">205</FONT>            eventName = new String(eventNameBytes, NAME_CHARSET);<a name="line.205"></a>
+<FONT color="green">180</FONT>        public ObjectMapper getObjectMapper()<a name="line.180"></a>
+<FONT color="green">181</FONT>        {<a name="line.181"></a>
+<FONT color="green">182</FONT>            if (isPlainJson()) {<a name="line.182"></a>
+<FONT color="green">183</FONT>                return jsonObjectMapper;<a name="line.183"></a>
+<FONT color="green">184</FONT>            }<a name="line.184"></a>
+<FONT color="green">185</FONT>            else {<a name="line.185"></a>
+<FONT color="green">186</FONT>                return smileObjectMapper;<a name="line.186"></a>
+<FONT color="green">187</FONT>            }<a name="line.187"></a>
+<FONT color="green">188</FONT>        }<a name="line.188"></a>
+<FONT color="green">189</FONT>    <a name="line.189"></a>
+<FONT color="green">190</FONT>        @Override<a name="line.190"></a>
+<FONT color="green">191</FONT>        public byte[] getSerializedEvent()<a name="line.191"></a>
+<FONT color="green">192</FONT>        {<a name="line.192"></a>
+<FONT color="green">193</FONT>            ByteArrayOutputStream outStream = new ByteArrayOutputStream();<a name="line.193"></a>
+<FONT color="green">194</FONT>    <a name="line.194"></a>
+<FONT color="green">195</FONT>            try {<a name="line.195"></a>
+<FONT color="green">196</FONT>                JsonGenerator gen = getObjectMapper().getJsonFactory().createJsonGenerator(outStream, JsonEncoding.UTF8);<a name="line.196"></a>
+<FONT color="green">197</FONT>                getObjectMapper().writeTree(gen, root);<a name="line.197"></a>
+<FONT color="green">198</FONT>                gen.close();<a name="line.198"></a>
+<FONT color="green">199</FONT>            }<a name="line.199"></a>
+<FONT color="green">200</FONT>            catch (IOException e) {<a name="line.200"></a>
+<FONT color="green">201</FONT>                return null;<a name="line.201"></a>
+<FONT color="green">202</FONT>            }<a name="line.202"></a>
+<FONT color="green">203</FONT>    <a name="line.203"></a>
+<FONT color="green">204</FONT>            return outStream.toByteArray();<a name="line.204"></a>
+<FONT color="green">205</FONT>        }<a name="line.205"></a>
 <FONT color="green">206</FONT>    <a name="line.206"></a>
-<FONT color="green">207</FONT>            // Then payload<a name="line.207"></a>
-<FONT color="green">208</FONT>            int smilePayloadSize = in.readInt();<a name="line.208"></a>
-<FONT color="green">209</FONT>            byte[] smilePayload = new byte[smilePayloadSize];<a name="line.209"></a>
-<FONT color="green">210</FONT>            in.readFully(smilePayload);<a name="line.210"></a>
-<FONT color="green">211</FONT>    <a name="line.211"></a>
-<FONT color="green">212</FONT>            setPayloadFromByteArray(smilePayload);<a name="line.212"></a>
-<FONT color="green">213</FONT>    <a name="line.213"></a>
-<FONT color="green">214</FONT>            setEventPropertiesFromNode(root);<a name="line.214"></a>
-<FONT color="green">215</FONT>        }<a name="line.215"></a>
-<FONT color="green">216</FONT>    <a name="line.216"></a>
-<FONT color="green">217</FONT>        private void setEventPropertiesFromNode(JsonNode node)<a name="line.217"></a>
-<FONT color="green">218</FONT>        {<a name="line.218"></a>
-<FONT color="green">219</FONT>            eventDateTime = getEventDateTimeFromJson(node);<a name="line.219"></a>
-<FONT color="green">220</FONT>    <a name="line.220"></a>
-<FONT color="green">221</FONT>            if (granularity == null) {<a name="line.221"></a>
-<FONT color="green">222</FONT>                granularity = getGranularityFromJson(node);<a name="line.222"></a>
-<FONT color="green">223</FONT>            }<a name="line.223"></a>
-<FONT color="green">224</FONT>        }<a name="line.224"></a>
-<FONT color="green">225</FONT>    <a name="line.225"></a>
-<FONT color="green">226</FONT>        public static DateTime getEventDateTimeFromJson(JsonNode node)<a name="line.226"></a>
-<FONT color="green">227</FONT>        {<a name="line.227"></a>
-<FONT color="green">228</FONT>            JsonNode eventDateTimeNode = node.path(SMILE_EVENT_DATETIME_TOKEN_NAME);<a name="line.228"></a>
-<FONT color="green">229</FONT>    <a name="line.229"></a>
-<FONT color="green">230</FONT>            DateTime nodeDateTime = new DateTime();<a name="line.230"></a>
-<FONT color="green">231</FONT>            if (!eventDateTimeNode.isMissingNode()) {<a name="line.231"></a>
-<FONT color="green">232</FONT>                nodeDateTime = new DateTime(eventDateTimeNode.getLongValue());<a name="line.232"></a>
-<FONT color="green">233</FONT>            }<a name="line.233"></a>
-<FONT color="green">234</FONT>    <a name="line.234"></a>
-<FONT color="green">235</FONT>            return nodeDateTime;<a name="line.235"></a>
-<FONT color="green">236</FONT>        }<a name="line.236"></a>
-<FONT color="green">237</FONT>    <a name="line.237"></a>
-<FONT color="green">238</FONT>        public static Granularity getGranularityFromJson(JsonNode node)<a name="line.238"></a>
-<FONT color="green">239</FONT>        {<a name="line.239"></a>
-<FONT color="green">240</FONT>            JsonNode granularityNode = node.path(SMILE_EVENT_GRANULARITY_TOKEN_NAME);<a name="line.240"></a>
-<FONT color="green">241</FONT>    <a name="line.241"></a>
-<FONT color="green">242</FONT>            Granularity nodeGranularity = Granularity.HOURLY;<a name="line.242"></a>
-<FONT color="green">243</FONT>            if (!granularityNode.isMissingNode()) {<a name="line.243"></a>
-<FONT color="green">244</FONT>                try {<a name="line.244"></a>
-<FONT color="green">245</FONT>                    nodeGranularity = Granularity.valueOf(granularityNode.getValueAsText());<a name="line.245"></a>
-<FONT color="green">246</FONT>                }<a name="line.246"></a>
-<FONT color="green">247</FONT>                catch (IllegalArgumentException e) {<a name="line.247"></a>
-<FONT color="green">248</FONT>                    nodeGranularity = null;<a name="line.248"></a>
-<FONT color="green">249</FONT>                }<a name="line.249"></a>
-<FONT color="green">250</FONT>            }<a name="line.250"></a>
-<FONT color="green">251</FONT>    <a name="line.251"></a>
-<FONT color="green">252</FONT>            return nodeGranularity;<a name="line.252"></a>
-<FONT color="green">253</FONT>        }<a name="line.253"></a>
-<FONT color="green">254</FONT>    <a name="line.254"></a>
-<FONT color="green">255</FONT>        private void setPayloadFromByteArray(byte[] smilePayload) throws IOException<a name="line.255"></a>
-<FONT color="green">256</FONT>        {<a name="line.256"></a>
-<FONT color="green">257</FONT>            JsonParser jp = objectMapper.getJsonFactory().createJsonParser(smilePayload);<a name="line.257"></a>
-<FONT color="green">258</FONT>            root = objectMapper.readTree(jp);<a name="line.258"></a>
-<FONT color="green">259</FONT>            jp.close();<a name="line.259"></a>
-<FONT color="green">260</FONT>        }<a name="line.260"></a>
-<FONT color="green">261</FONT>    <a name="line.261"></a>
-<FONT color="green">262</FONT>        @Override<a name="line.262"></a>
-<FONT color="green">263</FONT>        public String toString()<a name="line.263"></a>
-<FONT color="green">264</FONT>        {<a name="line.264"></a>
-<FONT color="green">265</FONT>            return root.toString();<a name="line.265"></a>
-<FONT color="green">266</FONT>        }<a name="line.266"></a>
-<FONT color="green">267</FONT>    }<a name="line.267"></a>
+<FONT color="green">207</FONT>        /**<a name="line.207"></a>
+<FONT color="green">208</FONT>         * The object implements the writeExternal method to save its contents<a name="line.208"></a>
+<FONT color="green">209</FONT>         * by calling the methods of DataOutput for its primitive values or<a name="line.209"></a>
+<FONT color="green">210</FONT>         * calling the writeObject method of ObjectOutput for objects, strings,<a name="line.210"></a>
+<FONT color="green">211</FONT>         * and arrays.<a name="line.211"></a>
+<FONT color="green">212</FONT>         *<a name="line.212"></a>
+<FONT color="green">213</FONT>         * @param out the stream to write the object to<a name="line.213"></a>
+<FONT color="green">214</FONT>         * @throws java.io.IOException Includes any I/O exceptions that may occur<a name="line.214"></a>
+<FONT color="green">215</FONT>         * @serialData Overriding methods should use this tag to describe<a name="line.215"></a>
+<FONT color="green">216</FONT>         * the data layout of this Externalizable object.<a name="line.216"></a>
+<FONT color="green">217</FONT>         * List the sequence of element types and, if possible,<a name="line.217"></a>
+<FONT color="green">218</FONT>         * relate the element to a public/protected field and/or<a name="line.218"></a>
+<FONT color="green">219</FONT>         * method of this Externalizable class.<a name="line.219"></a>
+<FONT color="green">220</FONT>         */<a name="line.220"></a>
+<FONT color="green">221</FONT>        @Override<a name="line.221"></a>
+<FONT color="green">222</FONT>        public void writeExternal(ObjectOutput out) throws IOException<a name="line.222"></a>
+<FONT color="green">223</FONT>        {<a name="line.223"></a>
+<FONT color="green">224</FONT>            // Name of the event<a name="line.224"></a>
+<FONT color="green">225</FONT>            byte[] eventNameBytes = eventName.getBytes(NAME_CHARSET);<a name="line.225"></a>
+<FONT color="green">226</FONT>            out.writeInt(eventNameBytes.length);<a name="line.226"></a>
+<FONT color="green">227</FONT>            out.write(eventNameBytes);<a name="line.227"></a>
+<FONT color="green">228</FONT>    <a name="line.228"></a>
+<FONT color="green">229</FONT>            byte[] payloadBytes = getSerializedEvent();<a name="line.229"></a>
+<FONT color="green">230</FONT>    <a name="line.230"></a>
+<FONT color="green">231</FONT>            // Size of Smile payload. Needed for deserialization, see below<a name="line.231"></a>
+<FONT color="green">232</FONT>            out.writeInt(payloadBytes.length);<a name="line.232"></a>
+<FONT color="green">233</FONT>    <a name="line.233"></a>
+<FONT color="green">234</FONT>            out.write(payloadBytes);<a name="line.234"></a>
+<FONT color="green">235</FONT>        }<a name="line.235"></a>
+<FONT color="green">236</FONT>    <a name="line.236"></a>
+<FONT color="green">237</FONT>        /**<a name="line.237"></a>
+<FONT color="green">238</FONT>         * The object implements the readExternal method to restore its<a name="line.238"></a>
+<FONT color="green">239</FONT>         * contents by calling the methods of DataInput for primitive<a name="line.239"></a>
+<FONT color="green">240</FONT>         * types and readObject for objects, strings and arrays.  The<a name="line.240"></a>
+<FONT color="green">241</FONT>         * readExternal method must read the values in the same sequence<a name="line.241"></a>
+<FONT color="green">242</FONT>         * and with the same types as were written by writeExternal.<a name="line.242"></a>
+<FONT color="green">243</FONT>         *<a name="line.243"></a>
+<FONT color="green">244</FONT>         * @param in the stream to read data from in order to restore the object<a name="line.244"></a>
+<FONT color="green">245</FONT>         * @throws java.io.IOException    if I/O errors occur<a name="line.245"></a>
+<FONT color="green">246</FONT>         */<a name="line.246"></a>
+<FONT color="green">247</FONT>        @Override<a name="line.247"></a>
+<FONT color="green">248</FONT>        public void readExternal(ObjectInput in) throws IOException<a name="line.248"></a>
+<FONT color="green">249</FONT>        {<a name="line.249"></a>
+<FONT color="green">250</FONT>            // Name of the event first<a name="line.250"></a>
+<FONT color="green">251</FONT>            int smileEventNameBytesSize = in.readInt();<a name="line.251"></a>
+<FONT color="green">252</FONT>            byte[] eventNameBytes = new byte[smileEventNameBytesSize];<a name="line.252"></a>
+<FONT color="green">253</FONT>            in.readFully(eventNameBytes);<a name="line.253"></a>
+<FONT color="green">254</FONT>            eventName = new String(eventNameBytes, NAME_CHARSET);<a name="line.254"></a>
+<FONT color="green">255</FONT>    <a name="line.255"></a>
+<FONT color="green">256</FONT>            // Then payload<a name="line.256"></a>
+<FONT color="green">257</FONT>            int smilePayloadSize = in.readInt();<a name="line.257"></a>
+<FONT color="green">258</FONT>            byte[] smilePayload = new byte[smilePayloadSize];<a name="line.258"></a>
+<FONT color="green">259</FONT>            in.readFully(smilePayload);<a name="line.259"></a>
+<FONT color="green">260</FONT>    <a name="line.260"></a>
+<FONT color="green">261</FONT>            setPayloadFromByteArray(smilePayload);<a name="line.261"></a>
+<FONT color="green">262</FONT>    <a name="line.262"></a>
+<FONT color="green">263</FONT>            setEventPropertiesFromNode(root);<a name="line.263"></a>
+<FONT color="green">264</FONT>        }<a name="line.264"></a>
+<FONT color="green">265</FONT>    <a name="line.265"></a>
+<FONT color="green">266</FONT>        private void setEventPropertiesFromNode(JsonNode node)<a name="line.266"></a>
+<FONT color="green">267</FONT>        {<a name="line.267"></a>
+<FONT color="green">268</FONT>            eventDateTime = getEventDateTimeFromJson(node);<a name="line.268"></a>
+<FONT color="green">269</FONT>    <a name="line.269"></a>
+<FONT color="green">270</FONT>            if (granularity == null) {<a name="line.270"></a>
+<FONT color="green">271</FONT>                granularity = getGranularityFromJson(node);<a name="line.271"></a>
+<FONT color="green">272</FONT>            }<a name="line.272"></a>
+<FONT color="green">273</FONT>        }<a name="line.273"></a>
+<FONT color="green">274</FONT>    <a name="line.274"></a>
+<FONT color="green">275</FONT>        public static DateTime getEventDateTimeFromJson(JsonNode node)<a name="line.275"></a>
+<FONT color="green">276</FONT>        {<a name="line.276"></a>
+<FONT color="green">277</FONT>            JsonNode eventDateTimeNode = node.path(SMILE_EVENT_DATETIME_TOKEN_NAME);<a name="line.277"></a>
+<FONT color="green">278</FONT>    <a name="line.278"></a>
+<FONT color="green">279</FONT>            DateTime nodeDateTime = new DateTime();<a name="line.279"></a>
+<FONT color="green">280</FONT>            if (!eventDateTimeNode.isMissingNode()) {<a name="line.280"></a>
+<FONT color="green">281</FONT>                nodeDateTime = new DateTime(eventDateTimeNode.getLongValue());<a name="line.281"></a>
+<FONT color="green">282</FONT>            }<a name="line.282"></a>
+<FONT color="green">283</FONT>    <a name="line.283"></a>
+<FONT color="green">284</FONT>            return nodeDateTime;<a name="line.284"></a>
+<FONT color="green">285</FONT>        }<a name="line.285"></a>
+<FONT color="green">286</FONT>    <a name="line.286"></a>
+<FONT color="green">287</FONT>        public static Granularity getGranularityFromJson(JsonNode node)<a name="line.287"></a>
+<FONT color="green">288</FONT>        {<a name="line.288"></a>
+<FONT color="green">289</FONT>            JsonNode granularityNode = node.path(SMILE_EVENT_GRANULARITY_TOKEN_NAME);<a name="line.289"></a>
+<FONT color="green">290</FONT>    <a name="line.290"></a>
+<FONT color="green">291</FONT>            Granularity nodeGranularity = Granularity.HOURLY;<a name="line.291"></a>
+<FONT color="green">292</FONT>            if (!granularityNode.isMissingNode()) {<a name="line.292"></a>
+<FONT color="green">293</FONT>                try {<a name="line.293"></a>
+<FONT color="green">294</FONT>                    nodeGranularity = Granularity.valueOf(granularityNode.getValueAsText());<a name="line.294"></a>
+<FONT color="green">295</FONT>                }<a name="line.295"></a>
+<FONT color="green">296</FONT>                catch (IllegalArgumentException e) {<a name="line.296"></a>
+<FONT color="green">297</FONT>                    nodeGranularity = null;<a name="line.297"></a>
+<FONT color="green">298</FONT>                }<a name="line.298"></a>
+<FONT color="green">299</FONT>            }<a name="line.299"></a>
+<FONT color="green">300</FONT>    <a name="line.300"></a>
+<FONT color="green">301</FONT>            return nodeGranularity;<a name="line.301"></a>
+<FONT color="green">302</FONT>        }<a name="line.302"></a>
+<FONT color="green">303</FONT>    <a name="line.303"></a>
+<FONT color="green">304</FONT>        private void setPayloadFromByteArray(byte[] smilePayload) throws IOException<a name="line.304"></a>
+<FONT color="green">305</FONT>        {<a name="line.305"></a>
+<FONT color="green">306</FONT>            JsonParser jp = getObjectMapper().getJsonFactory().createJsonParser(smilePayload);<a name="line.306"></a>
+<FONT color="green">307</FONT>            root = getObjectMapper().readTree(jp);<a name="line.307"></a>
+<FONT color="green">308</FONT>            jp.close();<a name="line.308"></a>
+<FONT color="green">309</FONT>        }<a name="line.309"></a>
+<FONT color="green">310</FONT>    <a name="line.310"></a>
+<FONT color="green">311</FONT>        @Override<a name="line.311"></a>
+<FONT color="green">312</FONT>        public String toString()<a name="line.312"></a>
+<FONT color="green">313</FONT>        {<a name="line.313"></a>
+<FONT color="green">314</FONT>            return root.toString();<a name="line.314"></a>
+<FONT color="green">315</FONT>        }<a name="line.315"></a>
+<FONT color="green">316</FONT>    }<a name="line.316"></a>
 
 
 

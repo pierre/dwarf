@@ -1,5 +1,5 @@
 -classpath
-'/Users/pierre/open-source/serialization/writer/target/classes:/Users/pierre/.m2/repository/log4j/log4j/1.2.13/log4j-1.2.13.jar:/Users/pierre/.m2/repository/com/ning/metrics.serialization-common/1.2.1-SNAPSHOT/metrics.serialization-common-1.2.1-SNAPSHOT.jar:/Users/pierre/.m2/repository/joda-time/joda-time/1.6/joda-time-1.6.jar'
+'/Users/pierre/open-source/serialization/writer/target/classes:/Users/pierre/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar:/Users/pierre/.m2/repository/com/ning/metrics.serialization-common/2.0.0-pre2-SNAPSHOT/metrics.serialization-common-2.0.0-pre2-SNAPSHOT.jar:/Users/pierre/.m2/repository/joda-time/joda-time/1.6.2/joda-time-1.6.2.jar:/Users/pierre/.m2/repository/org/weakref/jmxutils/1.8/jmxutils-1.8.jar'
 -encoding
 'UTF-8'
 -protected
@@ -17,7 +17,7 @@
 -docencoding
 'UTF-8'
 -doctitle
-'serialization-writer 1.2.1-SNAPSHOT API'
+'serialization-writer 2.0.0-pre2-SNAPSHOT API'
 -link
 'http://commons.apache.org/lang/api'
 -link
@@ -34,4 +34,4 @@
 -use
 -version
 -windowtitle
-'serialization-writer 1.2.1-SNAPSHOT API'
+'serialization-writer 2.0.0-pre2-SNAPSHOT API'
